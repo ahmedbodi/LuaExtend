@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="U3d_Debug_Dll|Win32">
+      <Configuration>U3d_Debug_Dll</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Unity3D_Profile|Win32">
+      <Configuration>Unity3D_Profile</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{044FB26E-DDCC-4157-B21E-4D6E71270747}</ProjectGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>EngineDll</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='U3d_Debug_Dll|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CLRSupport>false</CLRSupport>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unity3D_Profile|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CLRSupport>false</CLRSupport>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='U3d_Debug_Dll|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Unity3D_Profile|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='U3d_Debug_Dll|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>E:\mass\UnityPrj\Assets\Plugins</OutDir>
+    <IncludePath>..\..\..\trunk\src\pthread_win32;..\..\..\trunk\src\curl_win32;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unity3D_Profile|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(OutDir)</OutDir>
+    <IncludePath>..\..\..\trunk\src\pthread_win32;..\..\..\trunk\src\curl_win32;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='U3d_Debug_Dll|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>EGL_NOT_PRESENT;WIN32;_WINDOWS;_OPENGLES;_CRT_SECURE_NO_WARNINGS;DEFAULT_PORTRAINT_MODE;_WIN32_DEVELOPER;LUA_BUILD_AS_DLL;LUA_CUSTOM_FILE_SYSTEM;LUA_EXPORT;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories>..\..\..\trunk\src;..\..\..\trunk\src\zlib\include;..\..\..\trunk\src\luasocket;..\..\..\trunk\src\lua\src;..\..\..\trunk\src\lua\etc;..\..\..\trunk\src\sharePtr;..\..\..\trunk\src\LuaInterface</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>zlib.lib;Winmm.lib;;Ws2_32.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\libs\Win;</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Unity3D_Profile|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <PreprocessorDefinitions>BUILD_OGL2;EGL_NOT_PRESENT;WIN32;_WINDOWS;_OPENGLES;_CRT_SECURE_NO_WARNINGS;DEFAULT_PORTRAINT_MODE;_WIN32_DEVELOPER;LUA_BUILD_AS_DLL;LUA_CUSTOM_FILE_SYSTEM;LUA_EXPORT;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories>..\..\..\trunk\src;..\..\..\trunk\src\zlib\include;..\..\..\trunk\src\luasocket;..\..\..\trunk\src\lua\src;..\..\..\trunk\src\lua\etc;..\..\..\trunk\src\sharePtr;..\..\..\trunk\src\LuaWrapper</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>zlib.lib;Winmm.lib;liblua.lib;gloox-1.0.lib;Ws2_32.lib;pthreadVC2.lib;libcurl_imp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\libs\Win</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\auxiliar.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\buffer.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\except.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\inet.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\io2.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\luasocket.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\luasocket_scripts.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\lua_extensions.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\mime.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\options.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\select.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\socket.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\tcp.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\timeout.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\udp.h" />
+    <ClInclude Include="..\..\..\trunk\src\luasocket\wsocket.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lapi.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lauxlib.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lcode.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\ldebug.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\ldo.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lfs.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lfunc.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lgc.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\llex.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\llimits.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lmem.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lobject.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lopcodes.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lparser.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lstate.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lstring.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\ltable.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\ltm.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lua.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\luaconf.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lualib.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lundump.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lvm.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lzio.h" />
+    <ClInclude Include="..\..\..\trunk\src\lua\src\ssock.h" />
+    <ClInclude Include="..\..\..\trunk\src\sharePtr\SmartPtr.h" />
+    <ClInclude Include="..\..\GlobalConfig\GlobalConfig.h" />
+    <ClInclude Include="..\..\src\Common\Common.h" />
+    <ClInclude Include="..\..\src\Common\ENG_DBG.h" />
+    <ClInclude Include="..\..\src\Common\md5.h" />
+    <ClInclude Include="..\..\src\Common\socket\CSkt.h" />
+    <ClInclude Include="..\..\src\Common\socket\LMData.h" />
+    <ClInclude Include="..\..\src\Common\socket\NTMSG.h" />
+    <ClInclude Include="..\..\src\Common\socket\SocketConnectionManager.h" />
+    <ClInclude Include="..\..\src\Common\socket\S_O_TCP.h" />
+    <ClInclude Include="..\..\src\Common\TableSL\SLTable.h" />
+    <ClInclude Include="..\..\src\Common\TimeProfiler.h" />
+    <ClInclude Include="..\..\src\Common\TxtMgr.h" />
+    <ClInclude Include="..\..\src\GameApp.h" />
+    <ClInclude Include="..\..\src\GlobalFunc.h" />
+    <ClInclude Include="..\..\src\IO\BaseStream.h" />
+    <ClInclude Include="..\..\src\IO\CEFile.h" />
+    <ClInclude Include="..\..\src\IO\CFStream.h" />
+    <ClInclude Include="..\..\src\IO\CFSys.h" />
+    <ClInclude Include="..\..\src\IO\CMemToFile.h" />
+    <ClInclude Include="..\..\src\IO\FileBaseStream.h" />
+    <ClInclude Include="..\..\src\IO\MemStream.h" />
+    <ClInclude Include="..\..\src\IO\ZipData.h" />
+    <ClInclude Include="..\..\src\IO\ZipReader.h" />
+    <ClInclude Include="..\..\src\Common\crc\crc32.h" />
+    <ClInclude Include="..\..\src\Common\json\eng_json.h" />
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_alloc.h" />
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_buf.h" />
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_bytestack.h" />
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_common.h" />
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_encode.h" />
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_gen.h" />
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_lex.h" />
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_parse.h" />
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_parser.h" />
+    <ClInclude Include="..\..\src\Common\lz4\lz4.h" />
+    <ClInclude Include="..\..\src\Common\lz4\lz4frame.h" />
+    <ClInclude Include="..\..\src\Common\lz4\lz4frame_static.h" />
+    <ClInclude Include="..\..\src\Common\lz4\lz4hc.h" />
+    <ClInclude Include="..\..\src\Common\lz4\xxhash.h" />
+    <ClInclude Include="..\..\src\LuaInterface\LuaInterface.h" />
+    <ClInclude Include="..\..\src\stdafx.h" />
+    <ClInclude Include="..\..\src\TextInput\TextInput.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\auxiliar.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\buffer.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\except.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\inet.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\io2.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\luasocket.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\luasocket_scripts.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\lua_extensions.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\mime.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\options.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\select.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\tcp.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\timeout.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\udp.c" />
+    <ClCompile Include="..\..\..\trunk\src\luasocket\wsocket.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lapi.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lauxlib.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lbaselib.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lcode.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ldblib.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ldebug.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ldo.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ldump.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lfs.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lfunc.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lgc.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\linit.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\liolib.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\llex.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lmathlib.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lmem.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\loadlib.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lobject.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lopcodes.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\loslib.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lparser.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lstate.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lstring.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lstrlib.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ltable.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ltablib.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ltm.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lua.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\luawarp.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lundump.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lvm.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lzio.c" />
+    <ClCompile Include="..\..\..\trunk\src\lua\src\print.c" />
+    <ClCompile Include="..\..\GlobalConfig\GlobalConfig.cpp" />
+    <ClCompile Include="..\..\src\Common\ENG_DBG.cpp" />
+    <ClCompile Include="..\..\src\Common\md5.cpp" />
+    <ClCompile Include="..\..\src\Common\protobuf\pb.cpp" />
+    <ClCompile Include="..\..\src\Common\socket\CSkt.cpp" />
+    <ClCompile Include="..\..\src\Common\socket\LMData.cpp" />
+    <ClCompile Include="..\..\src\Common\socket\NTMSG.cpp" />
+    <ClCompile Include="..\..\src\Common\socket\SocketConnectionManager.cpp" />
+    <ClCompile Include="..\..\src\Common\socket\S_O_TCP.cpp" />
+    <ClCompile Include="..\..\src\Common\TableSL\SLTable.cpp" />
+    <ClCompile Include="..\..\src\Common\TimeProfiler.cpp" />
+    <ClCompile Include="..\..\src\Common\TxtMgr.cpp" />
+    <ClCompile Include="..\..\src\CPtr.cpp" />
+    <ClCompile Include="..\..\src\GameApp.cpp" />
+    <ClCompile Include="..\..\src\GlobalFunc.cpp" />
+    <ClCompile Include="..\..\src\GlobalFuncWin32.cpp" />
+    <ClCompile Include="..\..\src\IO\BaseStream.cpp" />
+    <ClCompile Include="..\..\src\IO\CEFile.cpp" />
+    <ClCompile Include="..\..\src\IO\CFStream.cpp" />
+    <ClCompile Include="..\..\src\IO\CFSys.cpp" />
+    <ClCompile Include="..\..\src\IO\CMemToFile.cpp" />
+    <ClCompile Include="..\..\src\IO\MemStream.cpp" />
+    <ClCompile Include="..\..\src\IO\ZipData.cpp" />
+    <ClCompile Include="..\..\src\IO\ZipReader.cpp" />
+    <ClCompile Include="..\..\src\Common\crc\crc32.cpp" />
+    <ClCompile Include="..\..\src\Common\json\eng_json.cpp" />
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl.c" />
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl_alloc.c" />
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl_buf.c" />
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl_encode.c" />
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl_gen.c" />
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl_lex.c" />
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl_parser.c" />
+    <ClCompile Include="..\..\src\Common\lua_lz4.cpp" />
+    <ClCompile Include="..\..\src\Common\lz4\lz4.c" />
+    <ClCompile Include="..\..\src\Common\lz4\lz4frame.c" />
+    <ClCompile Include="..\..\src\Common\lz4\lz4hc.c" />
+    <ClCompile Include="..\..\src\Common\lz4\xxhash.c" />
+    <ClCompile Include="..\..\src\LuaInterface\LuaInterface.cpp" />
+    <ClCompile Include="..\..\src\stdafx.cpp" />
+    <ClCompile Include="..\..\src\TextInput\TextInput_Win32.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

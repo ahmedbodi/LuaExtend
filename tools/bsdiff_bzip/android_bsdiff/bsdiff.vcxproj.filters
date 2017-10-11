@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{ea807d57-6091-44ce-95c2-13b94e3cc1f5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\bsdiff\bsdiff.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bsdiff\bspatch.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bsdiff\common.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bsdiff\extents_file.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bsdiff\file_interface.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="buffer_file.h" />
+    <ClInclude Include="extents.h" />
+    <ClInclude Include="file.h" />
+    <ClInclude Include="memory_file.h" />
+    <ClInclude Include="sink_file.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bsdiff.cpp" />
+    <ClCompile Include="bspatch.cpp" />
+    <ClCompile Include="buffer_file.cpp" />
+    <ClCompile Include="extents.cpp" />
+    <ClCompile Include="extents_file.cpp" />
+    <ClCompile Include="file.cpp" />
+    <ClCompile Include="memory_file.cpp" />
+    <ClCompile Include="sink_file.cpp" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "zlib_2010.vcxproj", "{E07613CC-4D72-44B3-B3DC-853CC06C150C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Win Debug|Win32 = Win Debug|Win32
+		Win Debug|x64 = Win Debug|x64
+		Win Release|Win32 = Win Release|Win32
+		Win Release|x64 = Win Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win Debug|Win32.ActiveCfg = Win_Debug|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win Debug|Win32.Build.0 = Win_Debug|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win Debug|x64.ActiveCfg = Win_Debug|x64
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win Debug|x64.Build.0 = Win_Debug|x64
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win Release|Win32.ActiveCfg = Win_Release|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win Release|Win32.Build.0 = Win_Release|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win Release|x64.ActiveCfg = Win_Release|x64
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win Release|x64.Build.0 = Win_Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

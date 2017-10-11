@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bsdiff", "bsdiff.vcxproj", "{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0AFBB40E-37CA-4CDE-9B05-A330016E7FCB} = {0AFBB40E-37CA-4CDE-9B05-A330016E7FCB}
+		{E840E0C8-FAD1-44EB-9FA1-86AAF50A0F96} = {E840E0C8-FAD1-44EB-9FA1-86AAF50A0F96}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libdivsufsort", "..\libdivsufsort\libdivsufsort.vcxproj", "{E840E0C8-FAD1-44EB-9FA1-86AAF50A0F96}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bzip2", "..\bzip2\bzip2.vcxproj", "{0AFBB40E-37CA-4CDE-9B05-A330016E7FCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Exe_Debug|Win32 = Exe_Debug|Win32
+		Exe_Release|Win32 = Exe_Release|Win32
+		Lib_Debug|Win32 = Lib_Debug|Win32
+		Lib_Release|Win32 = Lib_Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Debug|Win32.ActiveCfg = Exe_Debug|Win32
+		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Debug|Win32.Build.0 = Exe_Debug|Win32
+		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Release|Win32.ActiveCfg = Exe_Release|Win32
+		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Release|Win32.Build.0 = Exe_Release|Win32
+		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Lib_Debug|Win32.ActiveCfg = Lib_Debug|Win32
+		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Lib_Debug|Win32.Build.0 = Lib_Debug|Win32
+		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Lib_Release|Win32.ActiveCfg = Lib_Release|Win32
+		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Lib_Release|Win32.Build.0 = Lib_Release|Win32
+		{E840E0C8-FAD1-44EB-9FA1-86AAF50A0F96}.Exe_Debug|Win32.ActiveCfg = Lib_Debug|Win32
+		{E840E0C8-FAD1-44EB-9FA1-86AAF50A0F96}.Exe_Debug|Win32.Build.0 = Lib_Debug|Win32
+		{E840E0C8-FAD1-44EB-9FA1-86AAF50A0F96}.Exe_Release|Win32.ActiveCfg = Lib_Release|Win32
+		{E840E0C8-FAD1-44EB-9FA1-86AAF50A0F96}.Exe_Release|Win32.Build.0 = Lib_Release|Win32
+		{E840E0C8-FAD1-44EB-9FA1-86AAF50A0F96}.Lib_Debug|Win32.ActiveCfg = Lib_Debug|Win32
+		{E840E0C8-FAD1-44EB-9FA1-86AAF50A0F96}.Lib_Debug|Win32.Build.0 = Lib_Debug|Win32
+		{E840E0C8-FAD1-44EB-9FA1-86AAF50A0F96}.Lib_Release|Win32.ActiveCfg = Lib_Release|Win32
+		{E840E0C8-FAD1-44EB-9FA1-86AAF50A0F96}.Lib_Release|Win32.Build.0 = Lib_Release|Win32
+		{0AFBB40E-37CA-4CDE-9B05-A330016E7FCB}.Exe_Debug|Win32.ActiveCfg = Lib_Debug|Win32
+		{0AFBB40E-37CA-4CDE-9B05-A330016E7FCB}.Exe_Debug|Win32.Build.0 = Lib_Debug|Win32
+		{0AFBB40E-37CA-4CDE-9B05-A330016E7FCB}.Exe_Release|Win32.ActiveCfg = Lib_Release|Win32
+		{0AFBB40E-37CA-4CDE-9B05-A330016E7FCB}.Exe_Release|Win32.Build.0 = Lib_Release|Win32
+		{0AFBB40E-37CA-4CDE-9B05-A330016E7FCB}.Lib_Debug|Win32.ActiveCfg = Lib_Debug|Win32
+		{0AFBB40E-37CA-4CDE-9B05-A330016E7FCB}.Lib_Debug|Win32.Build.0 = Lib_Debug|Win32
+		{0AFBB40E-37CA-4CDE-9B05-A330016E7FCB}.Lib_Release|Win32.ActiveCfg = Lib_Release|Win32
+		{0AFBB40E-37CA-4CDE-9B05-A330016E7FCB}.Lib_Release|Win32.Build.0 = Lib_Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EngineDll", "EngineDll.vcxproj", "{044FB26E-DDCC-4157-B21E-4D6E71270747}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C} = {E07613CC-4D72-44B3-B3DC-853CC06C150C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "..\..\src\zlib\projects\msvc2010\zlib_2010.vcxproj", "{E07613CC-4D72-44B3-B3DC-853CC06C150C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|ARM = Release|ARM
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+		Unity3D_Debug|ARM = Unity3D_Debug|ARM
+		Unity3D_Debug|Win32 = Unity3D_Debug|Win32
+		Unity3D_Debug|x64 = Unity3D_Debug|x64
+		Win_Debug|ARM = Win_Debug|ARM
+		Win_Debug|Win32 = Win_Debug|Win32
+		Win_Debug|x64 = Win_Debug|x64
+		Win_Release|ARM = Win_Release|ARM
+		Win_Release|Win32 = Win_Release|Win32
+		Win_Release|x64 = Win_Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Release|ARM.ActiveCfg = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Release|Win32.ActiveCfg = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Release|Win32.Build.0 = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Release|x64.ActiveCfg = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Unity3D_Debug|ARM.ActiveCfg = Unity3D_Profile|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Unity3D_Debug|Win32.ActiveCfg = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Unity3D_Debug|Win32.Build.0 = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Unity3D_Debug|x64.ActiveCfg = Unity3D_Profile|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Win_Debug|ARM.ActiveCfg = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Win_Debug|Win32.ActiveCfg = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Win_Debug|Win32.Build.0 = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Win_Debug|x64.ActiveCfg = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Win_Release|ARM.ActiveCfg = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Win_Release|Win32.ActiveCfg = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Win_Release|Win32.Build.0 = U3d_Debug_Dll|Win32
+		{044FB26E-DDCC-4157-B21E-4D6E71270747}.Win_Release|x64.ActiveCfg = U3d_Debug_Dll|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Release|ARM.ActiveCfg = Release|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Release|Win32.ActiveCfg = Release|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Release|Win32.Build.0 = Release|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Release|x64.ActiveCfg = Release|x64
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Release|x64.Build.0 = Release|x64
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Unity3D_Debug|ARM.ActiveCfg = Win_Release|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Unity3D_Debug|Win32.ActiveCfg = Win_Release|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Unity3D_Debug|Win32.Build.0 = Win_Release|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Unity3D_Debug|x64.ActiveCfg = Win_Release|x64
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Unity3D_Debug|x64.Build.0 = Win_Release|x64
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win_Debug|ARM.ActiveCfg = Win_Debug|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win_Debug|Win32.ActiveCfg = Win_Debug|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win_Debug|Win32.Build.0 = Win_Debug|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win_Debug|x64.ActiveCfg = Win_Debug|x64
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win_Debug|x64.Build.0 = Win_Debug|x64
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win_Release|ARM.ActiveCfg = Win_Release|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win_Release|Win32.ActiveCfg = Win_Release|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win_Release|Win32.Build.0 = Win_Release|Win32
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win_Release|x64.ActiveCfg = Win_Release|x64
+		{E07613CC-4D72-44B3-B3DC-853CC06C150C}.Win_Release|x64.Build.0 = Win_Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

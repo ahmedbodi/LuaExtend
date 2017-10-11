@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{e6815e50-611c-4206-bbb2-940d41ddea13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IO">
+      <UniqueIdentifier>{ad458953-8f60-43e6-a51b-8a9ba79e2c3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lua">
+      <UniqueIdentifier>{d7b3e3ec-adcc-4c87-a82b-1eb01a40d28c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LuaSocket">
+      <UniqueIdentifier>{12fd767e-003d-4dad-833d-e189318d30c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GlobalConfig">
+      <UniqueIdentifier>{35e97f0c-02fb-4427-b1a1-27e6f1f0a284}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\crc">
+      <UniqueIdentifier>{0ae5c268-603b-4240-9c32-60328ce04313}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\json">
+      <UniqueIdentifier>{688ef2c6-ec63-43c3-ab36-930005ad89bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\json\yajl">
+      <UniqueIdentifier>{8566fbc2-fa2a-41c3-ad5c-a593667d48ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\lz4">
+      <UniqueIdentifier>{156720a1-a38c-4189-9e83-946389ee78ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\socket">
+      <UniqueIdentifier>{5e2b569c-cdf2-410a-adbd-322ee31663a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\protobuf">
+      <UniqueIdentifier>{4e0dd1b7-d719-46ee-aeb8-ddbfb297cee7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TextInput">
+      <UniqueIdentifier>{3a360c9b-6db2-4827-b379-306125f48390}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LuaInterface">
+      <UniqueIdentifier>{81a85efd-62c1-4995-a347-5c959bc1b364}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\TableSL">
+      <UniqueIdentifier>{66eb441f-68d8-45ab-a97a-648ae6a1c8a1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\Common\Common.h">
+      <Filter>Source Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\md5.h">
+      <Filter>Source Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\TimeProfiler.h">
+      <Filter>Source Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\crc\crc32.h">
+      <Filter>Source Files\Common\crc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_alloc.h">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_buf.h">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_bytestack.h">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_common.h">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_encode.h">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_gen.h">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_lex.h">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_parse.h">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\json\yajl\yajl_parser.h">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\IO\ZipReader.h">
+      <Filter>Source Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\lz4\lz4.h">
+      <Filter>Source Files\Common\lz4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\lz4\lz4frame.h">
+      <Filter>Source Files\Common\lz4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\lz4\lz4frame_static.h">
+      <Filter>Source Files\Common\lz4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\lz4\lz4hc.h">
+      <Filter>Source Files\Common\lz4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\lz4\xxhash.h">
+      <Filter>Source Files\Common\lz4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\auxiliar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\buffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\except.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\inet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\io2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\luasocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\luasocket_scripts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\lua_extensions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\mime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\select.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\socket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\tcp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\timeout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\udp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\luasocket\wsocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lapi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lauxlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lcode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\ldebug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\ldo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lfs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lfunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lgc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\llex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\llimits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lmem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lobject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lopcodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lparser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lstate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lstring.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\ltable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\ltm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lua.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\luaconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lualib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lundump.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lvm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\lzio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\lua\src\ssock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\trunk\src\sharePtr\SmartPtr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GlobalConfig\GlobalConfig.h">
+      <Filter>Source Files\GlobalConfig</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\json\eng_json.h">
+      <Filter>Source Files\Common\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GlobalFunc.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GameApp.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\TextInput\TextInput.h">
+      <Filter>Source Files\TextInput</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\LuaInterface\LuaInterface.h">
+      <Filter>Source Files\LuaInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\TableSL\SLTable.h">
+      <Filter>Source Files\Common\TableSL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\socket\SocketConnectionManager.h">
+      <Filter>Source Files\Common\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\socket\LMData.h">
+      <Filter>Source Files\Common\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\socket\NTMSG.h">
+      <Filter>Source Files\Common\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\socket\CSkt.h">
+      <Filter>Source Files\Common\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\socket\S_O_TCP.h">
+      <Filter>Source Files\Common\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\ENG_DBG.h">
+      <Filter>Source Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Common\TxtMgr.h">
+      <Filter>Source Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\IO\CEFile.h">
+      <Filter>Source Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\IO\CFStream.h">
+      <Filter>Source Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\IO\CMemToFile.h">
+      <Filter>Source Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\IO\FileBaseStream.h">
+      <Filter>Source Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\IO\BaseStream.h">
+      <Filter>Source Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\IO\CFSys.h">
+      <Filter>Source Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\IO\MemStream.h">
+      <Filter>Source Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\IO\ZipData.h">
+      <Filter>Source Files\IO</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\Common\md5.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\TimeProfiler.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl.c">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl_alloc.c">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl_buf.c">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl_encode.c">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl_gen.c">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl_lex.c">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\json\yajl\yajl_parser.c">
+      <Filter>Source Files\Common\json\yajl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\crc\crc32.cpp">
+      <Filter>Source Files\Common\crc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\IO\ZipReader.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\lz4\lz4.c">
+      <Filter>Source Files\Common\lz4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\lz4\lz4frame.c">
+      <Filter>Source Files\Common\lz4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\lz4\lz4hc.c">
+      <Filter>Source Files\Common\lz4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\lz4\xxhash.c">
+      <Filter>Source Files\Common\lz4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\auxiliar.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\buffer.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\except.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\inet.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\io2.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lapi.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lauxlib.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lbaselib.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lcode.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ldblib.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ldebug.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ldo.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ldump.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lfs.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lfunc.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lgc.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\linit.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\liolib.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\llex.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lmathlib.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lmem.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\loadlib.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lobject.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lopcodes.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\loslib.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lparser.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lstate.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lstring.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lstrlib.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ltable.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ltablib.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lua.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\ltm.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\lua_extensions.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\luasocket.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\luasocket_scripts.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\luawarp.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lundump.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lvm.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\lzio.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\select.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\lua\src\print.c">
+      <Filter>Source Files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\tcp.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\timeout.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\udp.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\wsocket.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\mime.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\trunk\src\luasocket\options.c">
+      <Filter>Source Files\LuaSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GlobalConfig\GlobalConfig.cpp">
+      <Filter>Source Files\GlobalConfig</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\json\eng_json.cpp">
+      <Filter>Source Files\Common\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\lua_lz4.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GlobalFunc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GlobalFuncWin32.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GameApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\protobuf\pb.cpp">
+      <Filter>Source Files\Common\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\TextInput\TextInput_Win32.cpp">
+      <Filter>Source Files\TextInput</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\LuaInterface\LuaInterface.cpp">
+      <Filter>Source Files\LuaInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\TableSL\SLTable.cpp">
+      <Filter>Source Files\Common\TableSL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\socket\SocketConnectionManager.cpp">
+      <Filter>Source Files\Common\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\socket\LMData.cpp">
+      <Filter>Source Files\Common\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\socket\NTMSG.cpp">
+      <Filter>Source Files\Common\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\socket\CSkt.cpp">
+      <Filter>Source Files\Common\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\socket\S_O_TCP.cpp">
+      <Filter>Source Files\Common\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\ENG_DBG.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\TxtMgr.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\IO\CEFile.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\IO\CFStream.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\IO\CMemToFile.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\IO\BaseStream.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\IO\CFSys.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\IO\MemStream.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\IO\ZipData.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\CPtr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
