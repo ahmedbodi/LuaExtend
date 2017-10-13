@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7005C8841F90A0FB0033465C /* CFStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8741F90A0F90033465C /* CFStream.cpp */; };
+		7005C8861F90A0FB0033465C /* BaseStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8771F90A0F90033465C /* BaseStream.cpp */; };
+		7005C8871F90A0FB0033465C /* CFSys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8781F90A0F90033465C /* CFSys.cpp */; };
+		7005C8881F90A0FB0033465C /* MemStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8791F90A0F90033465C /* MemStream.cpp */; };
+		7005C8891F90A0FB0033465C /* CMemToFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C87A1F90A0FA0033465C /* CMemToFile.cpp */; };
+		7005C88A1F90A0FB0033465C /* CEFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C87F1F90A0FA0033465C /* CEFile.cpp */; };
+		7005C88B1F90A0FB0033465C /* ZipData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8811F90A0FB0033465C /* ZipData.cpp */; };
 		7070865A1E9B3D1000E167B7 /* GlobalFuncMacOsx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 707086591E9B3D1000E167B7 /* GlobalFuncMacOsx.cpp */; };
 		7087CB251E9B2D8D00938DC5 /* GameApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CB111E9B2D8D00938DC5 /* GameApp.cpp */; };
 		7087CB261E9B2D8D00938DC5 /* GlobalFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CB131E9B2D8D00938DC5 /* GlobalFunc.cpp */; };
@@ -46,9 +53,6 @@
 		7087CB9A1E9B30CD00938DC5 /* lzio.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CB741E9B30CD00938DC5 /* lzio.c */; };
 		7087CB9B1E9B30CD00938DC5 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 7087CB761E9B30CD00938DC5 /* Makefile */; };
 		7087CB9C1E9B30CD00938DC5 /* print.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CB771E9B30CD00938DC5 /* print.c */; };
-		7087CB9D1E9B30CD00938DC5 /* ssock.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CB781E9B30CD00938DC5 /* ssock.c */; };
-		7087CBA11E9B319200938DC5 /* SmartPtr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CB9F1E9B319200938DC5 /* SmartPtr.cpp */; };
-		7087CBA51E9B31CA00938DC5 /* LuaWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBA31E9B31CA00938DC5 /* LuaWrapper.cpp */; };
 		7087CBCC1E9B320800938DC5 /* auxiliar.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBA71E9B320800938DC5 /* auxiliar.c */; };
 		7087CBCD1E9B320800938DC5 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBA91E9B320800938DC5 /* buffer.c */; };
 		7087CBCE1E9B320800938DC5 /* except.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBAB1E9B320800938DC5 /* except.c */; };
@@ -66,26 +70,7 @@
 		7087CBDB1E9B320800938DC5 /* udp.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBC41E9B320800938DC5 /* udp.c */; };
 		7087CBDC1E9B320800938DC5 /* unix.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBC61E9B320800938DC5 /* unix.c */; };
 		7087CBDD1E9B320800938DC5 /* usocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBC81E9B320800938DC5 /* usocket.c */; };
-		7087CBF81E9B323C00938DC5 /* CEngFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBE41E9B323C00938DC5 /* CEngFile.cpp */; };
-		7087CBF91E9B323C00938DC5 /* CEngFileStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBE61E9B323C00938DC5 /* CEngFileStream.cpp */; };
-		7087CBFA1E9B323C00938DC5 /* CEngFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBE81E9B323C00938DC5 /* CEngFileSystem.cpp */; };
-		7087CBFB1E9B323C00938DC5 /* CMemoryFileStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBEA1E9B323C00938DC5 /* CMemoryFileStream.cpp */; };
-		7087CBFC1E9B323C00938DC5 /* IfcStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBEE1E9B323C00938DC5 /* IfcStream.cpp */; };
-		7087CBFD1E9B323C00938DC5 /* IMemoryStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBF01E9B323C00938DC5 /* IMemoryStream.cpp */; };
-		7087CBFE1E9B323C00938DC5 /* Zip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBF21E9B323C00938DC5 /* Zip.cpp */; };
 		7087CBFF1E9B323C00938DC5 /* ZipReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CBF41E9B323C00938DC5 /* ZipReader.cpp */; };
-		7087CC161E9B326B00938DC5 /* debugger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC041E9B326B00938DC5 /* debugger.cpp */; };
-		7087CC181E9B326B00938DC5 /* lua_lz4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC071E9B326B00938DC5 /* lua_lz4.cpp */; };
-		7087CC1A1E9B326B00938DC5 /* md5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC091E9B326B00938DC5 /* md5.cpp */; };
-		7087CC1B1E9B326B00938DC5 /* MultiLanguage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC0B1E9B326B00938DC5 /* MultiLanguage.cpp */; };
-		7087CC1F1E9B326B00938DC5 /* TimeProfiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC101E9B326B00938DC5 /* TimeProfiler.cpp */; };
-		7087CC201E9B326B00938DC5 /* xor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC121E9B326B00938DC5 /* xor.cpp */; };
-		7087CC241E9B330D00938DC5 /* SaveLoadTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC221E9B330D00938DC5 /* SaveLoadTable.cpp */; };
-		7087CC301E9B334200938DC5 /* ConnectionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC261E9B334200938DC5 /* ConnectionManager.cpp */; };
-		7087CC311E9B334200938DC5 /* eng_socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC281E9B334200938DC5 /* eng_socket.cpp */; };
-		7087CC321E9B334200938DC5 /* LuaMsg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC2A1E9B334200938DC5 /* LuaMsg.cpp */; };
-		7087CC331E9B334200938DC5 /* NetMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC2C1E9B334200938DC5 /* NetMessage.cpp */; };
-		7087CC341E9B334200938DC5 /* SocketCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC2E1E9B334200938DC5 /* SocketCommon.cpp */; };
 		7087CC371E9B336E00938DC5 /* pb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC361E9B336E00938DC5 /* pb.cpp */; };
 		7087CC481E9B339600938DC5 /* lz4.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC3B1E9B339600938DC5 /* lz4.c */; };
 		7087CC491E9B339600938DC5 /* lz4frame.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC3E1E9B339600938DC5 /* lz4frame.c */; };
@@ -100,10 +85,61 @@
 		7087CC681E9B345400938DC5 /* yajl_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC601E9B345400938DC5 /* yajl_parser.c */; };
 		7087CC691E9B345400938DC5 /* yajl.c in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC621E9B345400938DC5 /* yajl.c */; };
 		7087CC721E9B34CA00938DC5 /* crc32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC701E9B34CA00938DC5 /* crc32.cpp */; };
-		7087CC751E9B34D300938DC5 /* lua_bit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CC731E9B34D300938DC5 /* lua_bit.cpp */; };
+		70CF298A1F90A82F001A5349 /* S_O_TCP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8951F90A1760033465C /* S_O_TCP.cpp */; };
+		70CF298B1F90A832001A5349 /* CSkt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C88D1F90A1750033465C /* CSkt.cpp */; };
+		70CF298C1F90A836001A5349 /* LMData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8921F90A1760033465C /* LMData.cpp */; };
+		70CF298D1F90A83A001A5349 /* NTMSG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C88E1F90A1760033465C /* NTMSG.cpp */; };
+		70CF298E1F90A83E001A5349 /* SocketConnectionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8901F90A1760033465C /* SocketConnectionManager.cpp */; };
+		70CF298F1F90A84D001A5349 /* SLTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8A11F90A1D60033465C /* SLTable.cpp */; };
+		70CF29901F90A850001A5349 /* ENG_DBG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8991F90A1AC0033465C /* ENG_DBG.cpp */; };
+		70CF29911F90A853001A5349 /* lua_lz4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C89B1F90A1AC0033465C /* lua_lz4.cpp */; };
+		70CF29921F90A856001A5349 /* md5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8971F90A1AC0033465C /* md5.cpp */; };
+		70CF29931F90A859001A5349 /* TimeProfiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8981F90A1AC0033465C /* TimeProfiler.cpp */; };
+		70CF29941F90A85D001A5349 /* TxtMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C89E1F90A1AD0033465C /* TxtMgr.cpp */; };
+		70CF29A51F90AA04001A5349 /* LuaInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70CF29A31F90AA04001A5349 /* LuaInterface.cpp */; };
+		70CF29A71F90AA45001A5349 /* CPtr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70CF29A61F90AA44001A5349 /* CPtr.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7005C8701F90A0850033465C /* TextInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TextInput.h; path = ../../../../src/TextInput/TextInput.h; sourceTree = "<group>"; };
+		7005C8721F90A0850033465C /* TextInputCommon.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = TextInputCommon.hpp; path = ../../../../src/TextInput/TextInputCommon.hpp; sourceTree = "<group>"; };
+		7005C8731F90A0F90033465C /* CFStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CFStream.h; path = ../../../src/IO/CFStream.h; sourceTree = "<group>"; };
+		7005C8741F90A0F90033465C /* CFStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CFStream.cpp; path = ../../../src/IO/CFStream.cpp; sourceTree = "<group>"; };
+		7005C8751F90A0F90033465C /* ZipData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZipData.h; path = ../../../src/IO/ZipData.h; sourceTree = "<group>"; };
+		7005C8771F90A0F90033465C /* BaseStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BaseStream.cpp; path = ../../../src/IO/BaseStream.cpp; sourceTree = "<group>"; };
+		7005C8781F90A0F90033465C /* CFSys.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CFSys.cpp; path = ../../../src/IO/CFSys.cpp; sourceTree = "<group>"; };
+		7005C8791F90A0F90033465C /* MemStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MemStream.cpp; path = ../../../src/IO/MemStream.cpp; sourceTree = "<group>"; };
+		7005C87A1F90A0FA0033465C /* CMemToFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CMemToFile.cpp; path = ../../../src/IO/CMemToFile.cpp; sourceTree = "<group>"; };
+		7005C87C1F90A0FA0033465C /* CEFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CEFile.h; path = ../../../src/IO/CEFile.h; sourceTree = "<group>"; };
+		7005C87D1F90A0FA0033465C /* FileBaseStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileBaseStream.h; path = ../../../src/IO/FileBaseStream.h; sourceTree = "<group>"; };
+		7005C87E1F90A0FA0033465C /* MemStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MemStream.h; path = ../../../src/IO/MemStream.h; sourceTree = "<group>"; };
+		7005C87F1F90A0FA0033465C /* CEFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CEFile.cpp; path = ../../../src/IO/CEFile.cpp; sourceTree = "<group>"; };
+		7005C8801F90A0FA0033465C /* CFSys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CFSys.h; path = ../../../src/IO/CFSys.h; sourceTree = "<group>"; };
+		7005C8811F90A0FB0033465C /* ZipData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ZipData.cpp; path = ../../../src/IO/ZipData.cpp; sourceTree = "<group>"; };
+		7005C8821F90A0FB0033465C /* BaseStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseStream.h; path = ../../../src/IO/BaseStream.h; sourceTree = "<group>"; };
+		7005C8831F90A0FB0033465C /* CMemToFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMemToFile.h; path = ../../../src/IO/CMemToFile.h; sourceTree = "<group>"; };
+		7005C88C1F90A1750033465C /* LMData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LMData.h; path = ../../../src/Common/socket/LMData.h; sourceTree = "<group>"; };
+		7005C88D1F90A1750033465C /* CSkt.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CSkt.cpp; path = ../../../src/Common/socket/CSkt.cpp; sourceTree = "<group>"; };
+		7005C88E1F90A1760033465C /* NTMSG.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = NTMSG.cpp; path = ../../../src/Common/socket/NTMSG.cpp; sourceTree = "<group>"; };
+		7005C88F1F90A1760033465C /* NTMSG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NTMSG.h; path = ../../../src/Common/socket/NTMSG.h; sourceTree = "<group>"; };
+		7005C8901F90A1760033465C /* SocketConnectionManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SocketConnectionManager.cpp; path = ../../../src/Common/socket/SocketConnectionManager.cpp; sourceTree = "<group>"; };
+		7005C8911F90A1760033465C /* SocketConnectionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SocketConnectionManager.h; path = ../../../src/Common/socket/SocketConnectionManager.h; sourceTree = "<group>"; };
+		7005C8921F90A1760033465C /* LMData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LMData.cpp; path = ../../../src/Common/socket/LMData.cpp; sourceTree = "<group>"; };
+		7005C8931F90A1760033465C /* CSkt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CSkt.h; path = ../../../src/Common/socket/CSkt.h; sourceTree = "<group>"; };
+		7005C8941F90A1760033465C /* S_O_TCP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = S_O_TCP.h; path = ../../../src/Common/socket/S_O_TCP.h; sourceTree = "<group>"; };
+		7005C8951F90A1760033465C /* S_O_TCP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = S_O_TCP.cpp; path = ../../../src/Common/socket/S_O_TCP.cpp; sourceTree = "<group>"; };
+		7005C8961F90A1AC0033465C /* ENG_DBG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ENG_DBG.h; path = ../../../src/Common/ENG_DBG.h; sourceTree = "<group>"; };
+		7005C8971F90A1AC0033465C /* md5.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = md5.cpp; path = ../../../src/Common/md5.cpp; sourceTree = "<group>"; };
+		7005C8981F90A1AC0033465C /* TimeProfiler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TimeProfiler.cpp; path = ../../../src/Common/TimeProfiler.cpp; sourceTree = "<group>"; };
+		7005C8991F90A1AC0033465C /* ENG_DBG.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ENG_DBG.cpp; path = ../../../src/Common/ENG_DBG.cpp; sourceTree = "<group>"; };
+		7005C89A1F90A1AC0033465C /* TxtMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TxtMgr.h; path = ../../../src/Common/TxtMgr.h; sourceTree = "<group>"; };
+		7005C89B1F90A1AC0033465C /* lua_lz4.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = lua_lz4.cpp; path = ../../../src/Common/lua_lz4.cpp; sourceTree = "<group>"; };
+		7005C89C1F90A1AC0033465C /* md5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = md5.h; path = ../../../src/Common/md5.h; sourceTree = "<group>"; };
+		7005C89D1F90A1AD0033465C /* TimeProfiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TimeProfiler.h; path = ../../../src/Common/TimeProfiler.h; sourceTree = "<group>"; };
+		7005C89E1F90A1AD0033465C /* TxtMgr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TxtMgr.cpp; path = ../../../src/Common/TxtMgr.cpp; sourceTree = "<group>"; };
+		7005C89F1F90A1AD0033465C /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../../../src/Common/Common.h; sourceTree = "<group>"; };
+		7005C8A01F90A1D60033465C /* SLTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SLTable.h; path = ../../../src/Common/TableSL/SLTable.h; sourceTree = "<group>"; };
+		7005C8A11F90A1D60033465C /* SLTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SLTable.cpp; path = ../../../src/Common/TableSL/SLTable.cpp; sourceTree = "<group>"; };
 		707086591E9B3D1000E167B7 /* GlobalFuncMacOsx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GlobalFuncMacOsx.cpp; path = ../../../../src/GlobalFuncMacOsx.cpp; sourceTree = "<group>"; };
 		7087CB051E9B2D0F00938DC5 /* engine.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = engine.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		7087CB081E9B2D0F00938DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -172,12 +208,6 @@
 		7087CB751E9B30CD00938DC5 /* lzio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lzio.h; path = ../../../src/lua/src/lzio.h; sourceTree = "<group>"; };
 		7087CB761E9B30CD00938DC5 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../../src/lua/src/Makefile; sourceTree = "<group>"; };
 		7087CB771E9B30CD00938DC5 /* print.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = print.c; path = ../../../src/lua/src/print.c; sourceTree = "<group>"; };
-		7087CB781E9B30CD00938DC5 /* ssock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ssock.c; path = ../../../src/lua/src/ssock.c; sourceTree = "<group>"; };
-		7087CB791E9B30CD00938DC5 /* ssock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ssock.h; path = ../../../src/lua/src/ssock.h; sourceTree = "<group>"; };
-		7087CB9F1E9B319200938DC5 /* SmartPtr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SmartPtr.cpp; path = ../../../src/sharePtr/SmartPtr.cpp; sourceTree = "<group>"; };
-		7087CBA01E9B319200938DC5 /* SmartPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmartPtr.h; path = ../../../src/sharePtr/SmartPtr.h; sourceTree = "<group>"; };
-		7087CBA31E9B31CA00938DC5 /* LuaWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaWrapper.cpp; path = ../../../src/LuaWrapper/LuaWrapper.cpp; sourceTree = "<group>"; };
-		7087CBA41E9B31CA00938DC5 /* LuaWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LuaWrapper.h; path = ../../../src/LuaWrapper/LuaWrapper.h; sourceTree = "<group>"; };
 		7087CBA71E9B320800938DC5 /* auxiliar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = auxiliar.c; path = ../../../src/luasocket/auxiliar.c; sourceTree = "<group>"; };
 		7087CBA81E9B320800938DC5 /* auxiliar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = auxiliar.h; path = ../../../src/luasocket/auxiliar.h; sourceTree = "<group>"; };
 		7087CBA91E9B320800938DC5 /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = buffer.c; path = ../../../src/luasocket/buffer.c; sourceTree = "<group>"; };
@@ -212,48 +242,8 @@
 		7087CBC71E9B320800938DC5 /* unix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unix.h; path = ../../../src/luasocket/unix.h; sourceTree = "<group>"; };
 		7087CBC81E9B320800938DC5 /* usocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = usocket.c; path = ../../../src/luasocket/usocket.c; sourceTree = "<group>"; };
 		7087CBC91E9B320800938DC5 /* usocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = usocket.h; path = ../../../src/luasocket/usocket.h; sourceTree = "<group>"; };
-		7087CBE41E9B323C00938DC5 /* CEngFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CEngFile.cpp; path = ../../../src/IO/CEngFile.cpp; sourceTree = "<group>"; };
-		7087CBE51E9B323C00938DC5 /* CEngFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEngFile.h; path = ../../../src/IO/CEngFile.h; sourceTree = "<group>"; };
-		7087CBE61E9B323C00938DC5 /* CEngFileStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CEngFileStream.cpp; path = ../../../src/IO/CEngFileStream.cpp; sourceTree = "<group>"; };
-		7087CBE71E9B323C00938DC5 /* CEngFileStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEngFileStream.h; path = ../../../src/IO/CEngFileStream.h; sourceTree = "<group>"; };
-		7087CBE81E9B323C00938DC5 /* CEngFileSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CEngFileSystem.cpp; path = ../../../src/IO/CEngFileSystem.cpp; sourceTree = "<group>"; };
-		7087CBE91E9B323C00938DC5 /* CEngFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEngFileSystem.h; path = ../../../src/IO/CEngFileSystem.h; sourceTree = "<group>"; };
-		7087CBEA1E9B323C00938DC5 /* CMemoryFileStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CMemoryFileStream.cpp; path = ../../../src/IO/CMemoryFileStream.cpp; sourceTree = "<group>"; };
-		7087CBEB1E9B323C00938DC5 /* CMemoryFileStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMemoryFileStream.h; path = ../../../src/IO/CMemoryFileStream.h; sourceTree = "<group>"; };
-		7087CBEC1E9B323C00938DC5 /* IfcFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IfcFile.h; path = ../../../src/IO/IfcFile.h; sourceTree = "<group>"; };
-		7087CBED1E9B323C00938DC5 /* IfcFileStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IfcFileStream.h; path = ../../../src/IO/IfcFileStream.h; sourceTree = "<group>"; };
-		7087CBEE1E9B323C00938DC5 /* IfcStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IfcStream.cpp; path = ../../../src/IO/IfcStream.cpp; sourceTree = "<group>"; };
-		7087CBEF1E9B323C00938DC5 /* IfcStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IfcStream.h; path = ../../../src/IO/IfcStream.h; sourceTree = "<group>"; };
-		7087CBF01E9B323C00938DC5 /* IMemoryStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMemoryStream.cpp; path = ../../../src/IO/IMemoryStream.cpp; sourceTree = "<group>"; };
-		7087CBF11E9B323C00938DC5 /* IMemoryStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMemoryStream.h; path = ../../../src/IO/IMemoryStream.h; sourceTree = "<group>"; };
-		7087CBF21E9B323C00938DC5 /* Zip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Zip.cpp; path = ../../../src/IO/Zip.cpp; sourceTree = "<group>"; };
-		7087CBF31E9B323C00938DC5 /* Zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Zip.h; path = ../../../src/IO/Zip.h; sourceTree = "<group>"; };
 		7087CBF41E9B323C00938DC5 /* ZipReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZipReader.cpp; path = ../../../src/IO/ZipReader.cpp; sourceTree = "<group>"; };
 		7087CBF51E9B323C00938DC5 /* ZipReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZipReader.h; path = ../../../src/IO/ZipReader.h; sourceTree = "<group>"; };
-		7087CC021E9B326B00938DC5 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../../../src/Common/Common.h; sourceTree = "<group>"; };
-		7087CC041E9B326B00938DC5 /* debugger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = debugger.cpp; path = ../../../src/Common/debugger.cpp; sourceTree = "<group>"; };
-		7087CC051E9B326B00938DC5 /* debugger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = debugger.h; path = ../../../src/Common/debugger.h; sourceTree = "<group>"; };
-		7087CC071E9B326B00938DC5 /* lua_lz4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lua_lz4.cpp; path = ../../../src/Common/lua_lz4.cpp; sourceTree = "<group>"; };
-		7087CC091E9B326B00938DC5 /* md5.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = md5.cpp; path = ../../../src/Common/md5.cpp; sourceTree = "<group>"; };
-		7087CC0A1E9B326B00938DC5 /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = md5.h; path = ../../../src/Common/md5.h; sourceTree = "<group>"; };
-		7087CC0B1E9B326B00938DC5 /* MultiLanguage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MultiLanguage.cpp; path = ../../../src/Common/MultiLanguage.cpp; sourceTree = "<group>"; };
-		7087CC0C1E9B326B00938DC5 /* MultiLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiLanguage.h; path = ../../../src/Common/MultiLanguage.h; sourceTree = "<group>"; };
-		7087CC101E9B326B00938DC5 /* TimeProfiler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeProfiler.cpp; path = ../../../src/Common/TimeProfiler.cpp; sourceTree = "<group>"; };
-		7087CC111E9B326B00938DC5 /* TimeProfiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeProfiler.h; path = ../../../src/Common/TimeProfiler.h; sourceTree = "<group>"; };
-		7087CC121E9B326B00938DC5 /* xor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = xor.cpp; path = ../../../src/Common/xor.cpp; sourceTree = "<group>"; };
-		7087CC131E9B326B00938DC5 /* xor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xor.h; path = ../../../src/Common/xor.h; sourceTree = "<group>"; };
-		7087CC221E9B330D00938DC5 /* SaveLoadTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SaveLoadTable.cpp; path = ../../../src/Common/TableSaveLoad/SaveLoadTable.cpp; sourceTree = "<group>"; };
-		7087CC231E9B330D00938DC5 /* SaveLoadTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaveLoadTable.h; path = ../../../src/Common/TableSaveLoad/SaveLoadTable.h; sourceTree = "<group>"; };
-		7087CC261E9B334200938DC5 /* ConnectionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConnectionManager.cpp; path = ../../../src/Common/socket/ConnectionManager.cpp; sourceTree = "<group>"; };
-		7087CC271E9B334200938DC5 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionManager.h; path = ../../../src/Common/socket/ConnectionManager.h; sourceTree = "<group>"; };
-		7087CC281E9B334200938DC5 /* eng_socket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = eng_socket.cpp; path = ../../../src/Common/socket/eng_socket.cpp; sourceTree = "<group>"; };
-		7087CC291E9B334200938DC5 /* eng_socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = eng_socket.h; path = ../../../src/Common/socket/eng_socket.h; sourceTree = "<group>"; };
-		7087CC2A1E9B334200938DC5 /* LuaMsg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaMsg.cpp; path = ../../../src/Common/socket/LuaMsg.cpp; sourceTree = "<group>"; };
-		7087CC2B1E9B334200938DC5 /* LuaMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LuaMsg.h; path = ../../../src/Common/socket/LuaMsg.h; sourceTree = "<group>"; };
-		7087CC2C1E9B334200938DC5 /* NetMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetMessage.cpp; path = ../../../src/Common/socket/NetMessage.cpp; sourceTree = "<group>"; };
-		7087CC2D1E9B334200938DC5 /* NetMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetMessage.h; path = ../../../src/Common/socket/NetMessage.h; sourceTree = "<group>"; };
-		7087CC2E1E9B334200938DC5 /* SocketCommon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SocketCommon.cpp; path = ../../../src/Common/socket/SocketCommon.cpp; sourceTree = "<group>"; };
-		7087CC2F1E9B334200938DC5 /* SocketCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketCommon.h; path = ../../../src/Common/socket/SocketCommon.h; sourceTree = "<group>"; };
 		7087CC361E9B336E00938DC5 /* pb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = pb.cpp; path = ../../../src/Common/protobuf/pb.cpp; sourceTree = "<group>"; };
 		7087CC3B1E9B339600938DC5 /* lz4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lz4.c; path = ../../../src/Common/lz4/lz4.c; sourceTree = "<group>"; };
 		7087CC3C1E9B339600938DC5 /* lz4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lz4.h; path = ../../../src/Common/lz4/lz4.h; sourceTree = "<group>"; };
@@ -287,8 +277,15 @@
 		7087CC6D1E9B349E00938DC5 /* yajl_parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_parse.h; path = ../../../src/Common/json/yajl/api/yajl_parse.h; sourceTree = "<group>"; };
 		7087CC701E9B34CA00938DC5 /* crc32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = crc32.cpp; path = ../../../src/Common/crc/crc32.cpp; sourceTree = "<group>"; };
 		7087CC711E9B34CA00938DC5 /* crc32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crc32.h; path = ../../../src/Common/crc/crc32.h; sourceTree = "<group>"; };
-		7087CC731E9B34D300938DC5 /* lua_bit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lua_bit.cpp; path = ../../../src/Common/BitOp/lua_bit.cpp; sourceTree = "<group>"; };
-		7087CC741E9B34D300938DC5 /* lua_bit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lua_bit.h; path = ../../../src/Common/BitOp/lua_bit.h; sourceTree = "<group>"; };
+		70CF299D1F90A8CB001A5349 /* mykeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mykeyboard.h; path = ../../../../src/IOS/mykeyboard.h; sourceTree = "<group>"; };
+		70CF299E1F90A8CB001A5349 /* mykeyboard.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = mykeyboard.mm; path = ../../../../src/IOS/mykeyboard.mm; sourceTree = "<group>"; };
+		70CF299F1F90A8CC001A5349 /* UICKeyChainStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UICKeyChainStore.m; path = ../../../../src/IOS/UICKeyChainStore.m; sourceTree = "<group>"; };
+		70CF29A01F90A8CC001A5349 /* UICKeyChainStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UICKeyChainStore.h; path = ../../../../src/IOS/UICKeyChainStore.h; sourceTree = "<group>"; };
+		70CF29A11F90A8CC001A5349 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../../../../src/IOS/Reachability.h; sourceTree = "<group>"; };
+		70CF29A21F90A8CC001A5349 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../../../../src/IOS/Reachability.m; sourceTree = "<group>"; };
+		70CF29A31F90AA04001A5349 /* LuaInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LuaInterface.cpp; path = ../../../../src/LuaInterface/LuaInterface.cpp; sourceTree = "<group>"; };
+		70CF29A41F90AA04001A5349 /* LuaInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LuaInterface.h; path = ../../../../src/LuaInterface/LuaInterface.h; sourceTree = "<group>"; };
+		70CF29A61F90AA44001A5349 /* CPtr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CPtr.cpp; path = ../../../../src/CPtr.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,15 +299,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7005C86F1F90A01F0033465C /* TextInput */ = {
+			isa = PBXGroup;
+			children = (
+				7005C8701F90A0850033465C /* TextInput.h */,
+				7005C8721F90A0850033465C /* TextInputCommon.hpp */,
+			);
+			path = TextInput;
+			sourceTree = "<group>";
+		};
 		7087CAFC1E9B2D0F00938DC5 = {
 			isa = PBXGroup;
 			children = (
+				70CF299B1F90A8BC001A5349 /* IOS */,
+				7087CB3C1E9B30AE00938DC5 /* lua */,
+				7005C86F1F90A01F0033465C /* TextInput */,
 				7087CC001E9B325000938DC5 /* Common */,
 				7087CBDF1E9B322F00938DC5 /* IO */,
 				7087CBA61E9B31F700938DC5 /* luasocket */,
-				7087CBA21E9B31B000938DC5 /* LuaWrapper */,
-				7087CB9E1E9B315700938DC5 /* sharePtr */,
-				7087CB3C1E9B30AE00938DC5 /* lua */,
 				7087CB071E9B2D0F00938DC5 /* engine */,
 				7087CB061E9B2D0F00938DC5 /* Products */,
 			);
@@ -327,6 +333,9 @@
 		7087CB071E9B2D0F00938DC5 /* engine */ = {
 			isa = PBXGroup;
 			children = (
+				70CF29A61F90AA44001A5349 /* CPtr.cpp */,
+				70CF29A31F90AA04001A5349 /* LuaInterface.cpp */,
+				70CF29A41F90AA04001A5349 /* LuaInterface.h */,
 				707086591E9B3D1000E167B7 /* GlobalFuncMacOsx.cpp */,
 				7087CB371E9B2F2400938DC5 /* stdafx.cpp */,
 				7087CB381E9B2F2400938DC5 /* stdafx.h */,
@@ -401,28 +410,8 @@
 				7087CB751E9B30CD00938DC5 /* lzio.h */,
 				7087CB761E9B30CD00938DC5 /* Makefile */,
 				7087CB771E9B30CD00938DC5 /* print.c */,
-				7087CB781E9B30CD00938DC5 /* ssock.c */,
-				7087CB791E9B30CD00938DC5 /* ssock.h */,
 			);
 			name = lua;
-			sourceTree = "<group>";
-		};
-		7087CB9E1E9B315700938DC5 /* sharePtr */ = {
-			isa = PBXGroup;
-			children = (
-				7087CB9F1E9B319200938DC5 /* SmartPtr.cpp */,
-				7087CBA01E9B319200938DC5 /* SmartPtr.h */,
-			);
-			name = sharePtr;
-			sourceTree = "<group>";
-		};
-		7087CBA21E9B31B000938DC5 /* LuaWrapper */ = {
-			isa = PBXGroup;
-			children = (
-				7087CBA31E9B31CA00938DC5 /* LuaWrapper.cpp */,
-				7087CBA41E9B31CA00938DC5 /* LuaWrapper.h */,
-			);
-			name = LuaWrapper;
 			sourceTree = "<group>";
 		};
 		7087CBA61E9B31F700938DC5 /* luasocket */ = {
@@ -469,22 +458,21 @@
 		7087CBDF1E9B322F00938DC5 /* IO */ = {
 			isa = PBXGroup;
 			children = (
-				7087CBE41E9B323C00938DC5 /* CEngFile.cpp */,
-				7087CBE51E9B323C00938DC5 /* CEngFile.h */,
-				7087CBE61E9B323C00938DC5 /* CEngFileStream.cpp */,
-				7087CBE71E9B323C00938DC5 /* CEngFileStream.h */,
-				7087CBE81E9B323C00938DC5 /* CEngFileSystem.cpp */,
-				7087CBE91E9B323C00938DC5 /* CEngFileSystem.h */,
-				7087CBEA1E9B323C00938DC5 /* CMemoryFileStream.cpp */,
-				7087CBEB1E9B323C00938DC5 /* CMemoryFileStream.h */,
-				7087CBEC1E9B323C00938DC5 /* IfcFile.h */,
-				7087CBED1E9B323C00938DC5 /* IfcFileStream.h */,
-				7087CBEE1E9B323C00938DC5 /* IfcStream.cpp */,
-				7087CBEF1E9B323C00938DC5 /* IfcStream.h */,
-				7087CBF01E9B323C00938DC5 /* IMemoryStream.cpp */,
-				7087CBF11E9B323C00938DC5 /* IMemoryStream.h */,
-				7087CBF21E9B323C00938DC5 /* Zip.cpp */,
-				7087CBF31E9B323C00938DC5 /* Zip.h */,
+				7005C8771F90A0F90033465C /* BaseStream.cpp */,
+				7005C8821F90A0FB0033465C /* BaseStream.h */,
+				7005C87F1F90A0FA0033465C /* CEFile.cpp */,
+				7005C87C1F90A0FA0033465C /* CEFile.h */,
+				7005C8741F90A0F90033465C /* CFStream.cpp */,
+				7005C8731F90A0F90033465C /* CFStream.h */,
+				7005C8781F90A0F90033465C /* CFSys.cpp */,
+				7005C8801F90A0FA0033465C /* CFSys.h */,
+				7005C87A1F90A0FA0033465C /* CMemToFile.cpp */,
+				7005C8831F90A0FB0033465C /* CMemToFile.h */,
+				7005C87D1F90A0FA0033465C /* FileBaseStream.h */,
+				7005C8791F90A0F90033465C /* MemStream.cpp */,
+				7005C87E1F90A0FA0033465C /* MemStream.h */,
+				7005C8811F90A0FB0033465C /* ZipData.cpp */,
+				7005C8751F90A0F90033465C /* ZipData.h */,
 				7087CBF41E9B323C00938DC5 /* ZipReader.cpp */,
 				7087CBF51E9B323C00938DC5 /* ZipReader.h */,
 			);
@@ -494,51 +482,40 @@
 		7087CC001E9B325000938DC5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				7087CC6F1E9B34B400938DC5 /* BitOp */,
+				7005C8A11F90A1D60033465C /* SLTable.cpp */,
+				7005C8A01F90A1D60033465C /* SLTable.h */,
+				7005C89F1F90A1AD0033465C /* Common.h */,
+				7005C8991F90A1AC0033465C /* ENG_DBG.cpp */,
+				7005C8961F90A1AC0033465C /* ENG_DBG.h */,
+				7005C89B1F90A1AC0033465C /* lua_lz4.cpp */,
+				7005C8971F90A1AC0033465C /* md5.cpp */,
+				7005C89C1F90A1AC0033465C /* md5.h */,
+				7005C8981F90A1AC0033465C /* TimeProfiler.cpp */,
+				7005C89D1F90A1AD0033465C /* TimeProfiler.h */,
+				7005C89E1F90A1AD0033465C /* TxtMgr.cpp */,
+				7005C89A1F90A1AC0033465C /* TxtMgr.h */,
 				7087CC6E1E9B34AC00938DC5 /* crc */,
 				7087CC4E1E9B33BE00938DC5 /* json */,
 				7087CC381E9B338100938DC5 /* lz4 */,
 				7087CC351E9B335100938DC5 /* protobuf */,
 				7087CC251E9B331500938DC5 /* socket */,
-				7087CC211E9B32BC00938DC5 /* TableSaveLoad */,
-				7087CC021E9B326B00938DC5 /* Common.h */,
-				7087CC041E9B326B00938DC5 /* debugger.cpp */,
-				7087CC051E9B326B00938DC5 /* debugger.h */,
-				7087CC071E9B326B00938DC5 /* lua_lz4.cpp */,
-				7087CC091E9B326B00938DC5 /* md5.cpp */,
-				7087CC0A1E9B326B00938DC5 /* md5.h */,
-				7087CC0B1E9B326B00938DC5 /* MultiLanguage.cpp */,
-				7087CC0C1E9B326B00938DC5 /* MultiLanguage.h */,
-				7087CC101E9B326B00938DC5 /* TimeProfiler.cpp */,
-				7087CC111E9B326B00938DC5 /* TimeProfiler.h */,
-				7087CC121E9B326B00938DC5 /* xor.cpp */,
-				7087CC131E9B326B00938DC5 /* xor.h */,
 			);
 			name = Common;
-			sourceTree = "<group>";
-		};
-		7087CC211E9B32BC00938DC5 /* TableSaveLoad */ = {
-			isa = PBXGroup;
-			children = (
-				7087CC221E9B330D00938DC5 /* SaveLoadTable.cpp */,
-				7087CC231E9B330D00938DC5 /* SaveLoadTable.h */,
-			);
-			name = TableSaveLoad;
 			sourceTree = "<group>";
 		};
 		7087CC251E9B331500938DC5 /* socket */ = {
 			isa = PBXGroup;
 			children = (
-				7087CC261E9B334200938DC5 /* ConnectionManager.cpp */,
-				7087CC271E9B334200938DC5 /* ConnectionManager.h */,
-				7087CC281E9B334200938DC5 /* eng_socket.cpp */,
-				7087CC291E9B334200938DC5 /* eng_socket.h */,
-				7087CC2A1E9B334200938DC5 /* LuaMsg.cpp */,
-				7087CC2B1E9B334200938DC5 /* LuaMsg.h */,
-				7087CC2C1E9B334200938DC5 /* NetMessage.cpp */,
-				7087CC2D1E9B334200938DC5 /* NetMessage.h */,
-				7087CC2E1E9B334200938DC5 /* SocketCommon.cpp */,
-				7087CC2F1E9B334200938DC5 /* SocketCommon.h */,
+				7005C88D1F90A1750033465C /* CSkt.cpp */,
+				7005C8931F90A1760033465C /* CSkt.h */,
+				7005C8921F90A1760033465C /* LMData.cpp */,
+				7005C88C1F90A1750033465C /* LMData.h */,
+				7005C88E1F90A1760033465C /* NTMSG.cpp */,
+				7005C88F1F90A1760033465C /* NTMSG.h */,
+				7005C8951F90A1760033465C /* S_O_TCP.cpp */,
+				7005C8941F90A1760033465C /* S_O_TCP.h */,
+				7005C8901F90A1760033465C /* SocketConnectionManager.cpp */,
+				7005C8911F90A1760033465C /* SocketConnectionManager.h */,
 			);
 			name = socket;
 			sourceTree = "<group>";
@@ -620,13 +597,17 @@
 			name = crc;
 			sourceTree = "<group>";
 		};
-		7087CC6F1E9B34B400938DC5 /* BitOp */ = {
+		70CF299B1F90A8BC001A5349 /* IOS */ = {
 			isa = PBXGroup;
 			children = (
-				7087CC731E9B34D300938DC5 /* lua_bit.cpp */,
-				7087CC741E9B34D300938DC5 /* lua_bit.h */,
+				70CF299D1F90A8CB001A5349 /* mykeyboard.h */,
+				70CF299E1F90A8CB001A5349 /* mykeyboard.mm */,
+				70CF29A11F90A8CC001A5349 /* Reachability.h */,
+				70CF29A21F90A8CC001A5349 /* Reachability.m */,
+				70CF29A01F90A8CC001A5349 /* UICKeyChainStore.h */,
+				70CF299F1F90A8CC001A5349 /* UICKeyChainStore.m */,
 			);
-			name = BitOp;
+			path = IOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -697,11 +678,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7087CBDA1E9B320800938DC5 /* timeout.c in Sources */,
-				7087CBA51E9B31CA00938DC5 /* LuaWrapper.cpp in Sources */,
 				7087CBD11E9B320800938DC5 /* lua_extensions.c in Sources */,
 				7087CBD81E9B320800938DC5 /* serial.c in Sources */,
+				70CF298F1F90A84D001A5349 /* SLTable.cpp in Sources */,
+				70CF298D1F90A83A001A5349 /* NTMSG.cpp in Sources */,
 				7087CB831E9B30CD00938DC5 /* lfunc.c in Sources */,
 				7087CB8B1E9B30CD00938DC5 /* lobject.c in Sources */,
+				70CF29941F90A85D001A5349 /* TxtMgr.cpp in Sources */,
 				7087CC671E9B345400938DC5 /* yajl_lex.c in Sources */,
 				7087CB7D1E9B30CD00938DC5 /* lcode.c in Sources */,
 				7087CBDB1E9B320800938DC5 /* udp.c in Sources */,
@@ -710,32 +693,35 @@
 				7087CBCF1E9B320800938DC5 /* inet.c in Sources */,
 				7087CC491E9B339600938DC5 /* lz4frame.c in Sources */,
 				7087CBD01E9B320800938DC5 /* io2.c in Sources */,
+				70CF298A1F90A82F001A5349 /* S_O_TCP.cpp in Sources */,
+				70CF298B1F90A832001A5349 /* CSkt.cpp in Sources */,
 				7087CC511E9B341000938DC5 /* eng_json.cpp in Sources */,
 				7087CC691E9B345400938DC5 /* yajl.c in Sources */,
 				7087CB8F1E9B30CD00938DC5 /* lstate.c in Sources */,
 				7087CB881E9B30CD00938DC5 /* lmathlib.c in Sources */,
-				7087CB9D1E9B30CD00938DC5 /* ssock.c in Sources */,
+				7005C8841F90A0FB0033465C /* CFStream.cpp in Sources */,
 				7087CC651E9B345400938DC5 /* yajl_encode.c in Sources */,
 				7087CB9B1E9B30CD00938DC5 /* Makefile in Sources */,
 				7087CB931E9B30CD00938DC5 /* ltablib.c in Sources */,
+				7005C88A1F90A0FB0033465C /* CEFile.cpp in Sources */,
 				7087CBCE1E9B320800938DC5 /* except.c in Sources */,
 				7087CB391E9B2F2400938DC5 /* stdafx.cpp in Sources */,
 				7087CC681E9B345400938DC5 /* yajl_parser.c in Sources */,
 				7087CC4D1E9B339600938DC5 /* xxhash.c in Sources */,
-				7087CC751E9B34D300938DC5 /* lua_bit.cpp in Sources */,
 				7087CB901E9B30CD00938DC5 /* lstring.c in Sources */,
 				7087CC661E9B345400938DC5 /* yajl_gen.c in Sources */,
-				7087CC301E9B334200938DC5 /* ConnectionManager.cpp in Sources */,
 				7087CBCC1E9B320800938DC5 /* auxiliar.c in Sources */,
 				7087CB941E9B30CD00938DC5 /* ltm.c in Sources */,
 				7087CBCD1E9B320800938DC5 /* buffer.c in Sources */,
+				70CF29931F90A859001A5349 /* TimeProfiler.cpp in Sources */,
 				7087CB851E9B30CD00938DC5 /* linit.c in Sources */,
 				7087CBDC1E9B320800938DC5 /* unix.c in Sources */,
-				7087CBF81E9B323C00938DC5 /* CEngFile.cpp in Sources */,
+				7005C88B1F90A0FB0033465C /* ZipData.cpp in Sources */,
+				70CF298E1F90A83E001A5349 /* SocketConnectionManager.cpp in Sources */,
 				7087CB921E9B30CD00938DC5 /* ltable.c in Sources */,
 				7087CBD71E9B320800938DC5 /* select.c in Sources */,
+				7005C8891F90A0FB0033465C /* CMemToFile.cpp in Sources */,
 				7087CB991E9B30CD00938DC5 /* lvm.c in Sources */,
-				7087CC1A1E9B326B00938DC5 /* md5.cpp in Sources */,
 				7087CB861E9B30CD00938DC5 /* liolib.c in Sources */,
 				7087CB7E1E9B30CD00938DC5 /* ldblib.c in Sources */,
 				7087CB821E9B30CD00938DC5 /* lfs.c in Sources */,
@@ -744,50 +730,42 @@
 				7087CBD41E9B320800938DC5 /* mime.c in Sources */,
 				7087CB7A1E9B30CD00938DC5 /* lapi.c in Sources */,
 				7087CC721E9B34CA00938DC5 /* crc32.cpp in Sources */,
-				7087CBFA1E9B323C00938DC5 /* CEngFileSystem.cpp in Sources */,
 				7087CB9A1E9B30CD00938DC5 /* lzio.c in Sources */,
+				70CF29A71F90AA45001A5349 /* CPtr.cpp in Sources */,
 				7087CB911E9B30CD00938DC5 /* lstrlib.c in Sources */,
 				7087CB841E9B30CD00938DC5 /* lgc.c in Sources */,
-				7087CC331E9B334200938DC5 /* NetMessage.cpp in Sources */,
+				70CF29901F90A850001A5349 /* ENG_DBG.cpp in Sources */,
 				7087CB951E9B30CD00938DC5 /* lua.c in Sources */,
+				70CF29A51F90AA04001A5349 /* LuaInterface.cpp in Sources */,
 				7087CB981E9B30CD00938DC5 /* lundump.c in Sources */,
 				7087CB261E9B2D8D00938DC5 /* GlobalFunc.cpp in Sources */,
-				7087CC1F1E9B326B00938DC5 /* TimeProfiler.cpp in Sources */,
+				7005C8871F90A0FB0033465C /* CFSys.cpp in Sources */,
+				70CF298C1F90A836001A5349 /* LMData.cpp in Sources */,
 				7087CB7B1E9B30CD00938DC5 /* lauxlib.c in Sources */,
 				7087CB9C1E9B30CD00938DC5 /* print.c in Sources */,
-				7087CBF91E9B323C00938DC5 /* CEngFileStream.cpp in Sources */,
 				7087CB871E9B30CD00938DC5 /* llex.c in Sources */,
-				7087CBFB1E9B323C00938DC5 /* CMemoryFileStream.cpp in Sources */,
-				7087CC341E9B334200938DC5 /* SocketCommon.cpp in Sources */,
-				7087CC161E9B326B00938DC5 /* debugger.cpp in Sources */,
 				7087CBD91E9B320800938DC5 /* tcp.c in Sources */,
 				7087CC371E9B336E00938DC5 /* pb.cpp in Sources */,
-				7087CC201E9B326B00938DC5 /* xor.cpp in Sources */,
-				7087CBFE1E9B323C00938DC5 /* Zip.cpp in Sources */,
 				7087CBFF1E9B323C00938DC5 /* ZipReader.cpp in Sources */,
 				7087CBD31E9B320800938DC5 /* luasocket.c in Sources */,
 				7087CB251E9B2D8D00938DC5 /* GameApp.cpp in Sources */,
+				7005C8881F90A0FB0033465C /* MemStream.cpp in Sources */,
 				7087CB7F1E9B30CD00938DC5 /* ldebug.c in Sources */,
 				7087CB8C1E9B30CD00938DC5 /* lopcodes.c in Sources */,
 				7087CBD21E9B320800938DC5 /* luasocket_scripts.c in Sources */,
 				7087CB7C1E9B30CD00938DC5 /* lbaselib.c in Sources */,
-				7087CC321E9B334200938DC5 /* LuaMsg.cpp in Sources */,
 				7087CC481E9B339600938DC5 /* lz4.c in Sources */,
-				7087CBFD1E9B323C00938DC5 /* IMemoryStream.cpp in Sources */,
 				7087CB8E1E9B30CD00938DC5 /* lparser.c in Sources */,
 				7070865A1E9B3D1000E167B7 /* GlobalFuncMacOsx.cpp in Sources */,
-				7087CC241E9B330D00938DC5 /* SaveLoadTable.cpp in Sources */,
 				7087CB801E9B30CD00938DC5 /* ldo.c in Sources */,
-				7087CC181E9B326B00938DC5 /* lua_lz4.cpp in Sources */,
-				7087CC311E9B334200938DC5 /* eng_socket.cpp in Sources */,
-				7087CC1B1E9B326B00938DC5 /* MultiLanguage.cpp in Sources */,
-				7087CBA11E9B319200938DC5 /* SmartPtr.cpp in Sources */,
+				7005C8861F90A0FB0033465C /* BaseStream.cpp in Sources */,
 				7087CC4A1E9B339600938DC5 /* lz4hc.c in Sources */,
+				70CF29911F90A853001A5349 /* lua_lz4.cpp in Sources */,
 				7087CB961E9B30CD00938DC5 /* luac.c in Sources */,
 				7087CB8A1E9B30CD00938DC5 /* loadlib.c in Sources */,
 				7087CB811E9B30CD00938DC5 /* ldump.c in Sources */,
 				7087CB971E9B30CD00938DC5 /* luawarp.c in Sources */,
-				7087CBFC1E9B323C00938DC5 /* IfcStream.cpp in Sources */,
+				70CF29921F90A856001A5349 /* md5.cpp in Sources */,
 				7087CB891E9B30CD00938DC5 /* lmem.c in Sources */,
 				7087CC631E9B345400938DC5 /* yajl_alloc.c in Sources */,
 			);
