@@ -85,7 +85,6 @@
 		4AF5A2AB1E88FC9700E4DCD1 /* lvm.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5A2841E88FC9700E4DCD1 /* lvm.c */; };
 		4AF5A2AC1E88FC9700E4DCD1 /* lzio.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5A2861E88FC9700E4DCD1 /* lzio.c */; };
 		4AF5A2AE1E88FC9700E4DCD1 /* print.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5A2891E88FC9700E4DCD1 /* print.c */; };
-		4AF5A2AF1E88FC9700E4DCD1 /* ssock.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5A28A1E88FC9700E4DCD1 /* ssock.c */; };
 		4AF5A2C91E88FCD300E4DCD1 /* ZipReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5A2C01E88FCD300E4DCD1 /* ZipReader.cpp */; };
 		4AF5A2DD1E88FD5500E4DCD1 /* pb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5A2DC1E88FD5500E4DCD1 /* pb.cpp */; };
 		4AF5A2E51E88FD7D00E4DCD1 /* lz4.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5A2DE1E88FD7D00E4DCD1 /* lz4.c */; };
@@ -799,7 +798,6 @@
 				4AF5A2EA1E88FD8F00E4DCD1 /* xxhash.c in Sources */,
 				4A7BA9071F7CB06000586521 /* CMemToFile.cpp in Sources */,
 				4AF5A2301E88FC5600E4DCD1 /* inet.c in Sources */,
-				4AF5A2AF1E88FC9700E4DCD1 /* ssock.c in Sources */,
 				4AF5A2DD1E88FD5500E4DCD1 /* pb.cpp in Sources */,
 				4AF5A2311E88FC5600E4DCD1 /* io2.c in Sources */,
 				4AF5A2361E88FC5600E4DCD1 /* options.c in Sources */,
