@@ -266,8 +266,6 @@
 		4AF5A2861E88FC9700E4DCD1 /* lzio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lzio.c; path = ../../../src/lua/src/lzio.c; sourceTree = "<group>"; };
 		4AF5A2871E88FC9700E4DCD1 /* lzio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lzio.h; path = ../../../src/lua/src/lzio.h; sourceTree = "<group>"; };
 		4AF5A2891E88FC9700E4DCD1 /* print.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = print.c; path = ../../../src/lua/src/print.c; sourceTree = "<group>"; };
-		4AF5A28A1E88FC9700E4DCD1 /* ssock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ssock.c; path = ../../../src/lua/src/ssock.c; sourceTree = "<group>"; };
-		4AF5A28B1E88FC9700E4DCD1 /* ssock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ssock.h; path = ../../../src/lua/src/ssock.h; sourceTree = "<group>"; };
 		4AF5A2C01E88FCD300E4DCD1 /* ZipReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ZipReader.cpp; path = ../../../src/IO/ZipReader.cpp; sourceTree = "<group>"; };
 		4AF5A2C11E88FCD300E4DCD1 /* ZipReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZipReader.h; path = ../../../src/IO/ZipReader.h; sourceTree = "<group>"; };
 		4AF5A2DC1E88FD5500E4DCD1 /* pb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = pb.cpp; path = ../../../src/Common/protobuf/pb.cpp; sourceTree = "<group>"; };
@@ -591,8 +589,6 @@
 				4AF5A2861E88FC9700E4DCD1 /* lzio.c */,
 				4AF5A2871E88FC9700E4DCD1 /* lzio.h */,
 				4AF5A2891E88FC9700E4DCD1 /* print.c */,
-				4AF5A28A1E88FC9700E4DCD1 /* ssock.c */,
-				4AF5A28B1E88FC9700E4DCD1 /* ssock.h */,
 			);
 			name = lua;
 			sourceTree = "<group>";

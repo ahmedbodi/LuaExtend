@@ -18,7 +18,7 @@
 #include "lualib.h"
 
 #include "lfs.h"
-#include "../../../../trunk/src/Common/crc/crc32.h"
+#include "../../../src/Common/crc/crc32.h"
 
 
 static lua_State *globalL = NULL;
