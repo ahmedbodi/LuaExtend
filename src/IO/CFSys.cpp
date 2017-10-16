@@ -24,7 +24,15 @@ extern "C" void AddObbFile(const char* p)
 	GET_FS()->addZip(p);
 }
 #endif
-
+namespace ENG_DBG
+{
+	extern int g_DevMode;
+	extern char g_luaPath[1000];
+	extern char g_DebugPath[1000];
+	extern string GetLuaFullPath(std::string filename);
+	extern std::string GetDebugFileFullPath(std::string filenameIn);
+}
+using namespace ENG_DBG;
 
 CFSys::~CFSys(void)
 {	
@@ -307,6 +315,20 @@ bool DLCFileInfoMgr::GetFName(const char *fn, char *out, int len)
 	const char *a = GameApp::getInstance()->getAppPath();
 	
 	rfn = GetRelateFName(fn, isFP);
+	
+	if (g_DevMode == 1)
+	{
+		string fn(rfn);
+		fn = GetDebugFileFullPath(fn);
+		FileBaseStreamPtr file;
+		file = GET_FS()->OpenFile(fn.c_str(), "r", true);
+		if (file.get() && file->existFile())
+		{
+			snprintf(out, len, "%s", fn.c_str());			
+			return  false;
+		}
+	}
+
 	std::map<std::string, DLCEntry>::iterator itr = m_fs.find(rfn);
 	std::map<std::string, DLCEntry>::iterator lastItr = m_fs.end();
 
