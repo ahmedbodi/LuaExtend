@@ -12,7 +12,7 @@
 #include "Common/ENG_DBG.h"
 
 void MACOSOUT(const char* str);
-#ifdef WIN32
+#if  (defined WIN32)  || (defined MAC_OS_X) || (defined OS_LINUX)
 int Win32DirAllFile(const char* path);
 void DirFileListByExt(std::map<std::string, std::string>& ret, const char * path1, const char * ext = nullptr);
 #endif
@@ -228,7 +228,7 @@ void InitDBGInfo()
 				{
 					string vaule = line.substr(pos + 1);
 					setPathBufWhileInConfigfile(g_luaPath, sizeof(g_luaPath),vaule);
-#if  (defined WIN32) 
+#if  (defined WIN32)  || (defined MAC_OS_X) || (defined OS_LINUX)
 					Win32DirAllFile(g_luaPath);
 					DirFileListByExt(g_luafpathMap, g_luaPath, ".lua");
 #endif
