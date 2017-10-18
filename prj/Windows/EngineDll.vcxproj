@@ -79,6 +79,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='U3d_Debug_Dll|x64'">
     <IncludePath>..\..\..\trunk\src\pthread_win32;..\..\..\trunk\src\curl_win32;$(IncludePath)</IncludePath>
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>E:\mass\UnityPrj\Assets\Plugins\x86_64</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unity3D_Profile|Win32'">
     <LinkIncremental>true</LinkIncremental>
