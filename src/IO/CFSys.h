@@ -27,6 +27,7 @@ public :
 	int UpdateFileInfo(lua_State *L);
 	void AddFile(const char* fn);
 	int SaveAllInfo(lua_State *L);
+	void SaveItem(const char* fn,DLCEntry * de,FILE* fptr);
 	map<string, DLCEntry> m_fs;
 };
 class CFSys

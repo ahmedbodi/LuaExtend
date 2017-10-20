@@ -75,6 +75,10 @@ int UpdateDLCFile(lua_State *L)
 {
 	return GET_DLC()->UpdateFileInfo(L);
 }
+int SaveDCLFileInfo(lua_State *L)
+{
+	return GET_DLC()->SaveAllInfo(L);
+}
 
 
 int PopUpGameExitUIL(lua_State *L) {
@@ -398,6 +402,7 @@ void lua::RegisteGlobalFunctions() {
 	const luaL_reg global_functions[] = {
 		{ "RegisteSocketClass", lua::LuaPlus<S_O_TCP>::RegisteSocketClassL },
 		{ "UpdateDLCFile", UpdateDLCFile },
+		{ "SaveDCLFileInfo", SaveDCLFileInfo },		
 		{ "rawLoadGameText", EngLoadGameText },
 		{ "rawGetGameText", EngGetGameText },
 		{ "rawGetStringByLanguageAndSheet", EngGetStringByLanguageAndSheet },

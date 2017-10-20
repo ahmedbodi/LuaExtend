@@ -216,7 +216,7 @@ int LUATVSC::Ld(FILE*f)
 	{
 		return 1;  //return error 	
 	}	
-	return 1;
+	return 0;
 }
 void LUATVSC::PV(lua_State *L)
 {

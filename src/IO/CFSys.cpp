@@ -374,6 +374,7 @@ int DLCFileInfoMgr::UpdateFileInfo(lua_State *L)
 	{
 		DLCEntry de;
 		bool isf = false;
+		memset(&de, 0, sizeof(DLCEntry));
 		strncpy(de.crc, crc, 16);
 		const char * p = GetRelateFName(fn, isf);
 		de.ver = v;
@@ -382,10 +383,87 @@ int DLCFileInfoMgr::UpdateFileInfo(lua_State *L)
 	return 0;
 }
 
- 
+void DLCFileInfoMgr::SaveItem(const char* fn, DLCEntry * de,FILE*fptr)
+{
+	//--SAVE KEY
+	{
+		const char * tstr = fn;
+		int size = strlen(tstr);
+		char Stype = LUA_TSTRING;
+		fwrite(&Stype, 1, 1, fptr);
+		fwrite(&size, 4, 1, fptr);
+		fwrite(tstr, size, 1, fptr);
+	}
+	//--save table
+	{
+		char Ttype = LUA_TTABLE;
+		fwrite(&Ttype, 1, 1, fptr);
+		{
+			const char * tstr = "version";
+			int size = strlen(tstr);
+			char Stype = LUA_TSTRING;
+			fwrite(&Stype, 1, 1, fptr);
+			fwrite(&size, 4, 1, fptr);
+			fwrite(tstr, size, 1, fptr);
+
+			double tmp = de->ver;
+			char *buf = (char *)&tmp;
+			char Ntype = LUA_TNUMBER;
+			fwrite(&Ntype, 1, 1, fptr);
+			fwrite(&buf[7], 1, 1, fptr);
+			fwrite(&buf[6], 1, 1, fptr);
+			fwrite(&buf[5], 1, 1, fptr);
+			fwrite(&buf[4], 1, 1, fptr);
+			fwrite(&buf[3], 1, 1, fptr);
+			fwrite(&buf[2], 1, 1, fptr);
+			fwrite(&buf[1], 1, 1, fptr);
+			fwrite(&buf[0], 1, 1, fptr);
+		}
+		{
+			{
+				const char * tstr = "crc32";
+				int size = strlen(tstr);
+				char Stype = LUA_TSTRING;
+				fwrite(&Stype, 1, 1, fptr);
+				fwrite(&size, 4, 1, fptr);
+				fwrite(tstr, size, 1, fptr);
+			}
+			{
+				const char * tstr = de->crc;
+				int size = strlen(tstr);
+				char Stype = LUA_TSTRING;
+				fwrite(&Stype, 1, 1, fptr);
+				fwrite(&size, 4, 1, fptr);
+				fwrite(tstr, size, 1, fptr);
+			}
+			char tmp = -1;
+			fwrite(&tmp, 1, 1, fptr);
+		}
+	}
+}
 int DLCFileInfoMgr::SaveAllInfo(lua_State *L)
 {
-    //// TODO  add DLC table
+	size_t s;
+	char tfn[1023];
+	const char *fn = luaL_checklstring(L, 1, &s);
+	snprintf(tfn, 1023, "%s%s", GameApp::getInstance()->getSavePath(), fn);
+	FILE* fptr = fopen(tfn, "wb");
+	if (fptr != NULL)
+	{
+		//// TODO  add DLC table
+		char Ttype = LUA_TTABLE;
+		fwrite(&Ttype, 1, 1, fptr);
+		for (map<string, DLCEntry>::iterator iter = m_fs.begin(); iter != m_fs.end(); iter ++)
+		{
+			DLCEntry entry = iter->second;
+			SaveItem(iter->first.c_str(),&entry,fptr);
+		}		
+		char tmp = -1;
+		fwrite(&tmp, 1, 1, fptr);
+		fclose(fptr);
+	}
+	else
+		return 0;    
 	return 0;
 } 
 
