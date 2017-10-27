@@ -9,7 +9,11 @@
 #include <string>
 #include <cctype>
 #include <dirent.h>
-
+#include <sys/types.h>
+#include <ifaddrs.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <net/if_dl.h>
 
 extern "C" const char *AppVer(){ return "0.0.1"; }
 extern "C" void PopUpGameExitUI(){ return; }
@@ -41,7 +45,25 @@ extern "C" void OpenURL(const char* url){}
 extern "C" const char *GetOpenUdid()
 {
 	static char strid[512];
-	sprintf(strid, "%d%d%d%d", 1, 2, 3, 4);
+	struct ifaddrs *ifap, *ifaptr;
+	unsigned char *ptr;
+
+	if (getifaddrs(&ifap) == 0) {
+	  for(ifaptr = ifap; ifaptr != NULL; ifaptr = (ifaptr)->ifa_next) {
+		if (((ifaptr)->ifa_addr)->sa_family == AF_LINK   ) {
+		  ptr = (unsigned char *)LLADDR((struct sockaddr_dl *)(ifaptr)->ifa_addr);
+		  if(*ptr != 0) {
+			sprintf(strid, "%02x:%02x:%02x:%02x:%02x:%02x\n",
+					*ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5));
+              return strid;
+		  }
+		}
+	  }
+	  freeifaddrs(ifap);
+	  return "";
+	} else {
+	  return "";
+	}
 	return strid;
 }
 

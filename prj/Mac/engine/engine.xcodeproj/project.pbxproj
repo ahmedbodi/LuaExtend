@@ -14,6 +14,9 @@
 		7005C8891F90A0FB0033465C /* CMemToFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C87A1F90A0FA0033465C /* CMemToFile.cpp */; };
 		7005C88A1F90A0FB0033465C /* CEFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C87F1F90A0FA0033465C /* CEFile.cpp */; };
 		7005C88B1F90A0FB0033465C /* ZipData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8811F90A0FB0033465C /* ZipData.cpp */; };
+		706662BF1FA33DEC0024BE70 /* bspatch.c in Sources */ = {isa = PBXBuildFile; fileRef = 706662BA1FA33DEC0024BE70 /* bspatch.c */; };
+		706662C01FA33DEC0024BE70 /* bsdiff.c in Sources */ = {isa = PBXBuildFile; fileRef = 706662BC1FA33DEC0024BE70 /* bsdiff.c */; };
+		706662C11FA33DEC0024BE70 /* bsmemoryfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 706662BE1FA33DEC0024BE70 /* bsmemoryfile.c */; };
 		7070865A1E9B3D1000E167B7 /* GlobalFuncMacOsx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 707086591E9B3D1000E167B7 /* GlobalFuncMacOsx.cpp */; };
 		7087CB251E9B2D8D00938DC5 /* GameApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CB111E9B2D8D00938DC5 /* GameApp.cpp */; };
 		7087CB261E9B2D8D00938DC5 /* GlobalFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CB131E9B2D8D00938DC5 /* GlobalFunc.cpp */; };
@@ -140,6 +143,12 @@
 		7005C89F1F90A1AD0033465C /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../../../src/Common/Common.h; sourceTree = "<group>"; };
 		7005C8A01F90A1D60033465C /* SLTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SLTable.h; path = ../../../src/Common/TableSL/SLTable.h; sourceTree = "<group>"; };
 		7005C8A11F90A1D60033465C /* SLTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SLTable.cpp; path = ../../../src/Common/TableSL/SLTable.cpp; sourceTree = "<group>"; };
+		706662B91FA33DEC0024BE70 /* bsmemoryfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bsmemoryfile.h; path = ../../../../tools/bsdiff/bsmemoryfile.h; sourceTree = "<group>"; };
+		706662BA1FA33DEC0024BE70 /* bspatch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bspatch.c; path = ../../../../tools/bsdiff/bspatch.c; sourceTree = "<group>"; };
+		706662BB1FA33DEC0024BE70 /* bsdiff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bsdiff.h; path = ../../../../tools/bsdiff/bsdiff.h; sourceTree = "<group>"; };
+		706662BC1FA33DEC0024BE70 /* bsdiff.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bsdiff.c; path = ../../../../tools/bsdiff/bsdiff.c; sourceTree = "<group>"; };
+		706662BD1FA33DEC0024BE70 /* bspatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bspatch.h; path = ../../../../tools/bsdiff/bspatch.h; sourceTree = "<group>"; };
+		706662BE1FA33DEC0024BE70 /* bsmemoryfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bsmemoryfile.c; path = ../../../../tools/bsdiff/bsmemoryfile.c; sourceTree = "<group>"; };
 		707086591E9B3D1000E167B7 /* GlobalFuncMacOsx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GlobalFuncMacOsx.cpp; path = ../../../../src/GlobalFuncMacOsx.cpp; sourceTree = "<group>"; };
 		7087CB051E9B2D0F00938DC5 /* engine.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = engine.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		7087CB081E9B2D0F00938DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -308,9 +317,23 @@
 			path = TextInput;
 			sourceTree = "<group>";
 		};
+		706662B81FA33DD40024BE70 /* bsdiff */ = {
+			isa = PBXGroup;
+			children = (
+				706662BC1FA33DEC0024BE70 /* bsdiff.c */,
+				706662BB1FA33DEC0024BE70 /* bsdiff.h */,
+				706662BE1FA33DEC0024BE70 /* bsmemoryfile.c */,
+				706662B91FA33DEC0024BE70 /* bsmemoryfile.h */,
+				706662BA1FA33DEC0024BE70 /* bspatch.c */,
+				706662BD1FA33DEC0024BE70 /* bspatch.h */,
+			);
+			path = bsdiff;
+			sourceTree = "<group>";
+		};
 		7087CAFC1E9B2D0F00938DC5 = {
 			isa = PBXGroup;
 			children = (
+				706662B81FA33DD40024BE70 /* bsdiff */,
 				70CF299B1F90A8BC001A5349 /* IOS */,
 				7087CB3C1E9B30AE00938DC5 /* lua */,
 				7005C86F1F90A01F0033465C /* TextInput */,
@@ -688,6 +711,7 @@
 				7087CC671E9B345400938DC5 /* yajl_lex.c in Sources */,
 				7087CB7D1E9B30CD00938DC5 /* lcode.c in Sources */,
 				7087CBDB1E9B320800938DC5 /* udp.c in Sources */,
+				706662C11FA33DEC0024BE70 /* bsmemoryfile.c in Sources */,
 				7087CB8D1E9B30CD00938DC5 /* loslib.c in Sources */,
 				7087CC641E9B345400938DC5 /* yajl_buf.c in Sources */,
 				7087CBCF1E9B320800938DC5 /* inet.c in Sources */,
@@ -700,6 +724,7 @@
 				7087CB8F1E9B30CD00938DC5 /* lstate.c in Sources */,
 				7087CB881E9B30CD00938DC5 /* lmathlib.c in Sources */,
 				7005C8841F90A0FB0033465C /* CFStream.cpp in Sources */,
+				706662BF1FA33DEC0024BE70 /* bspatch.c in Sources */,
 				7087CC651E9B345400938DC5 /* yajl_encode.c in Sources */,
 				7087CB9B1E9B30CD00938DC5 /* Makefile in Sources */,
 				7087CB931E9B30CD00938DC5 /* ltablib.c in Sources */,
@@ -726,6 +751,7 @@
 				7087CB7E1E9B30CD00938DC5 /* ldblib.c in Sources */,
 				7087CB821E9B30CD00938DC5 /* lfs.c in Sources */,
 				7087CBDD1E9B320800938DC5 /* usocket.c in Sources */,
+				706662C01FA33DEC0024BE70 /* bsdiff.c in Sources */,
 				7087CBD51E9B320800938DC5 /* options.c in Sources */,
 				7087CBD41E9B320800938DC5 /* mime.c in Sources */,
 				7087CB7A1E9B30CD00938DC5 /* lapi.c in Sources */,
