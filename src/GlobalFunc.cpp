@@ -126,7 +126,21 @@ extern int TrackingAssert(const char * key, const char * file, int line)
 		return 0;
 	}
  
- 
+extern "C" int bspatch_file(const char * oldfile, const char* newfile, const char* patchfile);
+void BSPatch_File(const char* oldfile, const char*patchabsolutionfile, const char*newfile)
+{
+	char oldfn[500];
+	GET_DLC()->GetFName(oldfile, oldfn, sizeof(oldfn));	
+	char newfn[500];
+	GET_DLC()->GetFName(newfile, newfn, sizeof(newfn));
+	bool isfull = false;
+	const char* patchfile = GET_DLC()->GetRelateFName(patchabsolutionfile, isfull);
+	const char *c = GameApp::getInstance()->getCachePath();
+	char fullpatchfile[1000];
+	snprintf(fullpatchfile, 1024, "%s%s", c, patchfile);
+	DBG_L("bapatchfile:o_%s,p_%s,n_%s", oldfn, fullpatchfile, newfn);
+	bspatch_file(oldfn,newfn,fullpatchfile);
+}
  
 #if defined(TARGET_IPHONE_SIMULATOR) || defined(TARGET_OS_IPHONE)
 extern "C" void c_extMD5(const char* src, std::string& outStr)

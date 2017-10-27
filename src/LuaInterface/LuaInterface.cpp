@@ -8,6 +8,9 @@
 #include "Common/ENG_DBG.h"
 #include "GlobalFunc.h"
 #include "LuaInterface.h"
+
+extern "C" int bspatch_file(const char * oldfile, const char* newfile, const char* patchfile);
+
 extern int eng_lua_pb(lua_State *L);
 
 int s_LuaCreateTimes = 1;
@@ -394,6 +397,17 @@ int SetDebugConfigValueL(lua_State * L)
 	const char *key = luaL_checklstring(L, 1, &len);
 	const char *value = luaL_checklstring(L, 2, &len);
 	SetDebugConfigValue(key,value);
+	return 0;
+}
+extern "C" int bspatch_file(const char * oldfile, const char* newfile, const char* patchfile);
+void BSPatch_File(const char* oldfile, const char*patchfile, const char*newfile);
+int BSPatch_File(lua_State*L)
+{
+	size_t len = 0;
+	const char *oldfile = luaL_checklstring(L, 1, &len);	
+	const char *patchfile = luaL_checklstring(L, 2, &len);
+	const char *newfile = luaL_checklstring(L, 3, &len);
+	BSPatch_File(oldfile,patchfile,newfile);
 	return 0;
 }
 
