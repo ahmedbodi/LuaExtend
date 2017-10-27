@@ -96,13 +96,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>EGL_NOT_PRESENT;WIN32;_WINDOWS;_OPENGLES;_CRT_SECURE_NO_WARNINGS;DEFAULT_PORTRAINT_MODE;_WIN32_DEVELOPER;LUA_BUILD_AS_DLL;LUA_CUSTOM_FILE_SYSTEM;LUA_EXPORT;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>..\..\..\trunk\src;..\..\..\trunk\src\zlib\include;..\..\..\trunk\src\luasocket;..\..\..\trunk\src\lua\src;..\..\..\trunk\src\lua\etc;..\..\..\trunk\src\sharePtr;..\..\..\trunk\src\LuaInterface</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\trunk\src;..\..\..\trunk\src\zlib\include;..\..\..\trunk\src\luasocket;..\..\..\trunk\src\lua\src;..\..\..\trunk\src\lua\etc;..\..\..\trunk\src\sharePtr;..\..\..\trunk\src\LuaInterface;..\..\..\trunk\tools\bsdiff</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>zlib.lib;Winmm.lib;;Ws2_32.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>zlib.lib;Winmm.lib;;Ws2_32.lib;pthreadVC2.lib;;bsdiff.lib%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\libs\Win;</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -113,13 +113,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>EGL_NOT_PRESENT;WIN32;_WINDOWS;_OPENGLES;_CRT_SECURE_NO_WARNINGS;DEFAULT_PORTRAINT_MODE;_WIN32_DEVELOPER;LUA_BUILD_AS_DLL;LUA_CUSTOM_FILE_SYSTEM;LUA_EXPORT;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>..\..\..\trunk\src;..\..\..\trunk\src\zlib\include;..\..\..\trunk\src\luasocket;..\..\..\trunk\src\lua\src;..\..\..\trunk\src\lua\etc;..\..\..\trunk\src\sharePtr;..\..\..\trunk\src\LuaInterface</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\trunk\src;..\..\..\trunk\src\zlib\include;..\..\..\trunk\src\luasocket;..\..\..\trunk\src\lua\src;..\..\..\trunk\src\lua\etc;..\..\..\trunk\src\sharePtr;..\..\..\trunk\src\LuaInterface;..\..\..\trunk\tools\bsdiff</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>zlib64.lib;Winmm.lib;;Ws2_32.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>zlib64.lib;Winmm.lib;;Ws2_32.lib;pthreadVC2.lib;bsdiff64.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\libs\Win;</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -130,7 +130,7 @@
       <Optimization>Full</Optimization>
       <PreprocessorDefinitions>BUILD_OGL2;EGL_NOT_PRESENT;WIN32;_WINDOWS;_OPENGLES;_CRT_SECURE_NO_WARNINGS;DEFAULT_PORTRAINT_MODE;_WIN32_DEVELOPER;LUA_BUILD_AS_DLL;LUA_CUSTOM_FILE_SYSTEM;LUA_EXPORT;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>..\..\..\trunk\src;..\..\..\trunk\src\zlib\include;..\..\..\trunk\src\luasocket;..\..\..\trunk\src\lua\src;..\..\..\trunk\src\lua\etc;..\..\..\trunk\src\sharePtr;..\..\..\trunk\src\LuaWrapper</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\trunk\src;..\..\..\trunk\src\zlib\include;..\..\..\trunk\src\luasocket;..\..\..\trunk\src\lua\src;..\..\..\trunk\src\lua\etc;..\..\..\trunk\src\sharePtr;..\..\..\trunk\src\LuaWrapper;..\..\..\trunk\tools\bsdiff</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -148,7 +148,7 @@
       <Optimization>Full</Optimization>
       <PreprocessorDefinitions>BUILD_OGL2;EGL_NOT_PRESENT;WIN32;_WINDOWS;_OPENGLES;_CRT_SECURE_NO_WARNINGS;DEFAULT_PORTRAINT_MODE;_WIN32_DEVELOPER;LUA_BUILD_AS_DLL;LUA_CUSTOM_FILE_SYSTEM;LUA_EXPORT;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>..\..\..\trunk\src;..\..\..\trunk\src\zlib\include;..\..\..\trunk\src\luasocket;..\..\..\trunk\src\lua\src;..\..\..\trunk\src\lua\etc;..\..\..\trunk\src\sharePtr;..\..\..\trunk\src\LuaWrapper</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\trunk\src;..\..\..\trunk\src\zlib\include;..\..\..\trunk\src\luasocket;..\..\..\trunk\src\lua\src;..\..\..\trunk\src\lua\etc;..\..\..\trunk\src\sharePtr;..\..\..\trunk\src\LuaWrapper;..\..\..\trunk\tools\bsdiff</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
