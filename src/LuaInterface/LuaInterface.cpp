@@ -401,7 +401,8 @@ int SetDebugConfigValueL(lua_State * L)
 }
 extern "C" int bspatch_file(const char * oldfile, const char* newfile, const char* patchfile);
 void BSPatch_File(const char* oldfile, const char*patchfile, const char*newfile);
-int BSPatch_File(lua_State*L)
+
+int BSPatch_FileL(lua_State*L)
 {
 	size_t len = 0;
 	const char *oldfile = luaL_checklstring(L, 1, &len);	
@@ -416,6 +417,7 @@ void lua::RegisteGlobalFunctions() {
 	const luaL_reg global_functions[] = {
 		{ "RegisteSocketClass", lua::LuaPlus<S_O_TCP>::RegisteSocketClassL },
 		{ "UpdateDLCFile", UpdateDLCFile },
+		{ "BSPatchFile", BSPatch_FileL },		
 		{ "SaveDCLFileInfo", SaveDCLFileInfo },		
 		{ "rawLoadGameText", EngLoadGameText },
 		{ "rawGetGameText", EngGetGameText },

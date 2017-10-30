@@ -127,6 +127,7 @@ extern int TrackingAssert(const char * key, const char * file, int line)
 	}
  
 extern "C" int bspatch_file(const char * oldfile, const char* newfile, const char* patchfile);
+extern "C" int bspatch_file_mem(unsigned char * old, size_t oldsize, const char* newfile, const char* patchfile);
 void BSPatch_File(const char* oldfile, const char*patchabsolutionfile, const char*newfile)
 {
 	char oldfn[500];
@@ -135,11 +136,27 @@ void BSPatch_File(const char* oldfile, const char*patchabsolutionfile, const cha
 	GET_DLC()->GetFName(newfile, newfn, sizeof(newfn));
 	bool isfull = false;
 	const char* patchfile = GET_DLC()->GetRelateFName(patchabsolutionfile, isfull);
+	
 	const char *c = GameApp::getInstance()->getCachePath();
 	char fullpatchfile[1000];
 	snprintf(fullpatchfile, 1024, "%s%s", c, patchfile);
-	DBG_L("bapatchfile:o_%s,p_%s,n_%s", oldfn, fullpatchfile, newfn);
-	bspatch_file(oldfn,newfn,fullpatchfile);
+	char fullnewfile[1000];
+	snprintf(fullnewfile, 1024, "%s%s", c, newfile);
+
+	DBG_L("bapatchfile:o_%s,p_%s,n_%s", oldfn, fullpatchfile, fullnewfile);
+
+
+	FileBaseStreamPtr fs = GET_FS()->OpenFile(oldfn);
+	if (fs.get() && fs->rOrw())
+	{
+		int size = fs->fileLength();
+		unsigned char * preFileContent = (unsigned char *)MARC_NEW char[size];
+		fs->read(preFileContent, size);
+		bspatch_file_mem(preFileContent, size, fullnewfile, fullpatchfile);
+	//	MARC_DELETE preFileContent;
+		return ;
+	}
+	bspatch_file(oldfn, fullnewfile, fullpatchfile);
 }
  
 #if defined(TARGET_IPHONE_SIMULATOR) || defined(TARGET_OS_IPHONE)

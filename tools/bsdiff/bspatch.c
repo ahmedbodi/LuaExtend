@@ -313,6 +313,134 @@ int bspatch_file(const char * oldfile,const char* newfile ,const char* patchfile
 
 	return 0;
 }
+
+int bspatch_file_mem(unsigned char * old,size_t oldsize,const char* newfile ,const char* patchfile)
+{
+#ifdef USE_MEMORY_STREAM
+	Bsmf f;
+#else
+	FILE*f;
+#endif
+	FILE * fd;
+	uint8_t header[24];
+	uint8_t *new1;
+	int64_t  newsize;
+
+	struct bspatch_stream stream;
+#ifdef USE_MEMORY_STREAM
+	char * buf; int bufsize;
+	if (loadziptobuf(&buf, &bufsize, patchfile) != 1)
+	{
+		return -1;
+	}
+	bsmf_init(&f, buf, bufsize, 1);
+	if (bsmf_read(&f, header, 24) != 24)
+	{
+		bsmf_free(&f);
+		return -1;
+	}
+	if (memcmp(header, "ENDSLEY/BSDIFF43", 16) != 0)
+	{
+		printf("Corrupt patch\n");
+		bsmf_free(&f);
+		return -1;
+	}
+	newsize = offtin(header + 16);
+	if (newsize < 0)
+	{
+		printf("Corrupt patch\n");
+		bsmf_free(&f);
+		return -1;
+	}
+#else
+	/* Open patch file */
+	if ((f = fopen(patchfile, "rb")) == NULL)
+	{
+		printf("fopen(%s) \n", patchfile);
+		return -1;
+	}
+	/* Read header */
+	if (fread(header, 1, 24, f) != 24) {
+		printf("fread(%s)\n", patchfile);
+		return -1;
+	}
+
+	/* Check for appropriate magic */
+	if (memcmp(header, "ENDSLEY/BSDIFF43", 16) != 0)
+	{
+		printf("Corrupt patch\n");
+		return -1;
+	}
+	/* Read lengths from header */
+	newsize = offtin(header + 16);
+	if (newsize < 0)
+	{
+		printf("Corrupt patch\n");
+		return -1;
+	}
+#endif
+
+	/* Close patch file and re-open it via libbzip2 at the right places */
+
+	if ((new1 = malloc((size_t)newsize + 1)) == NULL)
+	{
+		printf("malloc space error!!\n");
+#ifdef USE_MEMORY_STREAM
+		bsmf_free(&f);
+#endif
+		return -1;
+	}
+
+	stream.read = bz2_read;
+#ifdef USE_MEMORY_STREAM
+	stream.opaque = &f;
+#else
+	stream.opaque = f;
+#endif
+	if (bspatch(old, oldsize, new1, newsize, &stream))
+	{
+#ifdef USE_MEMORY_STREAM
+		bsmf_free(&f);
+#else
+		fclose(f);
+#endif
+
+		free(old);
+		free(new1);
+		printf("bspatch\n");
+		return -1;
+	}
+#ifdef USE_MEMORY_STREAM
+	bsmf_free(&f);
+#else
+	fclose(f);
+#endif
+
+
+	/* Write the new file */
+	if ((fd = fopen(newfile, "wb")) == NULL)
+	{
+		free(old);
+		free(new1);
+		printf("create file %s error!\n", newfile);
+		return -1;
+	}
+	if (fwrite(new1, (size_t)newsize, 1, fd) != 1)
+	{
+		free(old);
+		free(new1);
+		fclose(fd);
+		printf("write file %s error !\n", newfile);
+		return -1;
+	}
+	fclose(fd);
+
+	free(new1);
+	free(old);
+
+	return 0;
+}
+
 #ifdef BSPATCH_EXE
 int main(int argc, char * argv[])
 {
