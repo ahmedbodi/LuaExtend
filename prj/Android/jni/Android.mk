@@ -32,6 +32,9 @@ endef
 
 ALLFILES = $(call walk, $(SRC_DIR))
 FILE_LIST += $(filter %.cpp %.c, $(ALLFILES))
+FILE_LIST += $(SRC_DIR)/../tools/bsdiff/bsdiff.c \
+			 $(SRC_DIR)/../tools/bsdiff/bsmemoryfile.c \
+			 $(SRC_DIR)/../tools/bsdiff/bspatch.c 
 
 LOCAL_SRC_FILES := $(filter-out $(FILTER), $(FILE_LIST))
 
@@ -68,6 +71,7 @@ LOCAL_C_INCLUDES :=	$(LOCAL_PATH)/../../src/Common \
 				    $(LOCAL_PATH)/../../src/zlib_config	\
 				    $(LOCAL_PATH)/../../src	\
 				    $(LOCAL_PATH)/../../src/Android	\
+				    $(LOCAL_PATH)/../../tools/bsdiff	\
 				    $(LOCAL_PATH)/
 
 LOCAL_CFLAGS := -DOS_ANDROID -D__ANDROID__ -DANDROID -D__STDC_INT64__ -DAndroid_CHECK_MEM -DANDROID_BACK_EVENT -DLUA_CUSTOM_FILE_SYSTEM
