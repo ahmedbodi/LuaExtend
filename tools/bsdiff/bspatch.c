@@ -148,8 +148,16 @@ static int loadziptobuf(char ** outbuf, int *outsize, const char * filename)
 		free(zipbuf);
 		fclose(pf);
 	}
-	*outbuf = (char*)malloc(buffsize);
+	*outbuf = (char*)malloc(buffsize+10000);
+	*outsize = buffsize;
 	int ret = uncompress(*outbuf, outsize, zipbuf, zipbufsize);
+	if (ret == Z_BUF_ERROR)
+	{
+		free(*outbuf);
+		*outbuf = (char*)malloc(buffsize*2);
+		*outsize = buffsize;
+		ret = uncompress(*outbuf, outsize, zipbuf, zipbufsize);
+	}
 	if (ret != Z_OK)
 	{
 		free(zipbuf);
