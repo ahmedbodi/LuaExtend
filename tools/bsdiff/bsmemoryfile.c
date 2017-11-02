@@ -96,11 +96,13 @@ int bsmf_ensureBufferEnough(Bsmf*bsmf, int sizeToAdd)
 }
 int bsmf_read(Bsmf*bsmf, void*outBuf, int size)
 {
-	int realSize = size > (bsmf->length - bsmf->pos) ? bsmf->length - bsmf->pos : size;
+    int realSize = 0;
+    int lastlength = (bsmf->length - bsmf->pos);
+    realSize = size > lastlength ? lastlength : size;
 	if (realSize != size)
 	{
 	}
-	memcpy(outBuf,bsmf->buf + bsmf->pos,realSize);
+    memcpy(outBuf,bsmf->buf + bsmf->pos,realSize);
 	bsmf->pos += realSize;
 	return realSize;
 }

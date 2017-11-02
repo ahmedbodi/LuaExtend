@@ -127,7 +127,7 @@ static int bz2_read(const struct bspatch_stream* stream, void* buffer, int lengt
 #endif
 }
 
-static int loadziptobuf(char ** outbuf, int *outsize, const char * filename)
+int loadziptobuf(char ** outbuf, int *outsize, const char * filename)
 {
 	FILE*pf;
 	if ((pf = fopen(filename, "rb")) == NULL)
@@ -135,7 +135,7 @@ static int loadziptobuf(char ** outbuf, int *outsize, const char * filename)
 		return -1;
 	}
 	int buffsize = 0;
-	int zipbufsize = 0;
+	size_t zipbufsize = 0;
 	
 	if (fread(&buffsize, sizeof(int), 1, pf) != 1 || fread(&zipbufsize, sizeof(int), 1, pf) != 1)
 	{
@@ -148,15 +148,15 @@ static int loadziptobuf(char ** outbuf, int *outsize, const char * filename)
 		free(zipbuf);
 		fclose(pf);
 	}
-	*outbuf = (char*)malloc(buffsize+10000);
-	*outsize = buffsize;
-	int ret = uncompress(*outbuf, outsize, zipbuf, zipbufsize);
-	if (ret == Z_BUF_ERROR)
+    char * tmp = (char*)malloc(buffsize+1000);
+    size_t osize = buffsize+1000;
+    int ret = uncompress(tmp, &osize, zipbuf, zipbufsize);
+    if (ret == Z_BUF_ERROR)
 	{
-		free(*outbuf);
-		*outbuf = (char*)malloc(buffsize*2);
-		*outsize = buffsize;
-		ret = uncompress(*outbuf, outsize, zipbuf, zipbufsize);
+		free(tmp);
+        tmp = (char*)malloc(buffsize*2);
+        osize = buffsize*2;
+		ret = uncompress(tmp, &osize, zipbuf, zipbufsize);
 	}
 	if (ret != Z_OK)
 	{
@@ -165,7 +165,9 @@ static int loadziptobuf(char ** outbuf, int *outsize, const char * filename)
 		fclose(pf);
 		return -1;
 	}
-	free(zipbuf);
+    (*outbuf) = tmp;
+    *outsize = buffsize;
+    free(zipbuf);
 	fclose(pf);		
 	return 1;
 }
@@ -336,7 +338,7 @@ int bspatch_file_mem(unsigned char * old,size_t oldsize,const char* newfile ,con
 
 	struct bspatch_stream stream;
 #ifdef USE_MEMORY_STREAM
-	char * buf; int bufsize;
+	char * buf = NULL; int bufsize = 0;
 	if (loadziptobuf(&buf, &bufsize, patchfile) != 1)
 	{
 		return -1;
