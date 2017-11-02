@@ -21,8 +21,8 @@ Global
 		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Debug|Win32.Build.0 = Exe_Debug|Win32
 		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Debug|x64.ActiveCfg = Exe_Debug|x64
 		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Debug|x64.Build.0 = Exe_Debug|x64
-		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Release|Win32.ActiveCfg = Lib_Debug|Win32
-		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Release|Win32.Build.0 = Lib_Debug|Win32
+		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Release|Win32.ActiveCfg = Exe_Release|Win32
+		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Release|Win32.Build.0 = Exe_Release|Win32
 		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Release|x64.ActiveCfg = Exe_Release|x64
 		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Exe_Release|x64.Build.0 = Exe_Release|x64
 		{AC2DBD02-9348-4B14-AFA3-4F50BDFDA6B0}.Lib_Debug|Win32.ActiveCfg = Lib_Debug|Win32
