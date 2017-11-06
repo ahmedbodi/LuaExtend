@@ -131,10 +131,10 @@ extern "C" const char* GetNetworkType()
 	
  	return ret; 
 }
-extern "C" void showAlertView(const char* message, int tag){ printf("FakeWin32ShowAlertView %s, %d \n", message, tag); }
-extern "C" const char* GetPlatform(){ return "WIN32"; }
-extern "C" void addLocalNotification(const char * nt){ printf("to do add win32 local notification;"); }
-extern "C" const char *GetIDFA(){ return "WINIDFA"; }
+extern "C" void showAlertView(const char* message, int tag){ printf("Fake ANDROID ShowAlertView %s, %d \n", message, tag); }
+extern "C" const char* GetPlatform(){ return "AND"; }
+extern "C" void addLocalNotification(const char * nt){ printf("to do add ANDROID local notification;"); }
+extern "C" const char *GetIDFA(){ return "ANDIDFA"; }
 
 extern "C" void OpenURL(const char* url)
 {
