@@ -24,7 +24,7 @@ string getAssertPath(const char * filename)
 	if (tmp.find(keywords) != -1)
 	{
 		string t = tmp.substr(tmp.rfind(keywords) + strlen(keywords));
-		DBG_L("assert name:%s",t.c_str());
+		DBG_L("assert name: %s",t.c_str());
 		return t;
 	}
 	else
