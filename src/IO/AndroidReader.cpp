@@ -20,10 +20,12 @@ extern AAssetManager* g_AndroidResMgr;
 string getAssertPath(const char * filename)
 {
 	string tmp = filename;
-	const char * keywords = "AppDataTODOPATH/";
+	const char * keywords = "/app/";
 	if (tmp.find(keywords) != -1)
 	{
-		return tmp.substr(tmp.rfind(keywords) + strlen(keywords));
+		string t = tmp.substr(tmp.rfind(keywords) + strlen(keywords));
+		DBG_L("assert name:%s",t.c_str());
+		return t;
 	}
 	else
 	{
