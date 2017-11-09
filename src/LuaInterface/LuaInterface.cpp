@@ -412,12 +412,24 @@ int BSPatch_FileL(lua_State*L)
 	return 0;
 }
 
+extern "C" void EventLog(const char * key,const char * p1,const char * p2,const char * p3);
+int EventLogL(lua_State*L)
+{
+	size_t len = 0;
+	const char *key = luaL_checklstring(L, 1, &len);	
+	const char *p1 =  luaL_checklstring(L, 2, &len);
+	const char *p2 =  luaL_checklstring(L, 3, &len);
+	const char *p3 =  luaL_checklstring(L, 4, &len);	
+	EventLog(key,p1,p2,p3);
+	return 0
+}
 
 void lua::RegisteGlobalFunctions() {
 	const luaL_reg global_functions[] = {
 		{ "RegisteSocketClass", lua::LuaPlus<S_O_TCP>::RegisteSocketClassL },
 		{ "UpdateDLCFile", UpdateDLCFile },
-		{ "BSPatchFile", BSPatch_FileL },		
+		{ "BSPatchFile", BSPatch_FileL },
+		{ "EventLog", EventLogL },
 		{ "SaveDCLFileInfo", SaveDCLFileInfo },		
 		{ "rawLoadGameText", EngLoadGameText },
 		{ "rawGetGameText", EngGetGameText },

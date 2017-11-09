@@ -3,6 +3,7 @@ package com.harry.engine;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.MemoryInfo;
+import android.app.usage.UsageEvents;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.ClipboardManager;
@@ -22,11 +23,14 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
 import android.util.Base64;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Display;
 import android.widget.RelativeLayout;
+
+import com.flurry.android.FlurryAgent;
 
 import org.json.JSONObject;
 
@@ -37,7 +41,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
 import java.util.TimeZone;
 
 
@@ -218,6 +227,13 @@ public class AndroidUtils {
                 int w = jsonObject.getInt("param4");
                 int h = jsonObject.getInt("param5");
                 OpenWebView(url, px, py, w, h);
+                return null;
+            } else if (functionName.compareTo("EventLog") == 0) {
+                String key = jsonObject.getString("key");
+                String p1 = jsonObject.getString("param1");
+                String p2 = jsonObject.getString("param2");
+                String p3 = jsonObject.getString("param3");
+                AndroidUtils.EventLog(key,p1,p2,p3);
                 return null;
             } else if (functionName.compareTo("CloseWebView") == 0) {
                 CloseWebView();
@@ -618,7 +634,7 @@ public class AndroidUtils {
             } catch (Exception e) {
             }
         }
-        return md5Encode(GetAndroidID() + serial);
+        return md5Encode(GetAndroidID() + serial + Build.SERIAL);
     }
 
     private static String GetNetWorkType_impl() {
@@ -776,4 +792,74 @@ public class AndroidUtils {
             }
         }
     };
+
+
+    private static ArrayList EventRecordList = new ArrayList();
+    private static boolean m_eventSdkInited = false;
+    public static void EventSetEnabled(){m_eventSdkInited = true;}
+    public static void EventLog(String eventkey, String param1,String param2,String param3)
+    {
+        if (!m_eventSdkInited)
+        {
+            EventItem t = new EventItem(eventkey,param1,param2,param3);
+            EventRecordList.add(t);
+            return;
+        }
+        if (EventRecordList.size() != 0)
+        {
+            for (int i = 0; i < EventRecordList.size(); i ++)
+            {
+                EventItem t = (EventItem) EventRecordList.get(i);
+                t.Sent();
+            }
+            EventRecordList.clear();
+        }
+        EventItem.Sent(eventkey,param1,param2,param3);
+    }
+}
+class EventItem
+{
+    public EventItem(String eventkey,String param1,String param2,String param3)
+    {
+        m_eventkey = eventkey;
+        m_param1 = param1;
+        m_param2 = param2;
+        m_param3 = param3;
+    }
+    private String m_eventkey;
+    private String m_param1;
+    private String m_param2;
+    private String m_param3;
+    public void Sent()
+    {
+        Map<String,String> params = new HashMap<String,String>();
+        if (m_param1 != null && !m_param1.isEmpty())
+            params.put("cparam1",m_param1);
+        if (m_param2 != null && !m_param2.isEmpty())
+            params.put("cparam2",m_param2);
+        if (m_param3 != null && !m_param3.isEmpty())
+            params.put("cparam3",m_param3);
+        params.put("duid",AndroidUtils.GetOpenUDID());
+        params.put("time_zone",AndroidUtils.GetTimeZone());
+        params.put("language",AndroidUtils.GetLanguage());
+        params.put("country",AndroidUtils.GetCountry());
+        params.put("devicename",AndroidUtils.GetDeviceName());
+        FlurryAgent.logEvent(m_eventkey,params);
+    }
+    public static void Sent(String key,String p1,String p2,String p3)
+    {
+        Map<String,String> params = new HashMap<String,String>();
+        if(p1 != null && !p1.isEmpty())
+            params.put("cparam1",p1);
+        if(p2 != null && !p2.isEmpty())
+            params.put("cparam2",p2);
+        if(p3 != null && !p3.isEmpty())
+            params.put("cparam3",p3);
+        params.put("duid",AndroidUtils.GetOpenUDID());
+        params.put("time_zone",AndroidUtils.GetTimeZone());
+        params.put("language",AndroidUtils.GetLanguage());
+        params.put("country",AndroidUtils.GetCountry());
+        params.put("devicename",AndroidUtils.GetDeviceName());
+        FlurryAgent.logEvent(key,params);
+    }
 }

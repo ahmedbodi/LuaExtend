@@ -154,5 +154,5 @@ extern int TrackingAssert_impl(const char*key,const char*param)
 {
 	return 0;
 }
-
+extern "C" void EventLog(const char * key,const char * p1,const char * p2,const char * p3){}
 

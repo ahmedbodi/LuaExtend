@@ -11,6 +11,8 @@
 #include <cctype>
 #include "AndroidUtils.h"
 #define MAX_INT_TO_STR_LEN (20)
+#define SINGLE_STR_ATTACH_LEN (3)
+
 extern "C" const char *AppVer()
 { 
 	const char * input = "{\"function\":\"GetGameVersionName\"}";
@@ -80,7 +82,7 @@ extern "C" const char *DeviceOSVersionCode()
 extern "C" void SetPastBoard(const char* param)
 {
 	const char * input = "{\"function\":\"CopyToPastBoard\",\"param1\":\"%s\"}";
-	char * buf = getJniRetBuff(strlen(param)+strlen(input));
+	char * buf = getJniRetBuff(strlen(param) + strlen(input) + SINGLE_STR_ATTACH_LEN * 1);
 	sprintf(buf,input,param);
 	AndroidUtils_CallStaticAndroidJavaFunction(buf); 
 }
@@ -121,7 +123,6 @@ extern "C" int IsNetOK()
 	if(ret != NULL)
 		return atoi(ret);
  	return 0; 
- return 1; 
 }
 
 extern "C" const char* GetNetworkType()
@@ -138,11 +139,9 @@ extern "C" const char *GetIDFA(){ return "ANDIDFA"; }
 
 extern "C" void OpenURL(const char* url)
 {
-
 	const char * input = "{\"function\":\"OpenUrl\",\"param1\":\"%s\"}";
-	char * buf = getJniRetBuff(strlen(url)+strlen(input));
+	char * buf = getJniRetBuff(strlen(url)+strlen(input) + SINGLE_STR_ATTACH_LEN*2);
 	sprintf(buf,input,url);
-
 	AndroidUtils_CallStaticAndroidJavaFunction(buf); 
 }
 
@@ -161,6 +160,16 @@ extern "C" const char* CallNativeFuntionByJson(const char * jsonstring)
 	return AndroidUtils_CallStaticAndroidJavaFunction(jsonstring); 
 }
 
-
-
-
+extern "C" void EventLog(const char * key,const char * p1,const char * p2,const char * p3)
+{
+	const char * input = "{\"function\":\"EventLog\",\"key\":\"%s\",\"param1\":%s,\"param2\":%s,\"param3\":%s}";
+	if (p1 == NULL)
+		p1 = "";
+	if (p2 == NULL)
+		p2 = "";
+	if (p3 == NULL)
+		p3 = "";
+ 	char * buf = getJniRetBuff(strlen(input) + strlen(key) + strlen(p1) + strlen(p2) + strlen(p3) + SINGLE_STR_ATTACH_LEN * 4);
+ 	sprintf(buf,input,url,x,y,w,h);
+ 	AndroidUtils_CallStaticAndroidJavaFunction(buf); 
+}
