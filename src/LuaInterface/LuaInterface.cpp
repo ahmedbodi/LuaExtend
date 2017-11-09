@@ -421,7 +421,7 @@ int EventLogL(lua_State*L)
 	const char *p2 =  luaL_checklstring(L, 3, &len);
 	const char *p3 =  luaL_checklstring(L, 4, &len);	
 	EventLog(key,p1,p2,p3);
-	return 0
+	return 0;
 }
 
 void lua::RegisteGlobalFunctions() {

@@ -20,7 +20,6 @@ public class MainActivity extends MyUnityPlayerActivity {
     FlurryAgent.Builder m_flurry;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AndroidUtils.EventLog();
         Log.d("OverrideActivity", "onCreate called!");
         AndroidUtils.gameActivity = this;
         AndroidUtils.SetGameName(AndroidUtils.INIT_GAME_NAME);

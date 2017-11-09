@@ -170,6 +170,6 @@ extern "C" void EventLog(const char * key,const char * p1,const char * p2,const 
 	if (p3 == NULL)
 		p3 = "";
  	char * buf = getJniRetBuff(strlen(input) + strlen(key) + strlen(p1) + strlen(p2) + strlen(p3) + SINGLE_STR_ATTACH_LEN * 4);
- 	sprintf(buf,input,url,x,y,w,h);
+ 	sprintf(buf,input,key,p1,p2,p3);
  	AndroidUtils_CallStaticAndroidJavaFunction(buf); 
 }
