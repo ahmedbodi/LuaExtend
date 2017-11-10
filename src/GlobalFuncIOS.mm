@@ -272,5 +272,8 @@ extern "C" void DoHideWebView(bool);
 extern "C" int IsNetOK(){return ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable );}
 
 extern int TrackingAssert_impl(const char*key,const char*param){return 1;}
-
-extern "C" void EventLog(const char * key,const char * p1,const char * p2,const char * p3){}
+extern "C" void Flurry_EventLog(const char * key,const char * p1,const char* p2,const char*p3);
+extern "C" void EventLog(const char * key,const char * p1,const char * p2,const char * p3)
+{
+    Flurry_EventLog(key,p1,p2,p3);
+}
