@@ -242,7 +242,8 @@ void InitDBGInfo()
 		}
 		g_DevMode = 1;
 		CheckDBGPath();
-	}
+	}	
+	cfgFstream.close();
 }
 
 }
