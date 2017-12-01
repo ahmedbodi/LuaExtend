@@ -10,6 +10,7 @@
 		4A15F85B1FA9A53400D7CA1E /* bsdiff.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A15F8581FA9A53400D7CA1E /* bsdiff.c */; };
 		4A15F85C1FA9A53400D7CA1E /* bsmemoryfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A15F8591FA9A53400D7CA1E /* bsmemoryfile.c */; };
 		4A15F85D1FA9A53400D7CA1E /* bspatch.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A15F85A1FA9A53400D7CA1E /* bspatch.c */; };
+		4A2A7E101FD1359B00667391 /* urlEncodeDecode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A7E0E1FD1359B00667391 /* urlEncodeDecode.cpp */; };
 		4A40DED11E8BD11800F1E360 /* lua_lz4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DEC71E8BD11800F1E360 /* lua_lz4.cpp */; };
 		4A40DED21E8BD11800F1E360 /* md5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DEC81E8BD11800F1E360 /* md5.cpp */; };
 		4A40DED41E8BD11800F1E360 /* TimeProfiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DECC1E8BD11800F1E360 /* TimeProfiler.cpp */; };
@@ -127,6 +128,8 @@
 		4A15F8591FA9A53400D7CA1E /* bsmemoryfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bsmemoryfile.c; path = ../../../tools/bsdiff/bsmemoryfile.c; sourceTree = "<group>"; };
 		4A15F85A1FA9A53400D7CA1E /* bspatch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bspatch.c; path = ../../../tools/bsdiff/bspatch.c; sourceTree = "<group>"; };
 		4A263B0F1E88F5EE0078B0EE /* libengine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libengine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A2A7E0E1FD1359B00667391 /* urlEncodeDecode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = urlEncodeDecode.cpp; path = ../../../src/Common/urlEncodeDecode.cpp; sourceTree = "<group>"; };
+		4A2A7E0F1FD1359B00667391 /* urlEncodeDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = urlEncodeDecode.h; path = ../../../src/Common/urlEncodeDecode.h; sourceTree = "<group>"; };
 		4A307E191FAABB660011EF8B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4A40DEC41E8BD11800F1E360 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../../../src/Common/Common.h; sourceTree = "<group>"; };
 		4A40DEC71E8BD11800F1E360 /* lua_lz4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lua_lz4.cpp; path = ../../../src/Common/lua_lz4.cpp; sourceTree = "<group>"; };
@@ -408,6 +411,8 @@
 		4AF5A2041E88FB0400E4DCD1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4A2A7E0E1FD1359B00667391 /* urlEncodeDecode.cpp */,
+				4A2A7E0F1FD1359B00667391 /* urlEncodeDecode.h */,
 				4A7BA9271F7CB26B00586521 /* SLTable.cpp */,
 				4A7BA9281F7CB26B00586521 /* SLTable.h */,
 				4A7BA90F1F7CB0A200586521 /* TxtMgr.h */,
@@ -740,6 +745,7 @@
 				4AF5A2941E88FC9700E4DCD1 /* lfs.c in Sources */,
 				4AF5A22D1E88FC5600E4DCD1 /* auxiliar.c in Sources */,
 				4A15F85D1FA9A53400D7CA1E /* bspatch.c in Sources */,
+				4A2A7E101FD1359B00667391 /* urlEncodeDecode.cpp in Sources */,
 				4AF5A2321E88FC5600E4DCD1 /* lua_extensions.c in Sources */,
 				4A7BA9061F7CB06000586521 /* CFSys.cpp in Sources */,
 				4AF5A2A01E88FC9700E4DCD1 /* lparser.c in Sources */,
