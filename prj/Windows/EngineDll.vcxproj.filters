@@ -309,6 +309,9 @@
     <ClInclude Include="..\..\src\IO\ZipData.h">
       <Filter>Source Files\IO</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\Common\urlEncodeDecode.h">
+      <Filter>Source Files\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Common\md5.cpp">
@@ -577,6 +580,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\CPtr.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Common\urlEncodeDecode.cpp">
+      <Filter>Source Files\Common</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

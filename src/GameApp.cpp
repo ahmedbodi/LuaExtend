@@ -81,11 +81,14 @@ bool GameApp::Update()
 	return true;
 }
 extern int g_CatchLuaError;
+extern "C" void DoCommandFromOpenUrl();
 void GameApp::initGame(lua_State* l)
 {	
+ 
 	g_CatchLuaError = 0; // clear
 	GET_DLC()->reset();
 	GET_FS()->release();
+	DoCommandFromOpenUrl();
 	ENG_DBG::InitDBGInfo();
 	m_lastTime = getSysTime();
 	GET_FS()->addZip("ls.dat");
@@ -98,6 +101,7 @@ void GameApp::update(int dt)
 {	
 	if (m_luaRecreateFlag)
 	{
+		DoCommandFromOpenUrl();
 		ENG_DBG::InitDBGInfo();
 		m_luaRecreateFlag = false;
 		GET_DLC()->reset();

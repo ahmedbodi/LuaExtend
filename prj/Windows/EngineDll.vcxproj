@@ -220,6 +220,7 @@
     <ClInclude Include="..\..\src\Common\TableSL\SLTable.h" />
     <ClInclude Include="..\..\src\Common\TimeProfiler.h" />
     <ClInclude Include="..\..\src\Common\TxtMgr.h" />
+    <ClInclude Include="..\..\src\Common\urlEncodeDecode.h" />
     <ClInclude Include="..\..\src\GameApp.h" />
     <ClInclude Include="..\..\src\GlobalFunc.h" />
     <ClInclude Include="..\..\src\IO\BaseStream.h" />
@@ -312,6 +313,7 @@
     <ClCompile Include="..\..\src\Common\TableSL\SLTable.cpp" />
     <ClCompile Include="..\..\src\Common\TimeProfiler.cpp" />
     <ClCompile Include="..\..\src\Common\TxtMgr.cpp" />
+    <ClCompile Include="..\..\src\Common\urlEncodeDecode.cpp" />
     <ClCompile Include="..\..\src\CPtr.cpp" />
     <ClCompile Include="..\..\src\GameApp.cpp" />
     <ClCompile Include="..\..\src\GlobalFunc.cpp" />
