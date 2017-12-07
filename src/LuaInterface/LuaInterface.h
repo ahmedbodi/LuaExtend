@@ -409,6 +409,7 @@ private:
 	void    OnTryingReconnect(const char * connectName);
 	void    OnConnectToServer(const char * connectName);
  
+	void    SendMessageToLua(const char * jsoncontent);
 };
 
 #endif

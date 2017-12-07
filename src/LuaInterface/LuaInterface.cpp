@@ -424,6 +424,14 @@ int EventLogL(lua_State*L)
 	return 0;
 }
 
+extern "C" void CallSDKFunction(const char * jsoncontent);
+int CallSDKFunctionL(lua_State*L)
+{
+	size_t len = 0;
+	const char *jsoncontent = luaL_checklstring(L, 1, &len);
+	CallSDKFunction(jsoncontent);
+	return 0;
+}
 void lua::RegisteGlobalFunctions() {
 	const luaL_reg global_functions[] = {
 		{ "RegisteSocketClass", lua::LuaPlus<S_O_TCP>::RegisteSocketClassL },
@@ -485,6 +493,7 @@ void lua::RegisteGlobalFunctions() {
 		{ "DestroyKeyboard", DestroyKeyboardL },
         { "SetKeyboardCotent", SetKeyboardCotentL },
 		{ "SetDebugConfigValue", SetDebugConfigValueL },
+		{ "CallSDKFunction", CallSDKFunctionL },
 		{ NULL, NULL }
 	};
 	RECORD_GET_LUA_SDK(_L);
@@ -573,5 +582,14 @@ void lua::OnConnectToServer(const char * connectName) {
     lua_getglobal(_L, "OnConnectToServer");
 	lua_pushstring(_L, connectName);
     LUA_CALL(_L, 1, 0);
+	RECOVER_SVD_LUA_SDK(_L, 0)
+}
+
+
+void lua::SendMessageToLua(const char * jsoncontent) {
+	RECORD_GET_LUA_SDK(_L);
+	lua_getglobal(_L, "OnReceiveJsonMessage");
+	lua_pushstring(_L, jsoncontent);
+	LUA_CALL(_L, 1, 0);
 	RECOVER_SVD_LUA_SDK(_L, 0)
 }

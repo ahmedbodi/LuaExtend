@@ -128,7 +128,10 @@ void GameApp::update(int dt)
 #endif
     lua::CallUpdate(dt);
 }
-
+void GameApp::SendMessageToLua(const char * jsoncontent)
+{
+	lua::SendMessageToLua(jsoncontent);
+}
 unsigned long GameApp::getSysTime()
 {
 #if defined(WIN32)
@@ -241,6 +244,10 @@ extern "C" EXPORT_API void GameApp_initGame(lua_State* l)
 extern "C" EXPORT_API void GameApp_update()
 {
 	GameApp::GetInstance()->Update();
+}
+extern "C" EXPORT_API void GameApp_SendMessageToLua(const char * jsoncontent)
+{
+	GameApp::GetInstance()->SendMessageToLua(jsoncontent);
 }
 
 extern int lua::CatchError(lua_State *L);

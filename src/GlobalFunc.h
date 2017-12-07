@@ -46,3 +46,4 @@ extern "C" void addLocalNotification(const char * nt);
 extern "C" const char *GetIDFA();
 extern "C" void OpenURL(const char* url);
 
+extern "C" void CallSDKFunction(const char * jsoncontent);

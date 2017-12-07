@@ -31,6 +31,7 @@ public:
     const char* getObbBundlePath()const;	
 	void setObbBundlePath(const char*);
 	#endif
+	void SendMessageToLua(const char * jsoncontent);
 private:
 	bool m_luaRecreateFlag;
 	static GameApp* m_instance;

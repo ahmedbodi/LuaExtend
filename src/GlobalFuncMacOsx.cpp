@@ -159,3 +159,8 @@ extern "C" void DestroyKeyboard() {
 extern "C" void SetKeyboardContent(const char * txt) {
 }
 extern "C" void EventLog(const char * key,const char * p1,const char * p2,const char * p3){}
+
+extern "C" void CallSDKFunction(const char * jsoncontent)
+{
+    
+}

@@ -234,3 +234,7 @@ extern "C" const char* CallNativeFuntionByJson(const char * jsonstring)
 
 extern "C" void EventLog(const char * key,const char * p1,const char * p2,const char * p3){}
 
+extern "C" void CallSDKFunction(const char * jsoncontent)
+{
+    
+}
