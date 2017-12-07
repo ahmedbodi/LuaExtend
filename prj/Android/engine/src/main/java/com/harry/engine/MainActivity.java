@@ -10,6 +10,11 @@ import android.view.MotionEvent;
 
 import com.flurry.android.FlurryAgent;
 import com.flurry.android.FlurryAgentListener;
+import com.harry.sdk.LiLithSDKUtils;
+import com.lilith.sdk.LilithSDK;
+import com.lilith.sdk.SDKObserver;
+import com.lilith.sdk.common.constant.LoginType;
+import com.lilith.sdk.common.constant.PayType;
 
 
 public class MainActivity extends MyUnityPlayerActivity {
@@ -42,7 +47,11 @@ public class MainActivity extends MyUnityPlayerActivity {
         super.onStop();
         FlurryAgent.onEndSession(this);
     }
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LilithSDK.getInstance().removeSDKObserver(LiLithSDKUtils.getInstance().getSDKObserver());
+    }
     public void onBackPressed() {
         // instead of calling UnityPlayerActivity.onBackPressed() we just ignore the back button event
         // super.onBackPressed();
@@ -51,6 +60,7 @@ public class MainActivity extends MyUnityPlayerActivity {
     public void initSDK()
     {
         initFlurrySDK();
+        LilithSDK.getInstance().addSDKObserver(LiLithSDKUtils.getInstance().getSDKObserver());
     }
 
     class FlurryListener implements FlurryAgentListener {

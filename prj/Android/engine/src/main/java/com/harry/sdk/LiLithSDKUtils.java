@@ -4,17 +4,23 @@ import com.lilith.sdk.SDKObserver;
 import com.lilith.sdk.common.constant.LoginType;
 import com.lilith.sdk.common.constant.PayType;
 
+import org.json.JSONObject;
+
 /**
  * Created by 55555 on 2017/12/6.
  */
 
 public class LiLithSDKUtils {
 
-    public LiLithSDKUtils getInstance()
+    public static LiLithSDKUtils getInstance()
     {
         if (minstance == null)
             minstance = new LiLithSDKUtils();
         return minstance;
+    }
+    public void CallSDKFunction(String jsoncmd)
+    {
+
     }
     public SDKObserver getSDKObserver()
     {

@@ -31,6 +31,7 @@ import android.view.Display;
 import android.widget.RelativeLayout;
 
 import com.flurry.android.FlurryAgent;
+import com.harry.sdk.LiLithSDKUtils;
 
 import org.json.JSONObject;
 
@@ -62,6 +63,7 @@ public class AndroidUtils {
     private static ActivityManager m_activityManager = null;
     private static ConnectivityManager m_connectManager = null;
 
+    public static native void sendMessageToLua(String jsonContent);
 
     private static native void initJNI();
 
@@ -246,6 +248,11 @@ public class AndroidUtils {
                 int px = jsonObject.getInt("param1");
                 int py = jsonObject.getInt("param2");
                 MoveWebView(px, py);
+                return null;
+            }
+            else if (functionName.compareTo("SDK_CMD") == 0){
+                String content = jsonObject.getString("content");
+                LiLithSDKUtils.getInstance().CallSDKFunction(content);
                 return null;
             } else {
                 Log.e("CallJavaFunction", "Error:Can not found function :" + functionName);

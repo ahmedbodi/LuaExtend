@@ -14,6 +14,16 @@ buildscript {
 
 allprojects {
     repositories {
+        maven {
+            url 'http://apptest.lilithgame.com:8881/artifactory/remote-repos'
+            credentials {
+                username 'common_reader'
+                password 'common_reader'
+            }
+        }
+        flatDir {
+            dirs 'libs'
+        }
         jcenter()
     }
 }
