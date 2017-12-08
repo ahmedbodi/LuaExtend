@@ -48,7 +48,8 @@ public class MyUnityPlayerActivity extends Activity {
         m_ViewSizeObserver = ViewSizeObserver.getInstance(this,m_gamelayout);
         m_ViewSizeObserver.start();
 
-
+        LilithChat.init();
+        LilithChat.preInit(this,5);
     }
 
     // Quit Unity
@@ -119,4 +120,26 @@ public class MyUnityPlayerActivity extends Activity {
     public static void CallThreadOnUnity() {
        AndroidUtils.CallThreadOnUnity();
     }
+
+    public void LogD(String msg)
+    {
+        CSharpHelper.LogD(msg);
+    }
+
+    public void LogE(String msg)
+    {
+        CSharpHelper.LogE(msg);
+    }
+
+    public void LogW(String msg)
+    {
+        CSharpHelper.LogW(msg);
+    }
+
+    public void LogI(String msg)
+    {
+        CSharpHelper.LogI(msg);
+    }
+
+    public void CopyToClipboard(String msg){ CSharpHelper.CopyToClipboard(this, msg);}
 }

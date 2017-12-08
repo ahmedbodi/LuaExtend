@@ -17,6 +17,15 @@
             </intent-filter>
             <meta-data android:value="flurry_key_value" android:name="flurry_key"></meta-data>
         </activity>
+        <provider
+            android:name="sh.lilith.lilithchat.providers.SDKFileProvider"
+            android:authorities="com.lilithgame.roc.gp.lilith.chat.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/llh_chat_provider_paths"/>
+        </provider>
     </application>
 
 </manifest>
