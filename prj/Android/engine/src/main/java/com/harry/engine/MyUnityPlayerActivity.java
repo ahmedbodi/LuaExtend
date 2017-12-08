@@ -16,6 +16,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import sh.lilith.lilithchat.open.LilithChat;
+
 /**
  * Created by harry on 2017/3/23.
  */
