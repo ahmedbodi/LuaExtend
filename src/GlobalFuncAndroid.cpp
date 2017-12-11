@@ -157,7 +157,7 @@ extern int TrackingAssert_impl(const char*key,const char*param)
 
 extern "C" void CallSDKFunction(const char * jsoncontent)
 {
-const char * input = "{\"function\":\"SDK_CMD\",\"content\":\"%s\"}";
+	const char * input = "{\"function\":\"SDK_CMD\",\"content\":%s}";
 	char * buf = getJniRetBuff(strlen(jsoncontent)+strlen(input) + SINGLE_STR_ATTACH_LEN*2);
 	sprintf(buf,input,jsoncontent);
 	AndroidUtils_CallStaticAndroidJavaFunction(buf); 	
