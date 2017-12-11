@@ -251,8 +251,8 @@ public class AndroidUtils {
                 return null;
             }
             else if (functionName.compareTo("SDK_CMD") == 0){
-                String content = jsonObject.getString("content");
-                LiLithSDKUtils.getInstance().CallSDKFunction(content);
+                JSONObject content = (JSONObject)jsonObject.get("content");
+                LiLithSDKUtils.getInstance().CallSDKFunction(content.toString());
                 return null;
             } else {
                 Log.e("CallJavaFunction", "Error:Can not found function :" + functionName);

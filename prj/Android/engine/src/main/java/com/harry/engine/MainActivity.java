@@ -22,6 +22,7 @@ public class MainActivity extends MyUnityPlayerActivity {
     static {
         System.loadLibrary("EngineDll");
     }
+
     FlurryAgent.Builder m_flurry;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
