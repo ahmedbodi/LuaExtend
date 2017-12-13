@@ -61,9 +61,27 @@ public class MyUnityPlayerActivity extends Activity {
         super.onDestroy();
     }
 
-    // Pause Unity
     @Override
+    protected void onStart()
+    {
+        Log.d("MyUnityPlayerActivity","onStart");
+        super.onStart();
+        mUnityPlayer.resume();
+        mUnityPlayer.windowFocusChanged(true);
+    }
+    @Override
+    protected void onStop()
+    {
+        Log.d("MyUnityPlayerActivity","onStop");
+        super.onStop();
+        mUnityPlayer.pause();
+        mUnityPlayer.windowFocusChanged(false);
+    }
+
+   // Pause Unity
+   /*  @Override
     protected void onPause() {
+        Log.d("MyUnityPlayerActivity","onPause");
         super.onPause();
         mUnityPlayer.pause();
     }
@@ -71,10 +89,11 @@ public class MyUnityPlayerActivity extends Activity {
     // Resume Unity
     @Override
     protected void onResume() {
+        Log.d("MyUnityPlayerActivity","onResume");
         super.onResume();
         mUnityPlayer.resume();
-    }
-
+     }
+    */
     // This ensures the layout will be correct.
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -86,6 +105,7 @@ public class MyUnityPlayerActivity extends Activity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
+        if(hasFocus != false)
         mUnityPlayer.windowFocusChanged(hasFocus);
     }
 
