@@ -14,6 +14,7 @@
 		7005C8891F90A0FB0033465C /* CMemToFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C87A1F90A0FA0033465C /* CMemToFile.cpp */; };
 		7005C88A1F90A0FB0033465C /* CEFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C87F1F90A0FA0033465C /* CEFile.cpp */; };
 		7005C88B1F90A0FB0033465C /* ZipData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7005C8811F90A0FB0033465C /* ZipData.cpp */; };
+		70402FEA1FE0E19F000BCC88 /* urlEncodeDecode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70402FE81FE0E19E000BCC88 /* urlEncodeDecode.cpp */; };
 		706662BF1FA33DEC0024BE70 /* bspatch.c in Sources */ = {isa = PBXBuildFile; fileRef = 706662BA1FA33DEC0024BE70 /* bspatch.c */; };
 		706662C01FA33DEC0024BE70 /* bsdiff.c in Sources */ = {isa = PBXBuildFile; fileRef = 706662BC1FA33DEC0024BE70 /* bsdiff.c */; };
 		706662C11FA33DEC0024BE70 /* bsmemoryfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 706662BE1FA33DEC0024BE70 /* bsmemoryfile.c */; };
@@ -143,6 +144,8 @@
 		7005C89F1F90A1AD0033465C /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../../../src/Common/Common.h; sourceTree = "<group>"; };
 		7005C8A01F90A1D60033465C /* SLTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SLTable.h; path = ../../../src/Common/TableSL/SLTable.h; sourceTree = "<group>"; };
 		7005C8A11F90A1D60033465C /* SLTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SLTable.cpp; path = ../../../src/Common/TableSL/SLTable.cpp; sourceTree = "<group>"; };
+		70402FE81FE0E19E000BCC88 /* urlEncodeDecode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = urlEncodeDecode.cpp; path = ../../../src/Common/urlEncodeDecode.cpp; sourceTree = "<group>"; };
+		70402FE91FE0E19F000BCC88 /* urlEncodeDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = urlEncodeDecode.h; path = ../../../src/Common/urlEncodeDecode.h; sourceTree = "<group>"; };
 		706662B91FA33DEC0024BE70 /* bsmemoryfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bsmemoryfile.h; path = ../../../../tools/bsdiff/bsmemoryfile.h; sourceTree = "<group>"; };
 		706662BA1FA33DEC0024BE70 /* bspatch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bspatch.c; path = ../../../../tools/bsdiff/bspatch.c; sourceTree = "<group>"; };
 		706662BB1FA33DEC0024BE70 /* bsdiff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bsdiff.h; path = ../../../../tools/bsdiff/bsdiff.h; sourceTree = "<group>"; };
@@ -508,6 +511,8 @@
 				7005C8A11F90A1D60033465C /* SLTable.cpp */,
 				7005C8A01F90A1D60033465C /* SLTable.h */,
 				7005C89F1F90A1AD0033465C /* Common.h */,
+				70402FE81FE0E19E000BCC88 /* urlEncodeDecode.cpp */,
+				70402FE91FE0E19F000BCC88 /* urlEncodeDecode.h */,
 				7005C8991F90A1AC0033465C /* ENG_DBG.cpp */,
 				7005C8961F90A1AC0033465C /* ENG_DBG.h */,
 				7005C89B1F90A1AC0033465C /* lua_lz4.cpp */,
@@ -757,6 +762,7 @@
 				7087CB7A1E9B30CD00938DC5 /* lapi.c in Sources */,
 				7087CC721E9B34CA00938DC5 /* crc32.cpp in Sources */,
 				7087CB9A1E9B30CD00938DC5 /* lzio.c in Sources */,
+				70402FEA1FE0E19F000BCC88 /* urlEncodeDecode.cpp in Sources */,
 				70CF29A71F90AA45001A5349 /* CPtr.cpp in Sources */,
 				7087CB911E9B30CD00938DC5 /* lstrlib.c in Sources */,
 				7087CB841E9B30CD00938DC5 /* lgc.c in Sources */,

@@ -53,7 +53,7 @@ extern "C" const char *GetOpenUdid()
 		if (((ifaptr)->ifa_addr)->sa_family == AF_LINK   ) {
 		  ptr = (unsigned char *)LLADDR((struct sockaddr_dl *)(ifaptr)->ifa_addr);
 		  if(*ptr != 0) {
-			sprintf(strid, "%02x:%02x:%02x:%02x:%02x:%02x\n",
+			sprintf(strid, "%02x:%02x:%02x:%02x:%02x:%02x",
 					*ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5));
               return strid;
 		  }
