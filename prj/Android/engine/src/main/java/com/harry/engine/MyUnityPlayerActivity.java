@@ -64,7 +64,6 @@ public class MyUnityPlayerActivity extends Activity {
     @Override
     protected void onStart()
     {
-        Log.d("MyUnityPlayerActivity","onStart");
         super.onStart();
         mUnityPlayer.resume();
         mUnityPlayer.windowFocusChanged(true);
@@ -72,7 +71,6 @@ public class MyUnityPlayerActivity extends Activity {
     @Override
     protected void onStop()
     {
-        Log.d("MyUnityPlayerActivity","onStop");
         super.onStop();
         mUnityPlayer.pause();
         mUnityPlayer.windowFocusChanged(false);
