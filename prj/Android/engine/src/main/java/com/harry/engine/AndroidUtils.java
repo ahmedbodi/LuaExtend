@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.MemoryInfo;
 import android.app.usage.UsageEvents;
+import android.bluetooth.BluetoothClass;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.ClipboardManager;
@@ -32,6 +33,8 @@ import android.widget.RelativeLayout;
 
 import com.flurry.android.FlurryAgent;
 import com.harry.sdk.LiLithSDKUtils;
+import com.lilith.sdk.common.util.AppUtils;
+import com.lilith.sdk.common.util.DeviceUtils;
 
 import org.json.JSONObject;
 
@@ -79,6 +82,7 @@ public class AndroidUtils {
         m_activityManager = (ActivityManager) gameActivity.getSystemService(Context.ACTIVITY_SERVICE);
         m_connectManager = (ConnectivityManager) gameActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
         m_OSVersion = Build.VERSION.RELEASE;
+        getGoogleAdid_nsync();
         m_GPUName = android.opengl.GLES20.glGetString(android.opengl.GLES20.GL_RENDERER);
         m_DeviceName = String.format("Android_%s_%s_%s", Build.BRAND, Build.MODEL, Build.PRODUCT);
         m_MacAddr = getMacAddr_impl();
@@ -89,12 +93,28 @@ public class AndroidUtils {
         m_TimeZone = TimeZone.getDefault().getID();
         m_BundleIdentifier = gameActivity.getPackageName();
         m_AndroidID = Settings.Secure.getString(gameActivity.getContentResolver(), Settings.Secure.ANDROID_ID);
+
         try {
             PackageInfo pinfo = gameActivity.getPackageManager().getPackageInfo(gameActivity.getPackageName(), 0);
             m_GameVersionCode = "" + pinfo.versionCode;
             m_GameVersionName = pinfo.versionName;
         } catch (Exception e) {
         }
+        //-----------------for lilith sdk
+        m_DeviceID = DeviceUtils.getDeviceId(gameActivity);
+        m_SerialNumber = DeviceUtils.getSerialNumber(gameActivity);
+        m_IMSI = DeviceUtils.getIMSI(gameActivity);
+        m_DeviceModel = DeviceUtils.getDeviceModel();
+        m_CPUModel = DeviceUtils.getCPUModel();
+        m_ChannelID = AppUtils.getChannelID(gameActivity);
+
+        m_AndroidID = DeviceUtils.getAndroidId(gameActivity);
+        m_MacAddr = DeviceUtils.getMacAddress(gameActivity);
+        m_OSVersion = DeviceUtils.getOSVersion();
+        m_GameVersionCode = ""+ AppUtils.getVersionCode(gameActivity);
+        m_GameVersionName = AppUtils.getVersionName(gameActivity);
+
+
         m_OpenUDID = GetOpenUDID_impl();
         initPaths();
         unityThread = new UnityThread();
@@ -263,6 +283,23 @@ public class AndroidUtils {
         return null;
     }
 
+    private static String m_DeviceID = "";
+    private static String getDeviceId(){return m_DeviceID;}
+
+    private static String m_SerialNumber = "";
+    private static String getSerialNumber(){return m_SerialNumber;}
+
+    private static String m_IMSI = "";
+    private static String getIMSI(){return m_IMSI;}
+
+    private static String m_DeviceModel = "";
+    private static String getDeviceModel(){return m_DeviceModel;}
+
+    private static String m_CPUModel = "";
+    private static String getCPUModel(){return m_CPUModel;}
+
+    private static String m_ChannelID = "";
+    private static String getChannelID(){return m_ChannelID;}
 
     private static String ForLockUIThead = "";
     private static volatile boolean isUIThreadEnd = false;
@@ -406,7 +443,7 @@ public class AndroidUtils {
     private static String m_AdvertisementID = "";
 
     public static String GetAdvertisementID() {
-        return "needTodo";
+        return m_AdvertisementID;
     }
 
 
@@ -477,6 +514,8 @@ public class AndroidUtils {
     private static String m_GameName = INIT_GAME_NAME;
 
     public static String GetGameName() {
+        if(m_GameName.compareTo(INIT_GAME_NAME) == 0)
+            m_GameName = AppUtils.getAppName(gameActivity);
         return m_GameName;
     }
 
@@ -572,6 +611,18 @@ public class AndroidUtils {
         }
     }
 
+    private static void getGoogleAdid_nsync()
+    {
+        Thread a = new Thread()
+        {
+            @Override
+            public void run() {
+                m_AdvertisementID = DeviceUtils.getGoogleAdId(AndroidUtils.gameActivity);
+                super.run();
+            }
+        };
+        a.start();
+    }
     private static int getTotalMemSize_impl() {
         //m_TotalMemSize
         String tMemInfo;

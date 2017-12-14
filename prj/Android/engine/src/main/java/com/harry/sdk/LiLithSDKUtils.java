@@ -4,6 +4,7 @@ import android.app.Application;
 import android.os.Debug;
 import android.util.Log;
 
+import com.adjust.sdk.plugin.AndroidIdUtil;
 import com.harry.engine.AndroidUtils;
 import com.harry.engine.MainActivity;
 import com.lilith.sdk.LilithSDK;
@@ -12,10 +13,14 @@ import com.lilith.sdk.base.model.User;
 import com.lilith.sdk.base.model.UserInfo;
 import com.lilith.sdk.common.constant.LoginType;
 import com.lilith.sdk.common.constant.PayType;
+import com.lilith.sdk.common.util.AppUtils;
+import com.lilith.sdk.common.util.DeviceUtils;
 
 import org.json.JSONObject;
 
 import java.util.Set;
+
+import static com.lilith.sdk.common.util.AppUtils.getConfigValue;
 
 /**
  * Created by 55555 on 2017/12/6.
@@ -29,6 +34,18 @@ public class LiLithSDKUtils {
             minstance = new LiLithSDKUtils();
         return minstance;
     }
+
+
+
+    public int getAppID()
+    {
+        return ((Integer)getConfigValue(AndroidUtils.gameActivity, "lilith_sdk_app_id", Integer.class, Integer.valueOf(0))).intValue();
+    }
+    public int getGameID()
+    {
+        return ((Integer)getConfigValue(AndroidUtils.gameActivity, "lilith_sdk_game_id", Integer.class, Integer.valueOf(0))).intValue();
+    }
+
     public void CallSDKFunction(String jsoncmd)
     {
         try {
@@ -81,7 +98,13 @@ public class LiLithSDKUtils {
                     if (lt.length > 0)
                         jsonO.put("LoginTypes", "" + loginTypeStr);
                 }catch(Exception e){}
-                AndroidUtils.sendMessageToLua(jsonO.toString());
+                mObserver_QueryCurrentUserString = jsonO.toString();
+                AndroidUtils.gameActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AndroidUtils.sendMessageToLua(mObserver_QueryCurrentUserString);
+                    }
+                });
             }
             else {
                 int i = 0;
@@ -95,7 +118,11 @@ public class LiLithSDKUtils {
         return mObserver;
     }
     private static LiLithSDKUtils minstance = null;
-
+    private String mObserver_LoginFailedString = "";
+    private String mObserver_LoginFinishString = "";
+    private String mObserver_QueryCurrentUserString = "";
+    private String mObserver_BindString = "";
+    private String mObserver_PayString = "";
     private SDKObserver mObserver = new SDKObserver() {
         @Override
         public void onUpdate(int i, Object[] objects) {
@@ -111,8 +138,49 @@ public class LiLithSDKUtils {
                 jsonObject.put("appUid", "" + l);
                 jsonObject.put("appToken", s);
                 jsonObject.put("loginType", "" + loginType.getLoginType());
+
+                jsonObject.put("GameID", "" + LiLithSDKUtils.getInstance().getGameID());
+                jsonObject.put("AppID", "" + LiLithSDKUtils.getInstance().getAppID());
+                String tmp = DeviceUtils.getDeviceId(AndroidUtils.gameActivity);
+                jsonObject.put("DeviceID", tmp == null?"":tmp);
+                tmp = DeviceUtils.getAndroidId(AndroidUtils.gameActivity);
+                jsonObject.put("AndroidID", tmp == null?"":tmp);
+                tmp = AndroidUtils.GetAdvertisementID();
+                jsonObject.put("GoogleAdid", tmp == null?"":tmp);
+                tmp = DeviceUtils.getSerialNumber(AndroidUtils.gameActivity);
+                jsonObject.put("SerialNumber", tmp == null?"":tmp);
+                tmp = DeviceUtils.getMacAddress(AndroidUtils.gameActivity);
+                jsonObject.put("MacAddress", tmp == null?"":tmp);
+                tmp = DeviceUtils.getIMSI(AndroidUtils.gameActivity);
+                jsonObject.put("IMSI", tmp == null?"":tmp);
+                tmp = DeviceUtils.getDeviceModel();
+                jsonObject.put("DeviceModel", tmp == null?"":tmp);
+                tmp = DeviceUtils.getOSVersion();
+                jsonObject.put("OSVersion", tmp == null?"":tmp);
+                tmp = DeviceUtils.getCPUModel();
+                jsonObject.put("CPUModel", tmp == null?"":tmp);
+                jsonObject.put("VersionCode", "" + AppUtils.getVersionCode(AndroidUtils.gameActivity));
+                tmp = AppUtils.getVersionName(AndroidUtils.gameActivity);
+                jsonObject.put("VersionName", tmp == null?"":tmp);
+                tmp = AppUtils.getAppName(AndroidUtils.gameActivity);
+                jsonObject.put("AppName", tmp == null?"":tmp);
+                tmp = AppUtils.getChannelID(AndroidUtils.gameActivity);
+                jsonObject.put("ChannelID", tmp == null?"":tmp);
+                jsonObject.put("IDFA", "");
+                jsonObject.put("OSType", "android");
+                tmp = AndroidUtils.GetBundleIdentifier();
+                jsonObject.put("Package", tmp == null?"":tmp);
+                tmp = AppUtils.getAppLocale(AndroidUtils.gameActivity).getLanguage();
+                jsonObject.put("Local", tmp == null?"en":tmp);
             }catch(Exception e){}
-            AndroidUtils.sendMessageToLua(jsonObject.toString());
+            mObserver_LoginFinishString = jsonObject.toString();
+            AndroidUtils.gameActivity.runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            AndroidUtils.sendMessageToLua(mObserver_LoginFinishString);
+                                                        }
+                                                    });
+
             CallSDKFunction("{\"Function\":\"queryCurrentUser\"}");
         }
 
@@ -124,8 +192,50 @@ public class LiLithSDKUtils {
                 jsonObject.put("MSG_ID", "SDK_onLoginFailed");
                 jsonObject.put("errorCode", "" + i);
                 jsonObject.put("loginType", "" + loginType.getLoginType());
+
+
+                jsonObject.put("GameID", "" + LiLithSDKUtils.getInstance().getGameID());
+                jsonObject.put("AppID", "" + LiLithSDKUtils.getInstance().getAppID());
+                String tmp = DeviceUtils.getDeviceId(AndroidUtils.gameActivity);
+                jsonObject.put("DeviceID", tmp == null?"":tmp);
+                tmp = DeviceUtils.getAndroidId(AndroidUtils.gameActivity);
+                jsonObject.put("AndroidID", tmp == null?"":tmp);
+                tmp = AndroidUtils.GetAdvertisementID();
+                jsonObject.put("GoogleAdid", tmp == null?"":tmp);
+                tmp = DeviceUtils.getSerialNumber(AndroidUtils.gameActivity);
+                jsonObject.put("SerialNumber", tmp == null?"":tmp);
+                tmp = DeviceUtils.getMacAddress(AndroidUtils.gameActivity);
+                jsonObject.put("MacAddress", tmp == null?"":tmp);
+                tmp = DeviceUtils.getIMSI(AndroidUtils.gameActivity);
+                jsonObject.put("IMSI", tmp == null?"":tmp);
+                tmp = DeviceUtils.getDeviceModel();
+                jsonObject.put("DeviceModel", tmp == null?"":tmp);
+                tmp = DeviceUtils.getOSVersion();
+                jsonObject.put("OSVersion", tmp == null?"":tmp);
+                tmp = DeviceUtils.getCPUModel();
+                jsonObject.put("CPUModel", tmp == null?"":tmp);
+                jsonObject.put("VersionCode", "" + AppUtils.getVersionCode(AndroidUtils.gameActivity));
+                tmp = AppUtils.getVersionName(AndroidUtils.gameActivity);
+                jsonObject.put("VersionName", tmp == null?"":tmp);
+                tmp = AppUtils.getAppName(AndroidUtils.gameActivity);
+                jsonObject.put("AppName", tmp == null?"":tmp);
+                tmp = AppUtils.getChannelID(AndroidUtils.gameActivity);
+                jsonObject.put("ChannelID", tmp == null?"":tmp);
+                jsonObject.put("IDFA", "");
+                jsonObject.put("OSType", "Android");
+                tmp = AndroidUtils.GetBundleIdentifier();
+                jsonObject.put("Package", tmp == null?"":tmp);
+                tmp = AppUtils.getAppLocale(AndroidUtils.gameActivity).getLanguage();
+                jsonObject.put("Local", tmp == null?"en":tmp);
             }catch(Exception e){}
-            AndroidUtils.sendMessageToLua(jsonObject.toString());
+            mObserver_LoginFailedString = jsonObject.toString();
+            AndroidUtils.gameActivity.runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            AndroidUtils.sendMessageToLua(mObserver_LoginFailedString);
+                                                        }
+                                                    }
+            );
         }
 
         @Override
@@ -139,7 +249,13 @@ public class LiLithSDKUtils {
                 jsonObject.put("appToken", s);
                 jsonObject.put("loginType", "" + loginType.getLoginType());
             }catch(Exception e){}
-            AndroidUtils.sendMessageToLua(jsonObject.toString());
+            mObserver_BindString = jsonObject.toString();
+            AndroidUtils.gameActivity.runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                AndroidUtils.sendMessageToLua(mObserver_BindString);
+                                            }
+                                        });
         }
 
         @Override
@@ -153,7 +269,13 @@ public class LiLithSDKUtils {
                 jsonObject.put("itemID", s);
                 jsonObject.put("payType", "" + payType.getPayType());
             }catch(Exception e){}
-            AndroidUtils.sendMessageToLua(jsonObject.toString());
+            mObserver_PayString = jsonObject.toString();
+            AndroidUtils.gameActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidUtils.sendMessageToLua(mObserver_PayString);
+                }
+            });
         }
 
         @Override
