@@ -76,6 +76,8 @@ public class AndroidUtils {
 
     private static native void setAssetManager(AssetManager asm);
 
+    public static native void OpenByUrl(String uri);
+
     public static void init() {
         initJNI();
         setAssetManager(gameActivity.getAssets());

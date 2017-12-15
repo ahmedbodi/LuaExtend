@@ -8,6 +8,7 @@ JNIEXPORT void JNICALL Java_com_harry_engine_AndroidUtils_initJNI(JNIEnv*, jclas
 JNIEXPORT void JNICALL Java_com_harry_engine_AndroidUtils_releaseJNI(JNIEnv*, jclass cls);
 JNIEXPORT void JNICALL Java_com_harry_engine_AndroidUtils_setPath(JNIEnv* env,jclass cls,jstring japppath,jstring jdocpath,jstring jobbpath);
 JNIEXPORT void JNICALL Java_com_harry_engine_AndroidUtils_sendMessageToLua(JNIEnv* env,jclass cls,jstring jcontent);
+JNIEXPORT void JNICALL Java_com_harry_engine_AndroidUtils_OpenByUrl(JNIEnv* env,jclass cls,jstring jcontent);
 char* getJniRetBuff(int size);
 char * AndroidUtils_CallStaticAndroidJavaFunction(const char* jsonstr);
 #ifdef __cplusplus

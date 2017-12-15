@@ -1,8 +1,10 @@
 package com.harry.engine;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -32,6 +34,7 @@ public class MainActivity extends MyUnityPlayerActivity {
         AndroidUtils.SetAppPath(AndroidUtils.INIT_APP_PATH_VALUE);
         AndroidUtils.SetDocPath(AndroidUtils.INIT_DOC_PATH_VALUE);
         AndroidUtils.init();
+        DealWithScheme();
         TextInput.init();
         initSDK();
         AndroidUtils.EventLog("onCreate","","","");
@@ -85,6 +88,16 @@ public class MainActivity extends MyUnityPlayerActivity {
         }catch(Exception e)
         {
             Log.i("debug_info","flurry_key: error");
+        }
+    }
+    private void DealWithScheme()
+    {
+        Intent intent = getIntent();
+        Uri uri = intent.getData();
+        if (uri != null)
+        {
+            String dataString = intent.getDataString();
+            AndroidUtils.OpenByUrl(dataString);
         }
     }
 }
