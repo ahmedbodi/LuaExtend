@@ -62,8 +62,14 @@ std::string UrlDecode(const std::string& str)
 	return strTemp;
 }
 
-bool StringSplit(std::string src, std::string pattern, std::vector<std::string>& strVec)
+bool StringSplit(std::string src, std::string pattern, std::vector<std::string>& strVec,int maxsize)
 {
+	if (maxsize <= 0) maxsize = 10000;
+	if (maxsize == 1)
+	{
+		strVec.push_back(src);
+		return true;
+	}
 	std::string::size_type pos;
 	src += pattern;
 	int size = src.size();
@@ -76,14 +82,20 @@ bool StringSplit(std::string src, std::string pattern, std::vector<std::string>&
 			std::string s = src.substr(i, pos - i);
 			strVec.push_back(s);
 			i = pos + pattern.size() - 1;
+			if (strVec.size() == maxsize - 1)
+			{
+				std::string tmpstr = src.substr(i+1, size - i - 2);
+				strVec.push_back(tmpstr);
+				return true;
+			}
 		}
 	}
 	return true;
 }
-static char urlContentBuf[1024] = {0};
+static char urlContentBuf[10240] = {0};
 extern "C" void OpenByUrl(const char * uri)
 {
-	if (uri != NULL && strlen(uri) < 1024)
+	if (uri != NULL && strlen(uri) < 10240)
 	{
 		memset(urlContentBuf, 0, sizeof(urlContentBuf));
 		strcpy(urlContentBuf, uri);
@@ -100,11 +112,11 @@ extern "C" void DoCommandFromOpenUrl_impl(const char * uri)
 	}
 	std::string params = tmp.substr(index+1);
 	std::vector<std::string> paramsList;
-	StringSplit(params, "&", paramsList);
+	StringSplit(params, "&", paramsList,-1);
 	for (int i = 0; i < paramsList.size(); i++)
 	{
 		std::vector<std::string> kv;
-		StringSplit(paramsList[i], "=", kv);
+		StringSplit(paramsList[i], "=", kv,2);
 		if (kv.size() == 2)
 		{
 			if (kv[0].compare("cleanConfigFile") == 0)
