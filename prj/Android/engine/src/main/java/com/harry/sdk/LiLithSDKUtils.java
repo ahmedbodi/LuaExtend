@@ -99,12 +99,13 @@ public class LiLithSDKUtils {
                         jsonO.put("LoginTypes", "" + loginTypeStr);
                 }catch(Exception e){}
                 mObserver_QueryCurrentUserString = jsonO.toString();
-                AndroidUtils.gameActivity.runOnUiThread(new Runnable() {
+                Runnable tmp = new Runnable() {
                     @Override
                     public void run() {
                         AndroidUtils.sendMessageToLua(mObserver_QueryCurrentUserString);
                     }
-                });
+                };
+                AndroidUtils.AddUnityThread(tmp);
             }
             else {
                 int i = 0;
@@ -174,13 +175,13 @@ public class LiLithSDKUtils {
                 jsonObject.put("Local", tmp == null?"en":tmp);
             }catch(Exception e){}
             mObserver_LoginFinishString = jsonObject.toString();
-            AndroidUtils.gameActivity.runOnUiThread(new Runnable() {
-                                                        @Override
-                                                        public void run() {
-                                                            AndroidUtils.sendMessageToLua(mObserver_LoginFinishString);
-                                                        }
-                                                    });
-
+            Runnable tmp = new Runnable() {
+                @Override
+                public void run() {
+                    AndroidUtils.sendMessageToLua(mObserver_LoginFinishString);
+                }
+            };
+            AndroidUtils.AddUnityThread(tmp);
             CallSDKFunction("{\"Function\":\"queryCurrentUser\"}");
         }
 
@@ -229,13 +230,13 @@ public class LiLithSDKUtils {
                 jsonObject.put("Local", tmp == null?"en":tmp);
             }catch(Exception e){}
             mObserver_LoginFailedString = jsonObject.toString();
-            AndroidUtils.gameActivity.runOnUiThread(new Runnable() {
-                                                        @Override
-                                                        public void run() {
-                                                            AndroidUtils.sendMessageToLua(mObserver_LoginFailedString);
-                                                        }
-                                                    }
-            );
+            Runnable tmp = new Runnable() {
+                @Override
+                public void run() {
+                    AndroidUtils.sendMessageToLua(mObserver_LoginFailedString);
+                }
+            };
+            AndroidUtils.AddUnityThread(tmp);
         }
 
         @Override
@@ -250,12 +251,13 @@ public class LiLithSDKUtils {
                 jsonObject.put("loginType", "" + loginType.getLoginType());
             }catch(Exception e){}
             mObserver_BindString = jsonObject.toString();
-            AndroidUtils.gameActivity.runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                AndroidUtils.sendMessageToLua(mObserver_BindString);
-                                            }
-                                        });
+            Runnable tmp = new Runnable() {
+                @Override
+                public void run() {
+                    AndroidUtils.sendMessageToLua(mObserver_BindString);
+                }
+            };
+            AndroidUtils.AddUnityThread(tmp);
         }
 
         @Override
@@ -270,12 +272,13 @@ public class LiLithSDKUtils {
                 jsonObject.put("payType", "" + payType.getPayType());
             }catch(Exception e){}
             mObserver_PayString = jsonObject.toString();
-            AndroidUtils.gameActivity.runOnUiThread(new Runnable() {
+            Runnable tmp = new Runnable() {
                 @Override
                 public void run() {
                     AndroidUtils.sendMessageToLua(mObserver_PayString);
                 }
-            });
+            };
+            AndroidUtils.AddUnityThread(tmp);
         }
 
         @Override
