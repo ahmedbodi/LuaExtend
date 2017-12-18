@@ -56,6 +56,19 @@ public class MainActivity extends MyUnityPlayerActivity {
         super.onDestroy();
         LilithSDK.getInstance().removeSDKObserver(LiLithSDKUtils.getInstance().getSDKObserver());
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+    {
+        if (requestCode == AndroidUtils.REQUEST_READWRITE_STORAGE)
+        {
+            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                AndroidUtils.initPaths();
+            }
+        }
+    }
+
     public void onBackPressed() {
         // instead of calling UnityPlayerActivity.onBackPressed() we just ignore the back button event
         // super.onBackPressed();

@@ -1,5 +1,6 @@
 package com.harry.engine;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.MemoryInfo;
@@ -25,6 +26,7 @@ import android.net.wifi.WifiManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.util.Base64;
 import android.provider.Settings;
 import android.util.Log;
@@ -118,10 +120,18 @@ public class AndroidUtils {
 
 
         m_OpenUDID = GetOpenUDID_impl();
-        initPaths();
+        int permissionCheck1 = ContextCompat.checkSelfPermission(AndroidUtils.gameActivity, Manifest.permission.READ_EXTERNAL_STORAGE);
+        int permissionCheck2 = ContextCompat.checkSelfPermission(AndroidUtils.gameActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (permissionCheck1 != PackageManager.PERMISSION_GRANTED || permissionCheck2 != PackageManager.PERMISSION_GRANTED) {
+            if(Build.VERSION.SDK_INT >=23) {
+                AndroidUtils.gameActivity.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_READWRITE_STORAGE);
+            }
+        }else {
+            initPaths();
+        }
         unityThread = new UnityThread();
     }
-
+    public static final int REQUEST_READWRITE_STORAGE = 43325;
     private static String m_homePath = "";
     private static String m_cachePath = "";
 
@@ -131,7 +141,7 @@ public class AndroidUtils {
         return path + "/GLGData/" + packagename.replace('.', '_');
     }
 
-    private static void initPaths() {
+    public static void initPaths() {
         m_homePath = gameActivity.getFilesDir().getAbsolutePath();
         m_cachePath = gameActivity.getCacheDir().getAbsolutePath();
         MakePathExists(m_homePath);
