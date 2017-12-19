@@ -1,6 +1,7 @@
 package com.harry.sdk;
 
 import android.app.Application;
+import android.os.Bundle;
 import android.os.Debug;
 import android.util.Log;
 
@@ -9,6 +10,8 @@ import com.harry.engine.AndroidUtils;
 import com.harry.engine.MainActivity;
 import com.lilith.sdk.LilithSDK;
 import com.lilith.sdk.SDKObserver;
+import com.lilith.sdk.SDKRemoteCallback;
+import com.lilith.sdk.base.model.SkuItem;
 import com.lilith.sdk.base.model.User;
 import com.lilith.sdk.base.model.UserInfo;
 import com.lilith.sdk.common.constant.LoginType;
@@ -16,8 +19,10 @@ import com.lilith.sdk.common.constant.PayType;
 import com.lilith.sdk.common.util.AppUtils;
 import com.lilith.sdk.common.util.DeviceUtils;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.List;
 import java.util.Set;
 
 import static com.lilith.sdk.common.util.AppUtils.getConfigValue;
@@ -45,7 +50,47 @@ public class LiLithSDKUtils {
     {
         return ((Integer)getConfigValue(AndroidUtils.gameActivity, "lilith_sdk_game_id", Integer.class, Integer.valueOf(0))).intValue();
     }
-
+    protected
+    class SdkRemoteCallBack extends com.lilith.sdk.SDKRemoteCallback
+    {
+        @Override
+        public void onCallback(boolean sucess , int errorCode, Bundle params) {
+            if (params != null && params.containsKey("skus")) {
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("MSG_ID", "SDK_onQuerySkuItemDetails");
+                    jsonObject.put("sucess", "" + sucess);
+                    jsonObject.put("errorCode", errorCode);
+                    if (sucess) {
+                        JSONArray itemsA = new JSONArray();
+                        List<SkuItem> list = (List<SkuItem>) params.getSerializable("skus");
+                        int sz = list.size();
+                        for (int i = 0 ; i < sz; i ++){
+                            SkuItem a = list.get(i);
+                            JSONObject itdata = new JSONObject();
+                            itdata.put("Sku",a.getSku());
+                            itdata.put("Type",a.getType());
+                            itdata.put("Price",a.getPrice());
+                            itdata.put("Title",a.getTitle());
+                            itdata.put("Description",a.getDescription());
+                            itemsA.put(itdata);
+                        }
+                        jsonObject.put("items",itemsA);
+                    }
+                    mObserver_QueryItemString = jsonObject.toString();
+                    Runnable tmp = new Runnable() {
+                        @Override
+                        public void run() {
+                            AndroidUtils.sendMessageToLua(mObserver_QueryItemString);
+                        }
+                    };
+                    AndroidUtils.AddUnityThread(tmp);
+                } catch (Exception e) {
+                }
+            }
+        }
+    }
+    SdkRemoteCallBack remoteCallBack = new SdkRemoteCallBack();
     public void CallSDKFunction(String jsoncmd)
     {
         try {
@@ -66,7 +111,17 @@ public class LiLithSDKUtils {
                 String payItemID = (String)jsonObject.get("payItemID");
                 String payContext = (String)jsonObject.get("payContext");
                 LilithSDK.getInstance().startPay(AndroidUtils.gameActivity,payItemID,payContext);
-            } else if (functionName.compareTo("queryCurrentUser") == 0)
+            }else if (functionName.compareTo("querySkuItemDetails") == 0)
+            {
+                JSONArray jsa = jsonObject.getJSONArray("items");
+                String[] items = new String[jsa.length()];
+                for(int i = 0; i < jsa.length(); i ++)
+                {
+                    items[i] = jsa.getString(i);
+                }
+                LilithSDK.getInstance().querySkuItemDetails(items,remoteCallBack);
+            }
+            else if (functionName.compareTo("queryCurrentUser") == 0)
             {
                 User cuser = LilithSDK.getInstance().queryCurrentUser();
                 UserInfo cuserinfo = LilithSDK.getInstance().queryCurrentUserInfo();
@@ -124,6 +179,7 @@ public class LiLithSDKUtils {
     private String mObserver_QueryCurrentUserString = "";
     private String mObserver_BindString = "";
     private String mObserver_PayString = "";
+    private String mObserver_QueryItemString = "";
     private SDKObserver mObserver = new SDKObserver() {
         @Override
         public void onUpdate(int i, Object[] objects) {
