@@ -275,11 +275,9 @@ public class VideoActivity extends Activity implements View.OnClickListener,
     }
 
     public void endVideo() {
-        //mediaPlayer.seekTo(mediaPlayer.getDuration());
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
             mediaPlayer.stop();
         }
-        mediaPlayer.reset();
 
         finish();
     }
