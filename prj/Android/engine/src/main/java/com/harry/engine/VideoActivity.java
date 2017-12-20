@@ -279,6 +279,7 @@ public class VideoActivity extends Activity implements View.OnClickListener,
             mediaPlayer.stop();
         }
 
+        setResult(Activity.RESULT_OK);
         finish();
     }
     //********************************************************************************************************************

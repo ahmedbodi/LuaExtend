@@ -19,6 +19,9 @@ import android.widget.RelativeLayout;
 
 import sh.lilith.lilithchat.open.LilithChat;
 
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 /**
  * Created by harry on 2017/3/23.
  */
@@ -168,6 +171,16 @@ public class MyUnityPlayerActivity extends Activity {
 
     public void PlayVideo() {
         Intent intent = new Intent(this, VideoActivity.class);
-        this.startActivity(intent);
+        intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP);
+        this.startActivityForResult(intent, 99);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 99) {
+            if (resultCode == RESULT_OK) {
+                UnityPlayer.UnitySendMessage("Main Camera","CbOfVideoPlayFinished", "");
+            }
+        }
     }
 }
