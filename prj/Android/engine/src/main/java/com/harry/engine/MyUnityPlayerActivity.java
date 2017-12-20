@@ -3,6 +3,7 @@ package com.harry.engine;
 import com.unity3d.player.*;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
@@ -161,5 +162,12 @@ public class MyUnityPlayerActivity extends Activity {
         CSharpHelper.LogI(msg);
     }
 
-    public void CopyToClipboard(String msg){ CSharpHelper.CopyToClipboard(this, msg);}
+    public void CopyToClipboard(String msg){
+        CSharpHelper.CopyToClipboard(this, msg);
+    }
+
+    public void PlayVideo() {
+        Intent intent = new Intent(this, VideoActivity.class);
+        this.startActivity(intent);
+    }
 }
