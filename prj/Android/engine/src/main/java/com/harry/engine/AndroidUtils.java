@@ -613,7 +613,7 @@ public class AndroidUtils {
     }
 
     private static String getMacAddr_impl() {
-        WifiManager m = (WifiManager) gameActivity.getSystemService(Context.WIFI_SERVICE);
+        WifiManager m = (WifiManager) gameActivity.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         WifiInfo winfo = m.getConnectionInfo();
         if (winfo == null || winfo.getMacAddress() == null) {
             return "";
