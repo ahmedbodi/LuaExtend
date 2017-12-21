@@ -17,10 +17,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
-import sh.lilith.lilithchat.open.LilithChat;
+import org.json.JSONObject;
 
-import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
-import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import sh.lilith.lilithchat.open.LilithChat;
 
 /**
  * Created by harry on 2017/3/23.
@@ -35,6 +34,7 @@ public class MyUnityPlayerActivity extends Activity {
         return m_gamelayout;
     }
     private ViewSizeObserver m_ViewSizeObserver = null;
+    private String playVideoFinishedJsonString = "";
     // Setup activity layout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -171,15 +171,27 @@ public class MyUnityPlayerActivity extends Activity {
 
     public void PlayVideo() {
         Intent intent = new Intent(this, VideoActivity.class);
-        intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         this.startActivityForResult(intent, 99);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 99) {
             if (resultCode == RESULT_OK) {
-                UnityPlayer.UnitySendMessage("Main Camera","CbOfVideoPlayFinished", "");
+                //Log.e("video", "video close");
+                //UnityPlayer.UnitySendMessage("Main Camera","CbOfVideoPlayFinished", "");
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("MSG_ID", "VIDEO_PlayFinished");
+                }catch(Exception e){}
+                playVideoFinishedJsonString = jsonObject.toString();
+                Runnable tmp = new Runnable() {
+                    @Override
+                    public void run() {
+                        AndroidUtils.sendMessageToLua(playVideoFinishedJsonString);
+                    }
+                };
+                AndroidUtils.AddUnityThread(tmp);
             }
         }
     }
