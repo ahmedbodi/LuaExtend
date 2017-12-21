@@ -24,7 +24,7 @@
  * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-
+//try use  to fix error of bsdiff  https://gitlab.kode54.net/kode54/Sparkle/blob/master/Vendor/bsdiff/
 #include "bsdiff.h"
 #include "zlib.h"
 #include <limits.h>
