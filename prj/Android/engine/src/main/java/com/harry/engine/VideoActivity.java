@@ -38,7 +38,7 @@ public class VideoActivity extends Activity implements View.OnClickListener,
     private SurfaceView sv;//****************SurfaceView是一个在其他线程中显示、更新画面的组件，专门用来完成在单位时间内大量画面变化的需求
     private SurfaceHolder holder;//****************SurfaceHolder接口为一个显示界面内容的容器
     private static int savedPosition;//===============记录当前播放文件播放的进度
-    private static String savedFilepath;//===============记录当前播放文件的位置
+    //private static String savedFilepath;//===============记录当前播放文件的位置
     private TextView tv_srt;
     private VideoActivity target;
 
