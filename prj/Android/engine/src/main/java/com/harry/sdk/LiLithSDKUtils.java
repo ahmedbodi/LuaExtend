@@ -42,13 +42,15 @@ public class LiLithSDKUtils {
 
 
 
-    public int getAppID()
+    public String getAppID()
     {
-        return ((Integer)getConfigValue(AndroidUtils.gameActivity, "lilith_sdk_app_id", Integer.class, Integer.valueOf(0))).intValue();
+        String a = (String)getConfigValue(AndroidUtils.gameActivity.getApplicationContext(), "lilith_sdk_app_id", String.class, null);
+        return a;
     }
-    public int getGameID()
+    public String getGameID()
     {
-        return ((Integer)getConfigValue(AndroidUtils.gameActivity, "lilith_sdk_game_id", Integer.class, Integer.valueOf(0))).intValue();
+        String a = (String)getConfigValue(AndroidUtils.gameActivity.getApplicationContext(),"lilith_sdk_game_id", String.class, null);
+        return a;
     }
     protected
     class SdkRemoteCallBack extends com.lilith.sdk.SDKRemoteCallback
