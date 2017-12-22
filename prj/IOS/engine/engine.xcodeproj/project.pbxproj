@@ -38,6 +38,8 @@
 		4A8902921E8A0DA90076363D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8902911E8A0DA90076363D /* AdSupport.framework */; };
 		4A8902941E8A0DB40076363D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8902931E8A0DB40076363D /* Foundation.framework */; };
 		4A8902961E8A0E320076363D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8902951E8A0E320076363D /* UIKit.framework */; };
+		4AA7F2D91FED298400BE5818 /* sais.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7F2D81FED298400BE5818 /* sais.c */; };
+		4AA7F2DB1FED299100BE5818 /* bscommon.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7F2DA1FED299100BE5818 /* bscommon.c */; };
 		4AF5A22D1E88FC5600E4DCD1 /* auxiliar.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5A2191E88FC5600E4DCD1 /* auxiliar.c */; };
 		4AF5A22E1E88FC5600E4DCD1 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5A21B1E88FC5600E4DCD1 /* buffer.c */; };
 		4AF5A22F1E88FC5600E4DCD1 /* except.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5A21D1E88FC5600E4DCD1 /* except.c */; };
@@ -182,6 +184,11 @@
 		4A8902911E8A0DA90076363D /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		4A8902931E8A0DB40076363D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4A8902951E8A0E320076363D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4AA7F2D81FED298400BE5818 /* sais.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sais.c; path = ../../../tools/bsdiff/sais.c; sourceTree = "<group>"; };
+		4AA7F2DA1FED299100BE5818 /* bscommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bscommon.c; path = ../../../tools/bsdiff/bscommon.c; sourceTree = "<group>"; };
+		4AA7F2DC1FED2A0200BE5818 /* bscommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bscommon.h; path = ../../../tools/bsdiff/bscommon.h; sourceTree = "<group>"; };
+		4AA7F2DD1FED2A1000BE5818 /* bsmemoryfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bsmemoryfile.h; path = ../../../tools/bsdiff/bsmemoryfile.h; sourceTree = "<group>"; };
+		4AA7F2DE1FED2A2400BE5818 /* sais.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sais.h; path = ../../../tools/bsdiff/sais.h; sourceTree = "<group>"; };
 		4AF5A2191E88FC5600E4DCD1 /* auxiliar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = auxiliar.c; path = ../../../src/luasocket/auxiliar.c; sourceTree = "<group>"; };
 		4AF5A21A1E88FC5600E4DCD1 /* auxiliar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = auxiliar.h; path = ../../../src/luasocket/auxiliar.h; sourceTree = "<group>"; };
 		4AF5A21B1E88FC5600E4DCD1 /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = buffer.c; path = ../../../src/luasocket/buffer.c; sourceTree = "<group>"; };
@@ -339,6 +346,11 @@
 		4A15F8571FA9A51100D7CA1E /* diff */ = {
 			isa = PBXGroup;
 			children = (
+				4AA7F2DE1FED2A2400BE5818 /* sais.h */,
+				4AA7F2DD1FED2A1000BE5818 /* bsmemoryfile.h */,
+				4AA7F2DC1FED2A0200BE5818 /* bscommon.h */,
+				4AA7F2DA1FED299100BE5818 /* bscommon.c */,
+				4AA7F2D81FED298400BE5818 /* sais.c */,
 				4A15F8581FA9A53400D7CA1E /* bsdiff.c */,
 				4A15F8591FA9A53400D7CA1E /* bsmemoryfile.c */,
 				4A15F85A1FA9A53400D7CA1E /* bspatch.c */,
@@ -808,6 +820,7 @@
 				4AF5A29A1E88FC9700E4DCD1 /* lmathlib.c in Sources */,
 				4AF5A28E1E88FC9700E4DCD1 /* lbaselib.c in Sources */,
 				4A7BA9091F7CB06000586521 /* ZipData.cpp in Sources */,
+				4AA7F2DB1FED299100BE5818 /* bscommon.c in Sources */,
 				4AF5A28C1E88FC9700E4DCD1 /* lapi.c in Sources */,
 				4AF5A2A41E88FC9700E4DCD1 /* ltable.c in Sources */,
 				4A466BDE1EB2ECC000855383 /* mykeyboard.mm in Sources */,
@@ -826,6 +839,7 @@
 				4AF5A2361E88FC5600E4DCD1 /* options.c in Sources */,
 				4AF5A2A51E88FC9700E4DCD1 /* ltablib.c in Sources */,
 				4AF5A3181E88FE6100E4DCD1 /* stdafx.cpp in Sources */,
+				4AA7F2D91FED298400BE5818 /* sais.c in Sources */,
 				4AF5A2E71E88FD7D00E4DCD1 /* lz4hc.c in Sources */,
 				4A7BA9251F7CB18F00586521 /* LuaInterface.cpp in Sources */,
 				4AF5A2341E88FC5600E4DCD1 /* luasocket.c in Sources */,
