@@ -34,6 +34,8 @@ ALLFILES = $(call walk, $(SRC_DIR))
 FILE_LIST += $(filter %.cpp %.c, $(ALLFILES))
 FILE_LIST += $(SRC_DIR)/../tools/bsdiff/bsdiff.c \
 			 $(SRC_DIR)/../tools/bsdiff/bsmemoryfile.c \
+			 $(SRC_DIR)/../tools/bsdiff/bscommon.c \
+			 $(SRC_DIR)/../tools/bsdiff/sais.c \
 			 $(SRC_DIR)/../tools/bsdiff/bspatch.c 
 
 LOCAL_SRC_FILES := $(filter-out $(FILTER), $(FILE_LIST))
