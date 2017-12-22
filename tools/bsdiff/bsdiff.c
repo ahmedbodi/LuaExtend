@@ -31,7 +31,7 @@ __FBSDID("$FreeBSD: src/usr.bin/bsdiff/bsdiff/bsdiff.c, v 1.1 2005/08/06 01:59:0
 #include <sys/types.h>
 #include "sais.h"
 
-
+#include "zlib.h"
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -50,7 +50,7 @@ static int savebufandzip(char * buf, int size, const char * filename)
 	{
 		return -1;
 	}
-/*	int zipbufsize = (int)((size + 12)*1.001) + 1;
+	int zipbufsize = (int)((size + 12)*1.001) + 1;
 	char * zipbuf = (char*)malloc(zipbufsize);
 	int ret = compress(zipbuf, &zipbufsize, buf, size);
 	if (ret != Z_OK)
@@ -67,10 +67,7 @@ static int savebufandzip(char * buf, int size, const char * filename)
 	}
 	fclose(pf);
 	free(zipbuf);
-	*/
-	fwrite(&size, sizeof(size), 1, pf);
-	fwrite(buf, size, 1, pf);
-	fclose(pf);
+	
 	return 1;
 }
 

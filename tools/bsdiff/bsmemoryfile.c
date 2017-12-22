@@ -121,7 +121,7 @@ int bsmf_seek(Bsmf*bsmf, int offset, int pos_type)
 {
 	if (pos_type == SEEK_CUR)
 	{
-		if (bsmf->pos + offset < bsmf->length)
+		if (bsmf->pos + offset <= bsmf->length)
 		{
 			bsmf->pos += offset;
 			return TRUE;
@@ -133,7 +133,7 @@ int bsmf_seek(Bsmf*bsmf, int offset, int pos_type)
 	}
 	else if (pos_type == SEEK_SET)
 	{
-		if (offset < bsmf->length)
+		if (offset <= bsmf->length)
 		{
 			bsmf->pos = offset;
 			return TRUE;
