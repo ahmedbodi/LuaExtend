@@ -11,6 +11,8 @@
 		4A387B531F5979AA00F06F4C /* bsmemoryfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A387B4F1F5979AA00F06F4C /* bsmemoryfile.c */; };
 		4A387B541F5979AA00F06F4C /* bspatch.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A387B511F5979AA00F06F4C /* bspatch.c */; };
 		4A387B561F597AA400F06F4C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A387B551F597AA400F06F4C /* libz.tbd */; };
+		4AA7F2D41FED241800BE5818 /* sais.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7F2D21FED241800BE5818 /* sais.c */; };
+		4AA7F2D71FED242200BE5818 /* bscommon.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7F2D51FED242200BE5818 /* bscommon.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,12 +30,15 @@
 /* Begin PBXFileReference section */
 		151949BF191A094E0040C37E /* bsdiff */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = bsdiff; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A387B4C1F59799C00F06F4C /* bsdiff.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bsdiff.c; sourceTree = "<group>"; };
-		4A387B4D1F59799C00F06F4C /* bsdiff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bsdiff.h; sourceTree = "<group>"; };
 		4A387B4F1F5979AA00F06F4C /* bsmemoryfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bsmemoryfile.c; sourceTree = "<group>"; };
 		4A387B501F5979AA00F06F4C /* bsmemoryfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bsmemoryfile.h; sourceTree = "<group>"; };
 		4A387B511F5979AA00F06F4C /* bspatch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bspatch.c; sourceTree = "<group>"; };
 		4A387B521F5979AA00F06F4C /* bspatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bspatch.h; sourceTree = "<group>"; };
 		4A387B551F597AA400F06F4C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+		4AA7F2D21FED241800BE5818 /* sais.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sais.c; sourceTree = "<group>"; };
+		4AA7F2D31FED241800BE5818 /* sais.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sais.h; sourceTree = "<group>"; };
+		4AA7F2D51FED242200BE5818 /* bscommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bscommon.c; sourceTree = "<group>"; };
+		4AA7F2D61FED242200BE5818 /* bscommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bscommon.h; sourceTree = "<group>"; };
 		EA48874A152D62A700DB7FF5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -52,12 +57,15 @@
 		EA48873C152D62A700DB7FF5 = {
 			isa = PBXGroup;
 			children = (
+				4AA7F2D51FED242200BE5818 /* bscommon.c */,
+				4AA7F2D61FED242200BE5818 /* bscommon.h */,
+				4AA7F2D21FED241800BE5818 /* sais.c */,
+				4AA7F2D31FED241800BE5818 /* sais.h */,
 				4A387B4F1F5979AA00F06F4C /* bsmemoryfile.c */,
 				4A387B501F5979AA00F06F4C /* bsmemoryfile.h */,
 				4A387B511F5979AA00F06F4C /* bspatch.c */,
 				4A387B521F5979AA00F06F4C /* bspatch.h */,
 				4A387B4C1F59799C00F06F4C /* bsdiff.c */,
-				4A387B4D1F59799C00F06F4C /* bsdiff.h */,
 				EA488749152D62A700DB7FF5 /* Frameworks */,
 				EA488748152D62A700DB7FF5 /* Products */,
 			);
@@ -130,9 +138,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AA7F2D71FED242200BE5818 /* bscommon.c in Sources */,
 				4A387B4E1F59799C00F06F4C /* bsdiff.c in Sources */,
 				4A387B531F5979AA00F06F4C /* bsmemoryfile.c in Sources */,
 				4A387B541F5979AA00F06F4C /* bspatch.c in Sources */,
+				4AA7F2D41FED241800BE5818 /* sais.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
