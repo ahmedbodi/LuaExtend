@@ -109,7 +109,7 @@ public class LiLithSDKUtils {
             if (functionName.compareTo("Login") == 0) {
                 LiLithSDKUtils.SDKUILess().startLogin(AndroidUtils.gameActivity);
             } else if (functionName.compareTo("SwitchAccount") == 0) {
-                LiLithSDKUtils.SDKUILess().startSwitchAccount(AndroidUtils.gameActivity);
+                LiLithSDKUtils.SDKUILess().switchOrLinkAccount(AndroidUtils.gameActivity);
             } else if (functionName.compareTo("clearAutoLogin") == 0){
                 LiLithSDKUtils.SDKUILess().clearAutoLogin();
             } else if (functionName.compareTo("bindLogin") == 0)
