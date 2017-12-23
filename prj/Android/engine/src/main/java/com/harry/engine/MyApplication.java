@@ -23,18 +23,18 @@ public class MyApplication extends Application {
         super.onCreate();
         Log.d("MyApplication", "onCreate .......");
         instance = this;
-        LilithSDK.getInstance(LilithUILess.class).init(this);
-        LilithSDK.getInstance(LilithUILess.class).setLocale(Locale.getDefault());
-      //  Bundle bundle = new Bundle();
-        //bundle.putInt("PlayPhoneGravity", Gravity.LEFT|Gravity.BOTTOM);
-       // LilithSDK.getInstance(LilithUILess.class).setInitConfig(bundle);
-        //LilithSDK.getInstance(LilithUILess.class).setOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        LiLithSDKUtils.SDKUILess().init(this);
+        LiLithSDKUtils.SDKUILess().setLocale(Locale.getDefault());
+      //Bundle bundle = new Bundle();
+      //bundle.putInt("PlayPhoneGravity", Gravity.LEFT|Gravity.BOTTOM);
+      //LiLithSDKUtils.SDKUILess().setInitConfig(bundle);
+      //LiLithSDKUtils.SDKUILess().setOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
     @Override
     public void onTerminate()
     {
         super.onTerminate();
-        LilithSDK.getInstance(LilithUILess.class).unInit();
+        LiLithSDKUtils.SDKUILess().unInit();
     }
 }

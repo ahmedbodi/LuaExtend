@@ -18,6 +18,7 @@ import com.lilith.sdk.common.constant.LoginType;
 import com.lilith.sdk.common.constant.PayType;
 import com.lilith.sdk.common.util.AppUtils;
 import com.lilith.sdk.common.util.DeviceUtils;
+import com.lilith.sdk.special.uiless.LilithUILess;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -40,6 +41,13 @@ public class LiLithSDKUtils {
         return minstance;
     }
 
+    private static LilithUILess SDKUILess_instance = null;
+    public static LilithUILess SDKUILess()
+    {
+        if (SDKUILess_instance == null)
+            SDKUILess_instance = LilithSDK.getInstance(LilithUILess.class);
+        return SDKUILess_instance;
+    }
 
 
     public String getAppID()
@@ -99,20 +107,20 @@ public class LiLithSDKUtils {
             JSONObject jsonObject = new JSONObject(jsoncmd);
             String functionName = jsonObject.getString("Function");
             if (functionName.compareTo("Login") == 0) {
-                LilithSDK.getInstance().startLogin(AndroidUtils.gameActivity);
+                LiLithSDKUtils.SDKUILess().startLogin(AndroidUtils.gameActivity);
             } else if (functionName.compareTo("SwitchAccount") == 0) {
-                LilithSDK.getInstance().startSwitchAccount(AndroidUtils.gameActivity);
+                LiLithSDKUtils.SDKUILess().startSwitchAccount(AndroidUtils.gameActivity);
             } else if (functionName.compareTo("clearAutoLogin") == 0){
-                LilithSDK.getInstance().clearAutoLogin();
+                LiLithSDKUtils.SDKUILess().clearAutoLogin();
             } else if (functionName.compareTo("bindLogin") == 0)
             {
                 int type = Integer.parseInt((String)jsonObject.get("type"));
-                LilithSDK.getInstance().bindLogin(AndroidUtils.gameActivity,LoginType.parseValue(type,-1));
+                LiLithSDKUtils.SDKUILess().bindLogin(AndroidUtils.gameActivity,LoginType.parseValue(type,-1));
             } else if (functionName.compareTo("startPay") == 0)
             {
                 String payItemID = (String)jsonObject.get("payItemID");
                 String payContext = (String)jsonObject.get("payContext");
-                LilithSDK.getInstance().startPay(AndroidUtils.gameActivity,payItemID,payContext);
+                LiLithSDKUtils.SDKUILess().startPay(AndroidUtils.gameActivity,payItemID,payContext);
             }else if (functionName.compareTo("querySkuItemDetails") == 0)
             {
                 JSONArray jsa = jsonObject.getJSONArray("items");
@@ -121,12 +129,12 @@ public class LiLithSDKUtils {
                 {
                     items[i] = jsa.getString(i);
                 }
-                LilithSDK.getInstance().querySkuItemDetails(items,remoteCallBack);
+                LiLithSDKUtils.SDKUILess().querySkuItemDetails(items,remoteCallBack);
             }
             else if (functionName.compareTo("queryCurrentUser") == 0)
             {
-                User cuser = LilithSDK.getInstance().queryCurrentUser();
-                UserInfo cuserinfo = LilithSDK.getInstance().queryCurrentUserInfo();
+                User cuser = LiLithSDKUtils.SDKUILess().queryCurrentUser();
+                UserInfo cuserinfo = LiLithSDKUtils.SDKUILess().queryCurrentUserInfo();
                 JSONObject jsonO = new JSONObject();
                 try {
                     jsonO.put("MSG_ID", "SDK_onQueryCurrentUser");

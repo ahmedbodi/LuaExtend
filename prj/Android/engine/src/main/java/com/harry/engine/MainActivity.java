@@ -54,7 +54,7 @@ public class MainActivity extends MyUnityPlayerActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        LilithSDK.getInstance().removeSDKObserver(LiLithSDKUtils.getInstance().getSDKObserver());
+        LiLithSDKUtils.SDKUILess().removeSDKObserver(LiLithSDKUtils.getInstance().getSDKObserver());
     }
 
     @Override
@@ -77,7 +77,7 @@ public class MainActivity extends MyUnityPlayerActivity {
     public void initSDK()
     {
         initFlurrySDK();
-        LilithSDK.getInstance().addSDKObserver(LiLithSDKUtils.getInstance().getSDKObserver());
+        LiLithSDKUtils.SDKUILess().addSDKObserver(LiLithSDKUtils.getInstance().getSDKObserver());
     }
 
     class FlurryListener implements FlurryAgentListener {
