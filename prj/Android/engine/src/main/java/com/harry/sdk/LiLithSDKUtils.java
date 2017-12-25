@@ -50,6 +50,7 @@ public class LiLithSDKUtils {
     }
 
 
+    private String m_curAppUid = "";
     public String getAppID()
     {
         String a = (String)getConfigValue(AndroidUtils.gameActivity.getApplicationContext(), "lilith_sdk_app_id", String.class, null);
@@ -203,6 +204,11 @@ public class LiLithSDKUtils {
             try {
                 jsonObject.put("MSG_ID", "SDK_onLoginFinish");
                 jsonObject.put("appUid", "" + l);
+                if (m_curAppUid.length() > 1 && m_curAppUid.compareTo("" + l) != 0)
+                {
+                    jsonObject.put("AccountSwitch", "true");
+                }
+                m_curAppUid = "" + l;
                 jsonObject.put("appToken", s);
                 jsonObject.put("loginType", "" + loginType.getLoginType());
 
@@ -313,6 +319,11 @@ public class LiLithSDKUtils {
                 jsonObject.put("MSG_ID", "SDK_onBindFinish");
                 jsonObject.put("bSuccess", "" + b);
                 jsonObject.put("appUid", "" + l);
+                if (m_curAppUid.length() > 1 && m_curAppUid.compareTo("" + l) != 0)
+                {
+                    jsonObject.put("AccountSwitch", "true");
+                }
+                m_curAppUid = "" + l;
                 jsonObject.put("appToken", s);
                 jsonObject.put("loginType", "" + loginType.getLoginType());
             }catch(Exception e){}
