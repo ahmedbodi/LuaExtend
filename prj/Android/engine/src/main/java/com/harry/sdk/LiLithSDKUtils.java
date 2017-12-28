@@ -23,6 +23,8 @@ import com.lilith.sdk.special.uiless.LilithUILess;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -61,6 +63,56 @@ public class LiLithSDKUtils {
         String a = (String)getConfigValue(AndroidUtils.gameActivity.getApplicationContext(),"lilith_sdk_game_id", String.class, null);
         return a;
     }
+    private String mObserver_CustomerServerUnRead = "";
+    protected class CCustomerServiceListener implements com.lilith.sdk.CustomerServiceInterface.CustomerServiceListener
+    {
+
+        @Override
+        public void onReceiveNotification(int i) {
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("MSG_ID", "SDK_onReceiveNotificationCustomerServer");
+                jsonObject.put("unread", "" + i);
+
+                mObserver_CustomerServerUnRead = jsonObject.toString();
+
+                Runnable tmp = new Runnable() {
+                    @Override
+                    public void run() {
+                        AndroidUtils.sendMessageToLua(mObserver_CustomerServerUnRead);
+                    }
+                };
+                AndroidUtils.AddUnityThread(tmp);
+            } catch (Exception e) {
+            }
+        }
+    }
+    private String mObserver_RateResult = "";
+    protected class CRateActionListener implements com.lilith.sdk.CustomerServiceInterface.RateActionListener
+    {
+
+        @Override
+        public void onAction(int action,Bundle extra) {
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("MSG_ID", "SDK_onRateAction");
+                jsonObject.put("action", "" + action);
+
+                mObserver_RateResult = jsonObject.toString();
+
+                Runnable tmp = new Runnable() {
+                    @Override
+                    public void run() {
+                        AndroidUtils.sendMessageToLua(mObserver_RateResult);
+                    }
+                };
+                AndroidUtils.AddUnityThread(tmp);
+            } catch (Exception e) {
+            }
+        }
+    }
+
+
     protected
     class SdkRemoteCallBack extends com.lilith.sdk.SDKRemoteCallback
     {
@@ -102,6 +154,24 @@ public class LiLithSDKUtils {
         }
     }
     SdkRemoteCallBack remoteCallBack = new SdkRemoteCallBack();
+    CCustomerServiceListener customerservicelistener = new CCustomerServiceListener();
+    CRateActionListener rateactionlistener = new CRateActionListener();
+    public void ShowRate(String url)
+    {
+        LiLithSDKUtils.SDKUILess().showRate(AndroidUtils.gameActivity,url,rateactionlistener);
+    }
+    public void ShowFAQS(Bundle extra)
+    {
+        LiLithSDKUtils.SDKUILess().showFAQs(AndroidUtils.gameActivity,extra);
+    }
+    public void ShowConversation(Bundle extra)
+    {
+        LiLithSDKUtils.SDKUILess().showConversation(AndroidUtils.gameActivity,extra);
+    }
+    public void Init()
+    {
+        LiLithSDKUtils.SDKUILess().setCustomerServiceListener(customerservicelistener);
+    }
     public void CallSDKFunction(String jsoncmd)
     {
         try {
@@ -172,6 +242,59 @@ public class LiLithSDKUtils {
                     }
                 };
                 AndroidUtils.AddUnityThread(tmp);
+            }
+            else if (functionName.compareTo("showFQAs") == 0)
+            {
+                Iterator iter = jsonObject.keys();
+                while(iter.hasNext())
+                {
+                    String key = (String)iter.next();
+                    Bundle bd = new Bundle();
+                    if (key.compareTo("Function") != 0)
+                    {
+                        bd.putString(key,jsonObject.getString(key));
+                    }
+                    else if (key.compareTo("tags") != 0)
+                    {
+                        JSONArray jsa = jsonObject.getJSONArray("tags");
+                        ArrayList<String> llst = new ArrayList<String>();
+                        for(int i = 0; i < jsa.length(); i ++)
+                        {
+                            llst.add(jsa.getString(i));
+                        }
+                        bd.putStringArrayList("tags",llst);
+                    }
+                }
+                LiLithSDKUtils.getInstance().ShowFAQS(bd);
+            }
+            else if (functionName.compareTo("showConversation") == 0)
+            {
+                Iterator iter = jsonObject.keys();
+                while(iter.hasNext())
+                {
+                    String key = (String)iter.next();
+                    Bundle bd = new Bundle();
+                    if (key.compareTo("Function") != 0)
+                    {
+                        bd.putString(key,jsonObject.getString(key));
+                    }
+                    else if (key.compareTo("tags") != 0)
+                    {
+                        JSONArray jsa = jsonObject.getJSONArray("tags");
+                        ArrayList<String> llst = new ArrayList<String>();
+                        for(int i = 0; i < jsa.length(); i ++)
+                        {
+                            llst.add(jsa.getString(i));
+                        }
+                        bd.putStringArrayList("tags",llst);
+                    }
+                }
+                LiLithSDKUtils.getInstance().ShowConversation(bd);
+            }
+            else if (functionName.compareTo("showRate") == 0)
+            {
+                String url = (String)jsonObject.get("url");
+                LiLithSDKUtils.getInstance().ShowRate(url);
             }
             else {
                 int i = 0;

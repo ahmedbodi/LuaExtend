@@ -78,6 +78,7 @@ public class MainActivity extends MyUnityPlayerActivity {
     {
         initFlurrySDK();
         LiLithSDKUtils.SDKUILess().addSDKObserver(LiLithSDKUtils.getInstance().getSDKObserver());
+        LiLithSDKUtils.getInstance().Init();
     }
 
     class FlurryListener implements FlurryAgentListener {
