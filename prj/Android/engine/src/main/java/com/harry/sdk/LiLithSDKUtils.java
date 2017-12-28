@@ -246,10 +246,11 @@ public class LiLithSDKUtils {
             else if (functionName.compareTo("showFQAs") == 0)
             {
                 Iterator iter = jsonObject.keys();
+                Bundle bd = new Bundle();
                 while(iter.hasNext())
                 {
                     String key = (String)iter.next();
-                    Bundle bd = new Bundle();
+
                     if (key.compareTo("Function") != 0)
                     {
                         bd.putString(key,jsonObject.getString(key));
@@ -270,10 +271,11 @@ public class LiLithSDKUtils {
             else if (functionName.compareTo("showConversation") == 0)
             {
                 Iterator iter = jsonObject.keys();
+                Bundle bd = new Bundle();
                 while(iter.hasNext())
                 {
                     String key = (String)iter.next();
-                    Bundle bd = new Bundle();
+
                     if (key.compareTo("Function") != 0)
                     {
                         bd.putString(key,jsonObject.getString(key));
