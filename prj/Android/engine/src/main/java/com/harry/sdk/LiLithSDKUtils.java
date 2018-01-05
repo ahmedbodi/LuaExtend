@@ -250,12 +250,7 @@ public class LiLithSDKUtils {
                 while(iter.hasNext())
                 {
                     String key = (String)iter.next();
-
-                    if (key.compareTo("Function") != 0)
-                    {
-                        bd.putString(key,jsonObject.getString(key));
-                    }
-                    else if (key.compareTo("tags") != 0)
+                    if (key.compareTo("tags") == 0)
                     {
                         JSONArray jsa = jsonObject.getJSONArray("tags");
                         ArrayList<String> llst = new ArrayList<String>();
@@ -264,8 +259,12 @@ public class LiLithSDKUtils {
                             llst.add(jsa.getString(i));
                         }
                         bd.putStringArrayList("tags",llst);
+                    }else if (key.compareTo("Function") != 0)
+                    {
+                        bd.putString(key,jsonObject.getString(key));
                     }
                 }
+                Log.d("showFQAs",bd.toString());
                 LiLithSDKUtils.getInstance().ShowFAQS(bd);
             }
             else if (functionName.compareTo("showConversation") == 0)
