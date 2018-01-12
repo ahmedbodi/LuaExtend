@@ -1,5 +1,6 @@
 package com.harry.engine;
 
+import com.harry.sdk.LiLithSDKUtils;
 import com.unity3d.player.*;
 
 import android.app.Activity;
@@ -126,6 +127,7 @@ public class MyUnityPlayerActivity extends Activity implements
         super.onStart();
         mUnityPlayer.resume();
         mUnityPlayer.windowFocusChanged(true);
+       // LiLithSDKUtils.SDKUILess().reportStart();reportResume(this);
     }
     @Override
     protected void onStop()
@@ -133,24 +135,29 @@ public class MyUnityPlayerActivity extends Activity implements
         super.onStop();
         mUnityPlayer.pause();
         mUnityPlayer.windowFocusChanged(false);
+       // LiLithSDKUtils.SDKUILess().reportPause(this);
     }
 
    // Pause Unity
-   /*  @Override
+     @Override
     protected void onPause() {
-        Log.d("MyUnityPlayerActivity","onPause");
+    //    Log.d("MyUnityPlayerActivity","onPause");
+         mUnityPlayer.windowFocusChanged(false);
+         LiLithSDKUtils.SDKUILess().reportPause(this);
         super.onPause();
-        mUnityPlayer.pause();
+    //    mUnityPlayer.pause();
     }
 
     // Resume Unity
     @Override
     protected void onResume() {
-        Log.d("MyUnityPlayerActivity","onResume");
+    //    Log.d("MyUnityPlayerActivity","onResume");
+        mUnityPlayer.windowFocusChanged(true);
+        LiLithSDKUtils.SDKUILess().reportResume(this);
         super.onResume();
-        mUnityPlayer.resume();
+    //    mUnityPlayer.resume();
      }
-    */
+
     // This ensures the layout will be correct.
     @Override
     public void onConfigurationChanged(Configuration newConfig) {

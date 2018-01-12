@@ -869,6 +869,7 @@ public class AndroidUtils {
     public static void EventSetEnabled(){m_eventSdkInited = true;}
     public static void EventLog(String eventkey, String param1,String param2,String param3)
     {
+        LiLithSDKUtils.SDKUILess().report(eventkey,LiLithSDKUtils.getInstance().getAdjustToken(),param1,param2,param3);
         if (!m_eventSdkInited)
         {
             EventItem t = new EventItem(eventkey,param1,param2,param3);

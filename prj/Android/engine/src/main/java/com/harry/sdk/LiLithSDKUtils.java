@@ -63,6 +63,11 @@ public class LiLithSDKUtils {
         String a = (String)getConfigValue(AndroidUtils.gameActivity.getApplicationContext(),"lilith_sdk_game_id", String.class, null);
         return a;
     }
+    public String getAdjustToken()
+    {
+        String a = (String)getConfigValue(AndroidUtils.gameActivity.getApplicationContext(),"lilith_sdk_adjust_app_token", String.class, null);
+        return a;
+    }
     private String mObserver_CustomerServerUnRead = "";
     protected class CCustomerServiceListener implements com.lilith.sdk.CustomerServiceInterface.CustomerServiceListener
     {
@@ -111,8 +116,59 @@ public class LiLithSDKUtils {
             }
         }
     }
-
-
+    private List<SkuItem> m_SkuItems = null;
+    public String getCurrency(String itemID)
+    {
+        List<SkuItem> list = m_SkuItems;
+        if(m_SkuItems != null)
+        {
+            int sz = list.size();
+            for (int i = 0 ; i < sz; i ++){
+                SkuItem a = list.get(i);
+                if(itemID.compareTo(a.getSku()) == 0)
+                {
+                    StringBuffer ab = new StringBuffer();
+                    String Pric = a.getPrice();
+                    for(int j = 0; j < Pric.length(); j ++)
+                    {
+                        char c = Pric.charAt(j);
+                        if( c != '.' && (c < '0' || c > '9'))
+                        {
+                            ab.append(c);
+                        }
+                    }
+                    return ab.toString();
+                }
+            }
+        }
+        return "USD";
+    }
+    public float getRevenue(String itemID)
+    {
+        List<SkuItem> list = m_SkuItems;
+        if(m_SkuItems != null)
+        {
+            int sz = list.size();
+            for (int i = 0 ; i < sz; i ++){
+                SkuItem a = list.get(i);
+                if(itemID.compareTo(a.getSku()) == 0)
+                {
+                    StringBuffer ab = new StringBuffer();
+                    String Pric = a.getPrice();
+                    for(int j = 0; j < Pric.length(); j ++)
+                    {
+                        char c = Pric.charAt(j);
+                        if( c == '.' || (c >= '0' && c <= '9'))
+                        {
+                            ab.append(c);
+                        }
+                    }
+                    return Float.parseFloat(ab.toString());
+                }
+            }
+        }
+        return 0;
+    }
     protected
     class SdkRemoteCallBack extends com.lilith.sdk.SDKRemoteCallback
     {
@@ -127,6 +183,7 @@ public class LiLithSDKUtils {
                     if (sucess) {
                         JSONArray itemsA = new JSONArray();
                         List<SkuItem> list = (List<SkuItem>) params.getSerializable("skus");
+                        m_SkuItems = list;
                         int sz = list.size();
                         for (int i = 0 ; i < sz; i ++){
                             SkuItem a = list.get(i);
@@ -192,6 +249,7 @@ public class LiLithSDKUtils {
                 String payItemID = (String)jsonObject.get("payItemID");
                 String payContext = (String)jsonObject.get("payContext");
                 LiLithSDKUtils.SDKUILess().startPay(AndroidUtils.gameActivity,payItemID,payContext);
+                LiLithSDKUtils.SDKUILess().reportWithRevenue("PayStart",LiLithSDKUtils.getInstance().getAdjustToken(),LiLithSDKUtils.getInstance().getCurrency(payItemID),LiLithSDKUtils.getInstance().getRevenue(payItemID),payItemID);
             }else if (functionName.compareTo("querySkuItemDetails") == 0)
             {
                 JSONArray jsa = jsonObject.getJSONArray("items");
@@ -471,6 +529,13 @@ public class LiLithSDKUtils {
                 jsonObject.put("price", "" + i);
                 jsonObject.put("itemID", s);
                 jsonObject.put("payType", "" + payType.getPayType());
+                if(b)
+                {
+                    LiLithSDKUtils.SDKUILess().reportWithRevenue("PaySucess",LiLithSDKUtils.getInstance().getAdjustToken(),LiLithSDKUtils.getInstance().getCurrency(s),LiLithSDKUtils.getInstance().getRevenue(s),s);
+                }else
+                {
+                    LiLithSDKUtils.SDKUILess().reportWithRevenue("PayFailed",LiLithSDKUtils.getInstance().getAdjustToken(),LiLithSDKUtils.getInstance().getCurrency(s),LiLithSDKUtils.getInstance().getRevenue(s),s);
+                }
             }catch(Exception e){}
             mObserver_PayString = jsonObject.toString();
             Runnable tmp = new Runnable() {
