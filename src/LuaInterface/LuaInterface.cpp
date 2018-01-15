@@ -113,7 +113,7 @@ int PlatformAndroidDeviceIDL(lua_State *L){
 }
  
 int getSysTime(lua_State *L) {
-	int time = GameApp::getInstance()->getSysTime();
+	long long time = GameApp::getInstance()->getSysTime();
     lua_pushnumber(L, time);
     return 1;
 }

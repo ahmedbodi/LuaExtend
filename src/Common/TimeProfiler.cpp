@@ -16,7 +16,7 @@
 using namespace std;
 struct CCodeProfItem
 {
-	long t;
+	long long t;
 	string tag;	
 	int d;
 };

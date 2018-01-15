@@ -20,7 +20,6 @@ public:
 	void restartGame(lua_State* l);
     
 	int getGameTime() const; 
-	long long getSysTime() const;
 	void setSavePath(const char*);
 	const char* getSavePath() const;
 	void setCachePath(const char*);
@@ -46,9 +45,9 @@ private:
 #if defined(OS_ANDROID)
 	std::string m_bundlePath;
 #endif
-	int m_lastTime;
+	long long m_lastTime;
 	std::string m_deviceName;
 public:	
-	unsigned long getSysTime();
+	long long getSysTime();
 	static GameApp*GetInstance();
 };

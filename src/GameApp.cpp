@@ -132,26 +132,14 @@ void GameApp::SendMessageToLua(const char * jsoncontent)
 {
 	lua::SendMessageToLua(jsoncontent);
 }
-unsigned long GameApp::getSysTime()
+long long GameApp::getSysTime()
 {
 #if defined(WIN32)
-	return (unsigned long)GetTickCount();
+	return (long long)GetTickCount();
 #else 
 	timeval tv;
 	gettimeofday(&tv, 0);
-	return (unsigned long long)(tv.tv_sec * 1000) + (tv.tv_usec / 1000);
-#endif
-}
-long long GameApp::getSysTime() const
-{
-#if defined(WIN32)
-	return timeGetTime();
-#else
-	struct  timeval    tv;
-	struct  timezone   tz;
-	gettimeofday(&tv, &tz);
-	return ((long long)(tv.tv_sec) * 1000) + (tv.tv_usec / 1000);
-
+	return ((long long)(tv.tv_sec)) * 1000 + (tv.tv_usec / 1000);
 #endif
 }
 

@@ -5,7 +5,7 @@ class CCodeProf
 public:
 	char b[512];	
 	CCodeProf(const char * s);
-	long t;
+	long long t;
 	~CCodeProf();
 };
 
