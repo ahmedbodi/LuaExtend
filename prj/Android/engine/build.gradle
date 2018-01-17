@@ -29,5 +29,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('libs/unity3D_544f1.jar')
     compile 'com.lilith.sdk:lilith_sdk_sp_uiless_daike:1.2.8'
-    compile 'sh.lilith.lilithchat:chatsdk-roc:1.10.0'
+    compile 'sh.lilith.lilithchat:chatsdk-roc:1.11.0'
 }
