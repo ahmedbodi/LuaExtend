@@ -111,7 +111,7 @@ public class MyUnityPlayerActivity extends Activity implements
         HideVideoUI();
 
         LilithChat.init();
-        LilithChat.preInit(this,5);
+        LilithChat.preInit(this,6);//6 is kLilithChatUIOrientationAll
     }
 
     // Quit Unity
