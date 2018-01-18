@@ -108,6 +108,17 @@ static int crc32_file_crc32(lua_State *L, const char * filefullname)
 		return 1;
 	}
 }
+
+extern "C" void extCrc32(const char* src, int sz, std::string& outStr)
+{
+	unsigned long res_of_crc32 = getCrc32ForInputData(CRC_CODE, (const unsigned char *)src, sz);
+	outStr.clear();
+	char a[256];
+	sprintf(a,"%lu",res_of_crc32);
+	outStr += a;
+	return;
+}
+
 static int CRC32_TO_LUA_INTERFACE_CRC32(lua_State *L)
 {   
 	size_t file_size_record = 0;

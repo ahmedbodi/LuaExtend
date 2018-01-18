@@ -160,6 +160,16 @@ int extMD5L(lua_State *L) {
 }
 
 
+extern "C" void extCrc32(const char* src, int sz ,std::string& outStr);
+int extCrc32L(lua_State *L) {
+	size_t sz = 0;
+	const char* src = luaL_checklstring(L, -1, &sz);
+	static std::string outStr;
+	extCrc32(src,sz, outStr);
+	lua_pushstring(L, outStr.c_str());
+	return 1;
+}
+
 int extBase64L(lua_State *L)
 {
     const char* src = luaL_checklstring(L, -1, 0);
@@ -458,6 +468,7 @@ void lua::RegisteGlobalFunctions() {
 		{ "IsFileExist", IsFileExistL },
 		{ "ENC4", extBase64L},
     	{ "DENC4", stringFromBase64L },		
+		{ "ENCRC32", extCrc32L },
 		{ "RestartGame", RestartGame },    	
 		{ "GetRestartGameCount", GetRestartGameCountL },
         { "GetDeviceFullName", GetDeviceFullNameL},
