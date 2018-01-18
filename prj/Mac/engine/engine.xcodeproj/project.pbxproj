@@ -19,6 +19,8 @@
 		706662C01FA33DEC0024BE70 /* bsdiff.c in Sources */ = {isa = PBXBuildFile; fileRef = 706662BC1FA33DEC0024BE70 /* bsdiff.c */; };
 		706662C11FA33DEC0024BE70 /* bsmemoryfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 706662BE1FA33DEC0024BE70 /* bsmemoryfile.c */; };
 		7070865A1E9B3D1000E167B7 /* GlobalFuncMacOsx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 707086591E9B3D1000E167B7 /* GlobalFuncMacOsx.cpp */; };
+		708739AD20108B98006CB10B /* bscommon.c in Sources */ = {isa = PBXBuildFile; fileRef = 708739AC20108B98006CB10B /* bscommon.c */; };
+		708739B020108BC6006CB10B /* sais.c in Sources */ = {isa = PBXBuildFile; fileRef = 708739AE20108BC5006CB10B /* sais.c */; };
 		7087CB251E9B2D8D00938DC5 /* GameApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CB111E9B2D8D00938DC5 /* GameApp.cpp */; };
 		7087CB261E9B2D8D00938DC5 /* GlobalFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CB131E9B2D8D00938DC5 /* GlobalFunc.cpp */; };
 		7087CB391E9B2F2400938DC5 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7087CB371E9B2F2400938DC5 /* stdafx.cpp */; };
@@ -153,6 +155,10 @@
 		706662BD1FA33DEC0024BE70 /* bspatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bspatch.h; path = ../../../../tools/bsdiff/bspatch.h; sourceTree = "<group>"; };
 		706662BE1FA33DEC0024BE70 /* bsmemoryfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bsmemoryfile.c; path = ../../../../tools/bsdiff/bsmemoryfile.c; sourceTree = "<group>"; };
 		707086591E9B3D1000E167B7 /* GlobalFuncMacOsx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GlobalFuncMacOsx.cpp; path = ../../../../src/GlobalFuncMacOsx.cpp; sourceTree = "<group>"; };
+		708739AB20108B98006CB10B /* bscommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bscommon.h; path = ../../../../tools/bsdiff/bscommon.h; sourceTree = "<group>"; };
+		708739AC20108B98006CB10B /* bscommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bscommon.c; path = ../../../../tools/bsdiff/bscommon.c; sourceTree = "<group>"; };
+		708739AE20108BC5006CB10B /* sais.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sais.c; path = ../../../../tools/bsdiff/sais.c; sourceTree = "<group>"; };
+		708739AF20108BC6006CB10B /* sais.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sais.h; path = ../../../../tools/bsdiff/sais.h; sourceTree = "<group>"; };
 		7087CB051E9B2D0F00938DC5 /* engine.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = engine.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		7087CB081E9B2D0F00938DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7087CB111E9B2D8D00938DC5 /* GameApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameApp.cpp; path = ../../../../src/GameApp.cpp; sourceTree = "<group>"; };
@@ -323,6 +329,10 @@
 		706662B81FA33DD40024BE70 /* bsdiff */ = {
 			isa = PBXGroup;
 			children = (
+				708739AE20108BC5006CB10B /* sais.c */,
+				708739AF20108BC6006CB10B /* sais.h */,
+				708739AC20108B98006CB10B /* bscommon.c */,
+				708739AB20108B98006CB10B /* bscommon.h */,
 				706662BC1FA33DEC0024BE70 /* bsdiff.c */,
 				706662BB1FA33DEC0024BE70 /* bsdiff.h */,
 				706662BE1FA33DEC0024BE70 /* bsmemoryfile.c */,
@@ -760,6 +770,7 @@
 				7087CBD51E9B320800938DC5 /* options.c in Sources */,
 				7087CBD41E9B320800938DC5 /* mime.c in Sources */,
 				7087CB7A1E9B30CD00938DC5 /* lapi.c in Sources */,
+				708739B020108BC6006CB10B /* sais.c in Sources */,
 				7087CC721E9B34CA00938DC5 /* crc32.cpp in Sources */,
 				7087CB9A1E9B30CD00938DC5 /* lzio.c in Sources */,
 				70402FEA1FE0E19F000BCC88 /* urlEncodeDecode.cpp in Sources */,
@@ -794,6 +805,7 @@
 				7087CC4A1E9B339600938DC5 /* lz4hc.c in Sources */,
 				70CF29911F90A853001A5349 /* lua_lz4.cpp in Sources */,
 				7087CB961E9B30CD00938DC5 /* luac.c in Sources */,
+				708739AD20108B98006CB10B /* bscommon.c in Sources */,
 				7087CB8A1E9B30CD00938DC5 /* loadlib.c in Sources */,
 				7087CB811E9B30CD00938DC5 /* ldump.c in Sources */,
 				7087CB971E9B30CD00938DC5 /* luawarp.c in Sources */,
