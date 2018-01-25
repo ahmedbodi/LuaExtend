@@ -64,7 +64,7 @@ public class MainActivity extends MyUnityPlayerActivity {
         {
             if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
             {
-                AndroidUtils.initPaths();
+           //     AndroidUtils.initPaths();
             }
         }
     }

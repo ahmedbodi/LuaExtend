@@ -120,7 +120,7 @@ public class AndroidUtils {
 
 
         m_OpenUDID = GetOpenUDID_impl();
-        int permissionCheck1 = ContextCompat.checkSelfPermission(AndroidUtils.gameActivity, Manifest.permission.READ_EXTERNAL_STORAGE);
+   /*     int permissionCheck1 = ContextCompat.checkSelfPermission(AndroidUtils.gameActivity, Manifest.permission.READ_EXTERNAL_STORAGE);
         int permissionCheck2 = ContextCompat.checkSelfPermission(AndroidUtils.gameActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         if (permissionCheck1 != PackageManager.PERMISSION_GRANTED || permissionCheck2 != PackageManager.PERMISSION_GRANTED) {
             if(Build.VERSION.SDK_INT >=23) {
@@ -128,7 +128,7 @@ public class AndroidUtils {
             }
         }else {
             initPaths();
-        }
+        }*/
         unityThread = new UnityThread();
     }
     public static final int REQUEST_READWRITE_STORAGE = 43325;
