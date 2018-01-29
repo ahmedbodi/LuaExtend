@@ -180,7 +180,9 @@ public class AndroidUtils {
             sdcardpath = sdCardDir.getCanonicalPath();
         } catch (Exception e) {
         }
+
         String expansiobFileDir = sdcardpath + ANDROID_OBB_DIR + packName + "/" + fileName;
+        expansiobFileDir = gameActivity.getObbDir().getAbsolutePath() + "/" + fileName;
         Log.d("InitPaths", "expansiobFileDir=" + expansiobFileDir);
         File obbFile = new File(expansiobFileDir);
         if (!obbFile.exists()) {
