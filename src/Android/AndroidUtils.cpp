@@ -85,6 +85,7 @@ extern "C" void GameApp_setCachePath(const char*path);
 extern "C" void GameApp_setSavePath(const char * path);
 extern "C" void GameApp_setObbBundlePath(const char*path);
 extern "C" void GameApp_SendMessageToLua(const char*jsonstr);
+extern "C" void AddObbFile(const char* p);
 extern "C" void OpenByUrl(const char * uri);
 JNIEXPORT void JNICALL Java_com_harry_engine_AndroidUtils_setPath(JNIEnv* env,jclass cls,jstring japppath,jstring jdocpath,jstring jobbpath)
 {
@@ -103,6 +104,7 @@ JNIEXPORT void JNICALL Java_com_harry_engine_AndroidUtils_setPath(JNIEnv* env,jc
 	if(resultobb != NULL && strlen(resultobb) > 2) 
 	{		
 		GameApp_setObbBundlePath(resultobb);
+		AddObbFile(resultobb);
 	}
 	env->ReleaseStringUTFChars(japppath, resultapp);
 	env->ReleaseStringUTFChars(jdocpath, resultdoc);

@@ -21,7 +21,7 @@
 
 extern "C" void AddObbFile(const char* p)
 {
-	GET_FS()->addZip(p);
+	GET_FS()->addObbFile(p);
 }
 #endif
 namespace ENG_DBG
@@ -229,6 +229,22 @@ void CFSys::addZip(const char *fn)
 	else
 	{
 		DBG_E("zip file %s  open error!!!!\n", fn);
+		return;
+	}
+}
+void CFSys::addObbFile(const char *fn)
+{
+	CFStream *p = MARC_NEW CFStream(fn, ESM::FAM_READ);
+	FileBaseStreamPtr f = FileBaseStreamPtr(p);
+	if (f->rOrw())
+	{
+		delZip(fn);
+		CZFRder * zipReader = MARC_NEW CZFRder(f);
+		m_zrs[fn] = zipReader;
+	}
+	else
+	{
+		DBG_E("obb file %s  open error!!!!\n", fn);
 		return;
 	}
 }

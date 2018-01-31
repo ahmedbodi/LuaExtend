@@ -49,6 +49,7 @@ public:
 	bool exist(const char *path);
 	bool zipFileexist(const char *path);
 	void addZip(const char *f);
+	void addObbFile(const char *f);
 	void delZip(const char *f);
 #ifdef OS_ANDROID
 	AndroidReader  m_adrfR;
