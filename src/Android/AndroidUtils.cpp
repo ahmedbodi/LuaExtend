@@ -101,8 +101,8 @@ JNIEXPORT void JNICALL Java_com_harry_engine_AndroidUtils_setPath(JNIEnv* env,jc
 		GameApp_setCachePath(resultdoc);
 	}
 	if(resultobb != NULL && strlen(resultobb) > 2) 
-	{
-		GameApp_setObbBundlePath(resultapp);
+	{		
+		GameApp_setObbBundlePath(resultobb);
 	}
 	env->ReleaseStringUTFChars(japppath, resultapp);
 	env->ReleaseStringUTFChars(jdocpath, resultdoc);
