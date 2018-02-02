@@ -36,6 +36,7 @@ using namespace ENG_DBG;
 
 CFSys::~CFSys(void)
 {	
+	CHECK_DEL(m_obbfile);
 	release();
 }
 void CFSys::releaseZip()
@@ -118,18 +119,28 @@ FileBaseStreamPtr CFSys::GetFileToMemFile(FileBaseStreamPtr file)
 FileBaseStreamPtr CFSys::OpenFile(const char* path, const char *mode, bool absolutionpath)
 {
 	int accessMode = getMode(mode);
-	if (absolutionpath) 
+	if (absolutionpath)
 	{
 		return OpenDirectlyFile(path, accessMode);
 	}
-    char newfn[500];
+	const char *a = GameApp::getInstance()->getAppPath();
+	char newfn[500];
 	GET_DLC()->GetFName(path, newfn, sizeof(newfn));
- 
+
 	FileBaseStreamPtr zf = OpenZipFile(path);
-	if(zf.get())
+	if (zf.get())
 		return zf;
 #ifdef OS_ANDROID
+	if(strncmp(newfn,a,strlen(a)) == 0)
 	{
+		if(m_obbfile != NULL)
+		{
+			FileBaseStreamPtr file = m_obbfile->openFile(path);
+			if (file.get())
+			{
+				return file;
+			}
+		}	
 		FileBaseStreamPtr androidf = m_adrfR.open(path);
 		if (androidf.get())
 		{
@@ -164,6 +175,7 @@ int CFSys::zipFileLength(const char *path)
 int CFSys::fileLength(const char* path)
 {
     char newfname[500];
+	const char *a = GameApp::getInstance()->getAppPath();
 	GET_DLC()->GetFName(path, newfname, sizeof(newfname));
 	CEFile file(newfname);
 	if (file.exist())
@@ -176,8 +188,19 @@ int CFSys::fileLength(const char* path)
 		return zs;
 	
 #ifdef OS_ANDROID
-	size_t tsad = m_adrfR.fileLength(path);
-	if (tsad) return tsad;
+	if(strncmp(newfname,a,strlen(a)) == 0)
+	{
+		if (m_obbfile != NULL)
+		{
+			size_t sz = m_obbfile->fileLength(path);
+			if (sz)
+			{
+				return sz;
+			}
+		}
+		size_t tsad = m_adrfR.fileLength(path);
+		if (tsad) return tsad;
+	}
 #endif
 	return 0;
 }
@@ -194,20 +217,31 @@ bool CFSys::zipFileexist(const char *path)
 bool CFSys::exist(const char *path)
 {
 	char nfn[512];
+	const char *a = GameApp::getInstance()->getAppPath();
 	GET_DLC()->GetFName(path, nfn, sizeof(nfn));
 	CEFile file(nfn);
 
-	if (file.exist()) 
+	if (file.exist())
 	{
 		return true;
 	}
 
-	if(zipFileexist(path))
+	if (zipFileexist(path))
 		return true;
 
 #ifdef OS_ANDROID
-	if (m_adrfR.exist(path)) 
-		return true;
+	if(strncmp(nfn,a,strlen(a)) == 0)
+	{
+		if (m_obbfile != NULL)
+		{	
+			if (m_obbfile->exist(path))
+			{
+				return true;
+			}
+		}
+		if (m_adrfR.exist(path)) 
+			return true;
+	}
 #endif
 	return false;
  
@@ -232,15 +266,16 @@ void CFSys::addZip(const char *fn)
 		return;
 	}
 }
+#ifdef OS_ANDROID
 void CFSys::addObbFile(const char *fn)
 {
 	CFStream *p = MARC_NEW CFStream(fn, ESM::FAM_READ);
 	FileBaseStreamPtr f = FileBaseStreamPtr(p);
 	if (f->rOrw())
 	{
-		delZip(fn);
+		CHECK_DEL(m_obbfile);
 		CZFRder * zipReader = MARC_NEW CZFRder(f);
-		m_zrs[fn] = zipReader;
+		m_obbfile = zipReader;
 	}
 	else
 	{
@@ -248,7 +283,7 @@ void CFSys::addObbFile(const char *fn)
 		return;
 	}
 }
-
+#endif
 
 void CFSys::delZip(const char *filename)
 {

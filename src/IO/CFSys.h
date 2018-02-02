@@ -34,7 +34,11 @@ class CFSys
 {
 public:
 	map<string, CZFRder*>     m_zrs;
-	CFSys(){}
+	CFSys(){
+#ifdef OS_ANDROID
+		m_obbfile = NULL;
+#endif
+	}
 	~CFSys();
 	static CFSys* Inst();
 	FileBaseStreamPtr OpenFile(const char *f, const char *m = "r", bool notrelate = false);
@@ -49,10 +53,12 @@ public:
 	bool exist(const char *path);
 	bool zipFileexist(const char *path);
 	void addZip(const char *f);
-	void addObbFile(const char *f);
+	
 	void delZip(const char *f);
 #ifdef OS_ANDROID
+	void addObbFile(const char *f);
 	AndroidReader  m_adrfR;
+	CZFRder*       m_obbfile;
 #endif
 
 };
