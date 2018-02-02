@@ -36,7 +36,9 @@ using namespace ENG_DBG;
 
 CFSys::~CFSys(void)
 {	
+#ifdef OS_ANDROID
 	CHECK_DEL(m_obbfile);
+#endif
 	release();
 }
 void CFSys::releaseZip()
@@ -388,6 +390,12 @@ bool DLCFileInfoMgr::GetFName(const char *fn, char *out, int len)
 		if (CheckSaveCacheFile(rfn, out, len))
 		{
 			return true;
+		}
+		else
+		{
+			const char *cp = GameApp::getInstance()->getCachePath();
+			snprintf(out, len, "%s%s", cp, rfn);
+			return false;
 		}
 	}
 	if (isFP)
