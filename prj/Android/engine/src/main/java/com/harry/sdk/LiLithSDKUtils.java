@@ -14,6 +14,7 @@ import com.lilith.sdk.SDKRemoteCallback;
 import com.lilith.sdk.base.model.SkuItem;
 import com.lilith.sdk.base.model.User;
 import com.lilith.sdk.base.model.UserInfo;
+import com.lilith.sdk.base.observer.UILessSDKObserver;
 import com.lilith.sdk.common.constant.LoginType;
 import com.lilith.sdk.common.constant.PayType;
 import com.lilith.sdk.common.util.AppUtils;
@@ -362,7 +363,7 @@ public class LiLithSDKUtils {
             }
         }catch(Exception e){ }
     }
-    public SDKObserver getSDKObserver()
+    public UILessSDKObserver getSDKObserver()
     {
         return mObserver;
     }
@@ -373,14 +374,36 @@ public class LiLithSDKUtils {
     private String mObserver_BindString = "";
     private String mObserver_PayString = "";
     private String mObserver_QueryItemString = "";
-    private SDKObserver mObserver = new SDKObserver() {
+    private String mObserver_switechAccountString = "";
+    private UILessSDKObserver mObserver = new UILessSDKObserver() {
+        @Override
+        public void onSwitchAccountFinish(long var1, String var3, LoginType var4) {
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("MSG_ID", "SDK_onSwitchAccountFinish");
+                jsonObject.put("appUid", "" + var1);
+                jsonObject.put("appToken", var3);
+                jsonObject.put("loginType", "" + var4.getLoginType());
+            }catch(Exception e){}
+            mObserver_switechAccountString = jsonObject.toString();
+            Runnable tmp = new Runnable() {
+                @Override
+                public void run() {
+                    AndroidUtils.sendMessageToLua(mObserver_switechAccountString);
+                }
+            };
+            AndroidUtils.AddUnityThread(tmp);
+        }
+        @Override
+        public void onSwitchAccountFailed(LoginType var1, int var2) {
+        }
         @Override
         public void onUpdate(int i, Object[] objects) {
             super.onUpdate(i, objects);
         }
 
         @Override
-        protected void onLoginFinish(long l, String s, LoginType loginType) {
+        public void onLoginFinish(long l, String s, LoginType loginType) {
             super.onLoginFinish(l, s, loginType);
             JSONObject jsonObject = new JSONObject();
             try {
@@ -440,7 +463,7 @@ public class LiLithSDKUtils {
         }
 
         @Override
-        protected void onLoginFailed(LoginType loginType, int i) {
+        public void onLoginFailed(LoginType loginType, int i) {
             super.onLoginFailed(loginType, i);
             JSONObject jsonObject = new JSONObject();
             try {
@@ -520,7 +543,7 @@ public class LiLithSDKUtils {
         }
 
         @Override
-        protected void onPayFinish(boolean b, int i, String s, PayType payType) {
+        public void onPayFinish(boolean b, int i, String s, PayType payType) {
             super.onPayFinish(b, i, s, payType);
             JSONObject jsonObject = new JSONObject();
             try {
