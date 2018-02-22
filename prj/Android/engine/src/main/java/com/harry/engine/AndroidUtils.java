@@ -37,6 +37,7 @@ import com.flurry.android.FlurryAgent;
 import com.harry.sdk.LiLithSDKUtils;
 import com.lilith.sdk.common.util.AppUtils;
 import com.lilith.sdk.common.util.DeviceUtils;
+import com.umeng.message.MessageSharedPrefs;
 
 import org.json.JSONObject;
 
@@ -210,6 +211,8 @@ public class AndroidUtils {
                 return GetMacAddr();
             } else if (functionName.compareTo("GetOpenUDID") == 0) {
                 return GetOpenUDID();
+            } else if (functionName.compareTo("GetPushDeviceToken") == 0) {
+                return MessageSharedPrefs.getInstance(MyApplication.instance).getDeviceToken();
             } else if (functionName.compareTo("GetAdvertisementID") == 0) {
                 return GetAdvertisementID();
             } else if (functionName.compareTo("GetGameVersionCode") == 0) {

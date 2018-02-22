@@ -9,6 +9,9 @@ import android.view.Gravity;
 import com.harry.sdk.LiLithSDKUtils;
 import com.lilith.sdk.LilithSDK;
 import com.lilith.sdk.special.uiless.LilithUILess;
+import com.umeng.message.IUmengRegisterCallback;
+import com.umeng.message.MessageSharedPrefs;
+import com.umeng.message.PushAgent;
 
 import java.util.Locale;
 
@@ -24,6 +27,19 @@ public class MyApplication extends Application {
         super.onCreate();
         Log.d("MyApplication", "onCreate .......");
         instance = this;
+        PushAgent mPushAgent = PushAgent.getInstance(this);
+        mPushAgent.register(new IUmengRegisterCallback() {
+            @Override
+            public void onSuccess(String deviceToken) {
+                Log.d("PushOnSuccess",deviceToken);
+            }
+
+            @Override
+            public void onFailure(String s, String s1) {
+                Log.d("PushOnFailure","register failed");
+            }
+        });
+        Log.d("PushDeviceToken",MessageSharedPrefs.getInstance(this).getDeviceToken());
         LiLithSDKUtils.SDKUILess().init(this);
         LiLithSDKUtils.SDKUILess().setLocale(Locale.getDefault());
       //Bundle bundle = new Bundle();

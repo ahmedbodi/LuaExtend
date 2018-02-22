@@ -17,7 +17,7 @@ import com.lilith.sdk.LilithSDK;
 import com.lilith.sdk.SDKObserver;
 import com.lilith.sdk.common.constant.LoginType;
 import com.lilith.sdk.common.constant.PayType;
-
+import com.umeng.message.PushAgent;
 
 public class MainActivity extends MyUnityPlayerActivity {
 
@@ -79,6 +79,7 @@ public class MainActivity extends MyUnityPlayerActivity {
         initFlurrySDK();
         LiLithSDKUtils.SDKUILess().addSDKObserver(LiLithSDKUtils.getInstance().getSDKObserver());
         LiLithSDKUtils.getInstance().Init();
+        PushAgent.getInstance(this.getApplicationContext()).onAppStart();
     }
 
     class FlurryListener implements FlurryAgentListener {
