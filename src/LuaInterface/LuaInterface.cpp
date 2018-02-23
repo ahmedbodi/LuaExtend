@@ -357,6 +357,10 @@ int clearLocalNotificationL(lua_State *L){
 	clearLocalNotification();
 	return 0;
 }
+int GetPushDeviceTokenL(lua_State *L){		
+	lua_pushstring(L,GetPushDeviceToken());
+	return 1;
+}
 int GetIDFAL(lua_State *L)
 {
 	lua_pushstring(L, GetIDFA());
@@ -505,6 +509,7 @@ void lua::RegisteGlobalFunctions() {
 		{ "getCopyStringToPastBoard", GetPastBoardL},
 		{ "addLocalNotification",addLocalNotificationL},
 		{ "clearLocalNotification",clearLocalNotificationL},
+		{ "GetPushDeviceToken",GetPushDeviceTokenL},		
 		{ "WriteUUID", WriteUUIDL },
 		{ "CallNativeFuntionByJson", CallNativeFuntionByJsonL },	
 		{ "OpenURL", OpenURLL },	

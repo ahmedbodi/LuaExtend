@@ -147,7 +147,11 @@ extern "C" void clearLocalNotification()
 	AndroidUtils_CallStaticAndroidJavaFunction(input); 
 }
 extern "C" const char *GetIDFA(){ return "ANDIDFA"; }
-
+extern "C" const char* GetPushDeviceToken()
+{
+	const char * input = "{\"function\":\"GetPushDeviceToken\"}";
+	return AndroidUtils_CallStaticAndroidJavaFunction(input); 	
+}
 extern "C" void OpenURL(const char* url)
 {
 	const char * input = "{\"function\":\"OpenUrl\",\"param1\":\"%s\"}";
