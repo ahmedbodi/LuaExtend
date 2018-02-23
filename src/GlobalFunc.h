@@ -42,7 +42,8 @@ extern "C" int IsNetOK();
 extern "C" const char* GetNetworkType();
 extern "C" void showAlertView(const char* message, int tag);
 extern "C" const char* GetPlatform();
-extern "C" void addLocalNotification(const char * nt);
+extern "C" void addLocalNotification(const char * title,const char * content,int delaysecond,int isdailyloop);
+extern "C" void clearLocalNotification();
 extern "C" const char *GetIDFA();
 extern "C" void OpenURL(const char* url);
 

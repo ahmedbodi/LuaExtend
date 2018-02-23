@@ -37,7 +37,7 @@ extern "C" int IsNetOK(){ return 1; }
 extern "C" const char* GetNetworkType(){ return "wifi"; }
 extern "C" void showAlertView(const char* message, int tag){ printf("FakeMacOSXShowAlertView %s, %d \n", message, tag); }
 extern "C" const char* GetPlatform(){ return "MacOSX"; }
-extern "C" void addLocalNotification(const char * nt){ printf("to do add MacOSX local notification;"); }
+extern "C" void addLocalNotification(const char * title,const char * content,int delaysecond,int isdailyloop){ printf("to do add MacOSX local notification;"); }
 extern "C" const char *GetIDFA(){ return "MACOSXIDFA"; }
 
 extern "C" void OpenURL(const char* url){}

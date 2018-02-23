@@ -249,7 +249,7 @@ extern "C" void CopyTextToPasteboard(const char * text);
 extern "C" const char* GetPasteboardText();
 
 extern "C" void showAlertView(const char* message, int tag){ printf("FakeWin32ShowAlertView %s, %d \n", message, tag); }
-extern "C" void addLocalNotification (const char * nt){}
+extern "C" void addLocalNotification (const char * title,const char * content,int delaysecond,int isdailyloop){}
 
 
 

@@ -134,7 +134,18 @@ extern "C" const char* GetNetworkType()
 }
 extern "C" void showAlertView(const char* message, int tag){ printf("Fake ANDROID ShowAlertView %s, %d \n", message, tag); }
 extern "C" const char* GetPlatform(){ return "AND"; }
-extern "C" void addLocalNotification(const char * nt){ printf("to do add ANDROID local notification;"); }
+extern "C" void addLocalNotification(const char * title,const char * content,int delaysecond,int isdailyloop)
+{
+	const char * input = "{\"function\":\"AddLocalPushNotify\",\"title\":%s,\"content\":%s,\"delay\":%d,\"isdailyloop\":%d}";
+	char * buf = getJniRetBuff(strlen(input) + strlen(title) + strlen(content) +  MAX_INT_TO_STR_LEN*2 + 3);
+ 	sprintf(buf,input,title,content,delaysecond,isdailyloop);
+	AndroidUtils_CallStaticAndroidJavaFunction(buf); 
+}
+extern "C" void clearLocalNotification()
+{
+	const char * input = "{\"function\":\"ClearLocalPushNotify\"}";
+	AndroidUtils_CallStaticAndroidJavaFunction(input); 
+}
 extern "C" const char *GetIDFA(){ return "ANDIDFA"; }
 
 extern "C" void OpenURL(const char* url)

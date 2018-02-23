@@ -346,11 +346,17 @@ int GetPlatformL(lua_State *L) {
 
 
 int addLocalNotificationL(lua_State *L){
-	const char* nt = luaL_checklstring(L, 1, NULL);
-	addLocalNotification(nt);
-	return 1;
+	const char* title = luaL_checklstring(L, 1, NULL);
+	const char* content = luaL_checklstring(L, 2, NULL);
+	int delaysecond = luaL_checkinteger(L, 3);
+	int isdailyloop = luaL_checkinteger(L, 4);	
+	addLocalNotification(title,content,delaysecond,isdailyloop);
+	return 0;
 }
-
+int clearLocalNotificationL(lua_State *L){	
+	clearLocalNotification();
+	return 0;
+}
 int GetIDFAL(lua_State *L)
 {
 	lua_pushstring(L, GetIDFA());
@@ -498,6 +504,7 @@ void lua::RegisteGlobalFunctions() {
 		{ "CopyStringToPastBoard", SetPastBoardL},
 		{ "getCopyStringToPastBoard", GetPastBoardL},
 		{ "addLocalNotification",addLocalNotificationL},
+		{ "clearLocalNotification",clearLocalNotificationL},
 		{ "WriteUUID", WriteUUIDL },
 		{ "CallNativeFuntionByJson", CallNativeFuntionByJsonL },	
 		{ "OpenURL", OpenURLL },	

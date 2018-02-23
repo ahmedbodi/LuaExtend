@@ -286,6 +286,16 @@ public class AndroidUtils {
                 int py = jsonObject.getInt("param2");
                 MoveWebView(px, py);
                 return null;
+            } else if (functionName.compareTo("AddLocalPushNotify") == 0) {
+                String title = jsonObject.getString("title");
+                String content = jsonObject.getString("content");
+                int timedelay = jsonObject.getInt("delay");
+                int isdailyloop = jsonObject.getInt("isdailyloop");
+                LocalPushNotify.ShowNotification(title,content,timedelay,(isdailyloop == 1));
+                return null;
+            } else if (functionName.compareTo("ClearLocalPushNotify") == 0) {
+                LocalPushNotify.ClearNotification();
+                return null;
             }
             else if (functionName.compareTo("SDK_CMD") == 0){
                 JSONObject content = (JSONObject)jsonObject.get("content");
