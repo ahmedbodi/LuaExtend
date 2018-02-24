@@ -82,15 +82,25 @@ AndroidReader::AndroidReader()
 
 		if (strstr(lp, ".dat") != NULL)
 		{
-			AndroidZipAsset* tmp = MARC_NEW AndroidZipAsset(lp);
-			if (m_zipfiles[lp] != NULL)
+			AndroidFile zFtest;
+			zFtest.open(lp);
+			char buf[10];
+			zFtest.seek(0, SEEK_SET);
+			zFtest.read(buf, sizeof(buf));
+			zFtest.close();
+			if (buf[0] == 0x50 && buf[1] == 0x4b && buf[2] == 0x03 && buf[3] == 0x04 && buf[4] == 0x14
+				&&buf[5] == 0x00 && buf[6] == 0x00 && buf[7] == 0x00 && buf[8] == 0x08 && buf[9] == 0x00
+				&&buf[10] == 0x21 && buf[11] == 0x08 )
 			{
-				CHECK_DEL(m_zipfiles[lp]);
+				AndroidZipAsset* tmp = MARC_NEW AndroidZipAsset(lp);			
+				if (m_zipfiles[lp] != NULL)
+				{			
+					CHECK_DEL(m_zipfiles[lp]);
+				}			
+				m_zipfiles[lp] = tmp;
 			}
-			m_zipfiles[lp] = tmp;
 		}
     }
-    
     AAssetDir_close(ad);
 }
 void AndroidReader::release()
