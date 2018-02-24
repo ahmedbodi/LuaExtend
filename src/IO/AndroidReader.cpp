@@ -82,6 +82,7 @@ AndroidReader::AndroidReader()
 
 		if (strstr(lp, ".dat") != NULL)
 		{
+
 			AndroidFile zFtest;
 			zFtest.open(lp);
 			char buf[10];
@@ -89,8 +90,7 @@ AndroidReader::AndroidReader()
 			zFtest.read(buf, sizeof(buf));
 			zFtest.close();
 			if (buf[0] == 0x50 && buf[1] == 0x4b && buf[2] == 0x03 && buf[3] == 0x04 && buf[4] == 0x14
-				&&buf[5] == 0x00 && buf[6] == 0x00 && buf[7] == 0x00 && buf[8] == 0x08 && buf[9] == 0x00
-				&&buf[10] == 0x21 && buf[11] == 0x08 )
+				&&buf[5] == 0x00 && buf[6] == 0x00 && buf[7] == 0x00 && buf[8] == 0x08 && buf[9] == 0x00)
 			{
 				AndroidZipAsset* tmp = MARC_NEW AndroidZipAsset(lp);			
 				if (m_zipfiles[lp] != NULL)
