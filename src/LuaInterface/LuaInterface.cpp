@@ -241,6 +241,14 @@ int GPUDevVersionL(lua_State *L)
 	lua_pushstring(L, gpuVersion);
 	return 1;
 }
+extern "C" const char *GetCPUModel();
+
+int GetCPUModelL(lua_State *L)
+{
+	const char * cpuVersion = GetCPUModel();
+	lua_pushstring(L, cpuVersion);
+	return 1;
+}
 
 
 int DeviceNameCodeL(lua_State *L) {
@@ -485,6 +493,7 @@ void lua::RegisteGlobalFunctions() {
 		{ "GetDeviceVersion", DeviceNameCodeL },
 		{ "GetOSVersion", DeviceOSVersionCodeL },
 		{ "GetGPUVersion", GPUDevVersionL },		
+		{ "GetCPUModel", GetCPUModelL },		
 		{ "IsReachableWifi", IsWifiOKL },
 		{ "CreateWebView", CreateAndShowWebViewL },
 		{ "HideWebView", HideWebViewL },

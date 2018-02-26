@@ -25,6 +25,7 @@ extern "C" const char *PlatformDeviceMacAddress(){ return "LinuxMacAddr"; }
 extern "C" const char *DeviceLanguageSetting(){ return "en"; }
 extern "C" const char *AppleID(){ return "FakeLinuxAppleID"; }
 extern "C" const char *GPUDevVersion(){ return "LinuxGPUVersion"; }
+extern "C" const char *GetCPUModel(){return "linuxcpu"};
 extern "C" const char *DeviceNameCode(){ return "FakeLinuxDeviceVersion"; }
 extern "C" const char *DeviceOSVersionCode(){ return "Linux"; }
 extern "C" void SetPastBoard(const char* param){}

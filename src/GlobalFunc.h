@@ -30,6 +30,7 @@ extern "C" const char *PlatformDeviceMacAddress();
 extern "C" const char *GetOpenUdid();
 extern "C" const char *DeviceLanguageSetting();
 extern "C" const char *GPUDevVersion();
+extern "C" const char *GetCPUModel();
 extern "C" const char *DeviceNameCode();
 extern "C" const char *DeviceOSVersionCode();
 extern "C" void SetPastBoard(const char* param);

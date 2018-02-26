@@ -63,9 +63,14 @@ extern "C" const char *DeviceLanguageSetting()
 extern "C" const char *AppleID(){ return "AndroidAppleID"; }
 extern "C" const char *GPUDevVersion()
 {
-	const char * input = "{\"function\":\"GetCPUName\"}";
+	const char * input = "{\"function\":\"GetGPUName\"}";
 	return AndroidUtils_CallStaticAndroidJavaFunction(input); 
 // return "AndroidGPUVersion"; 
+}
+extern "C" const char *GetCPUModel()
+{
+	const char * input = "{\"function\":\"GetCPUModel\"}";
+	return AndroidUtils_CallStaticAndroidJavaFunction(input); 
 }
 extern "C" const char *DeviceNameCode()
 {
