@@ -203,8 +203,10 @@ public class AndroidUtils {
                 return GetLanguage();
             } else if (functionName.compareTo("GetCountry") == 0) {
                 return GetCountry();
-            } else if (functionName.compareTo("GetCPUName") == 0) {
-                return GetCPUName();
+            } else if (functionName.compareTo("GetGPUName") == 0) {
+                return GetGPUName();
+            } else if (functionName.compareTo("GetCPUModel") == 0) {
+                return getCPUModel();
             } else if (functionName.compareTo("GetAndroidID") == 0) {
                 return GetAndroidID();
             } else if (functionName.compareTo("GetMacAddr") == 0) {
@@ -444,7 +446,24 @@ public class AndroidUtils {
 
     private static String m_GPUName = "";
 
-    public static String GetCPUName() {
+    public static String GetGPUName() {
+        try {
+            if (m_GPUName == null)
+                m_GPUName = android.opengl.GLES20.glGetString(android.opengl.GLES20.GL_RENDERER);
+        }catch(Exception e){}
+        try {
+            if (m_GPUName == null)
+                m_GPUName = android.opengl.GLES20.glGetString(android.opengl.GLES30.GL_RENDERER);
+        }catch(Exception e){}
+        try {
+            if (m_GPUName == null)
+                m_GPUName = android.opengl.GLES20.glGetString(android.opengl.GLES31.GL_RENDERER);
+        }catch(Exception e){}
+        try {
+            if (m_GPUName == null)
+                m_GPUName = android.opengl.GLES20.glGetString(android.opengl.GLES32.GL_RENDERER);
+        }catch(Exception ee){}
+        Log.d("aasdf",m_GPUName);
         return m_GPUName;
     }
 
