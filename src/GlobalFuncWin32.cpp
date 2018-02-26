@@ -44,6 +44,8 @@ extern "C" const char* GetNetworkType(){ return "wifi"; }
 extern "C" void showAlertView(const char* message, int tag){ printf("FakeWin32ShowAlertView %s, %d \n", message, tag); }
 extern "C" const char* GetPlatform(){ return "WIN32"; }
 extern "C" void addLocalNotification(const char * title,const char * content,int delaysecond,int isdailyloop){ printf("to do add win32 local notification;"); }
+extern "C" void clearLocalNotification(){}
+
 extern "C" const char *GetIDFA(){ return "WINIDFA"; }
 
 extern "C" void OpenURL(const char* url){ShellExecute(0, "open", "iExplore.exe", url, NULL, SW_SHOWNORMAL);}
@@ -81,7 +83,7 @@ extern "C" const char *GetOpenUdid()
 	}
 	return stridudidget;
 }
- 
+extern "C" const char* GetPushDeviceToken(){ return GetOpenUdid(); }
 int Win32DirAllFile(const char* path)
 {
 	WIN32_FIND_DATA win32finddata;
