@@ -25,7 +25,7 @@ extern "C" const char *PlatformDeviceMacAddress(){ return "MacOSXMacAddr"; }
 extern "C" const char *DeviceLanguageSetting(){ return "en"; }
 extern "C" const char *AppleID(){ return "FakeMacOSXAppleID"; }
 extern "C" const char *GPUDevVersion(){ return "MacOSXGPUVersion"; }
-extern "C" const char *GetCPUModel(){return "macosxcpu"};
+extern "C" const char *GetCPUModel(){return "macosxcpu";}
 extern "C" const char *DeviceNameCode(){ return "FakeMacOSXDeviceVersion"; }
 extern "C" const char *DeviceOSVersionCode(){ return "MacOSX"; }
 extern "C" void SetPastBoard(const char* param){}

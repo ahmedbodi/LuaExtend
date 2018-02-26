@@ -262,7 +262,7 @@ extern "C" const char *PlatformAndroidDeviceID(){return "this a ios device ";}
 extern "C" const char *PlatformDeviceMacAddress(){return "";}
 extern "C" const char *GetOpenUdid(){ return GetIOSOpenUdid();}
 extern "C" const char *GPUDevVersion(){return "IOS_GPU";}
-extern "C" const char *GetCPUModel(){return "cpu"};
+extern "C" const char *GetCPUModel(){return "cpu";}
 extern "C" const char *DeviceNameCode();
 extern "C" const char *DeviceOSVersionCode();
 extern "C" void SetPastBoard(const char* param){CopyTextToPasteboard(param);}

@@ -30,7 +30,7 @@ extern "C" const char *PlatformDeviceMacAddress(){ return "Win32MacAddr"; }
 extern "C" const char *DeviceLanguageSetting(){ return "en"; }
 extern "C" const char *AppleID(){ return "FakeWin32AppleID"; }
 extern "C" const char *GPUDevVersion(){ return "Win32GPUVersion"; }
-extern "C" const char *GetCPUModel(){return "win32cpu"};
+extern "C" const char *GetCPUModel(){ return "win32cpu"; }
 extern "C" const char *DeviceNameCode(){ return "FakeWin32DeviceVersion"; }
 extern "C" const char *DeviceOSVersionCode(){ return "Win32"; }
 extern "C" void SetPastBoard(const char* param){}
