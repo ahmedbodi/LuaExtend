@@ -43,17 +43,20 @@ public class MainActivity extends MyUnityPlayerActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        LocalPushNotify.m_onfront = true;
         FlurryAgent.onStartSession(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        LocalPushNotify.m_onfront = false;
         FlurryAgent.onEndSession(this);
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        LocalPushNotify.m_onfront = false;
         LiLithSDKUtils.SDKUILess().removeSDKObserver(LiLithSDKUtils.getInstance().getSDKObserver());
     }
 

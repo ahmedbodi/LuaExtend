@@ -1,7 +1,10 @@
 package com.harry.engine;
 
 import java.util.Calendar;
+import java.util.List;
+
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.Application;
 import android.app.Notification;
@@ -19,11 +22,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import com.unity3d.player.UnityPlayer;
 
 public class LocalPushNotify extends BroadcastReceiver{
 
+    public static boolean m_onfront = false;
     private static int m_nLastID = 0;
 
     public static void ShowNotification(String pTitle,String pContent,int pDelaySecond,boolean pIsDailyLoop){
@@ -60,6 +65,8 @@ public class LocalPushNotify extends BroadcastReceiver{
     }
     @Override
     public void onReceive(Context context, Intent intent) {
+        if(m_onfront)
+            return;
         Class<?> mainActivity = null;
         try {
             mainActivity = context.getClassLoader().loadClass("com.harry.engine.MainActivity");
