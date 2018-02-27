@@ -50,6 +50,7 @@ public class MainActivity extends MyUnityPlayerActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        LocalPushNotify.callHide();
         LocalPushNotify.m_onfront = false;
         FlurryAgent.onEndSession(this);
     }
@@ -57,6 +58,7 @@ public class MainActivity extends MyUnityPlayerActivity {
     protected void onDestroy() {
         super.onDestroy();
         LocalPushNotify.m_onfront = false;
+        LocalPushNotify.callHide();
         LiLithSDKUtils.SDKUILess().removeSDKObserver(LiLithSDKUtils.getInstance().getSDKObserver());
     }
 

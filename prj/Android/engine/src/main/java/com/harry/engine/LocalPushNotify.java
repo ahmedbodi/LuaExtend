@@ -1,5 +1,6 @@
 package com.harry.engine;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -25,13 +26,51 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.unity3d.player.UnityPlayer;
-
+class nitem{
+    String ptitle;
+    String pContent;
+    long ptime_stamp;
+    boolean isDailyLoop;
+};
 public class LocalPushNotify extends BroadcastReceiver{
 
     public static boolean m_onfront = false;
     private static int m_nLastID = 0;
-
+    public static int max_alarm = 50;
+    static ArrayList<nitem> m_notifyList = null;
     public static void ShowNotification(String pTitle,String pContent,int pDelaySecond,boolean pIsDailyLoop){
+        if(m_notifyList == null)
+            m_notifyList = new ArrayList<nitem>();
+        for (int i = 0; i < m_notifyList.size(); i ++)
+        {
+            nitem t = m_notifyList.get(i);
+            if(t.ptitle.compareTo(pTitle) == 0 && t.pContent.compareTo(pContent) == 0)
+            {
+                t.ptime_stamp = System.currentTimeMillis() + (pDelaySecond * 1000);
+                t.isDailyLoop = pIsDailyLoop;
+                return;
+            }
+        }
+        nitem t = new nitem();
+        t.ptime_stamp = System.currentTimeMillis() + (pDelaySecond * 1000);
+        t.isDailyLoop = pIsDailyLoop;
+        t.ptitle = pTitle;
+        t.pContent = pContent;
+        m_notifyList.add(t);
+    }
+    public static void callHide()
+    {
+        long curtime = System.currentTimeMillis();
+        for (int i = 0; i < m_notifyList.size() && i < max_alarm; i ++)
+        {
+            nitem a = m_notifyList.get(i);
+            if(a.ptime_stamp > curtime + 1000)
+                ShowNotification_impl(i,a.ptitle,a.pContent,(int)((a.ptime_stamp - curtime)/1000),a.isDailyLoop);
+        }
+        m_notifyList.clear();
+        m_onfront = false;
+    }
+    public static void ShowNotification_impl(int id,String pTitle,String pContent,int pDelaySecond,boolean pIsDailyLoop){
         if (pDelaySecond < 0)
             return ;
         String pAppName = AndroidUtils.GetGameName();
@@ -40,7 +79,7 @@ public class LocalPushNotify extends BroadcastReceiver{
         itent.putExtra("appname",pAppName);
         itent.putExtra("title",pTitle);
         itent.putExtra("content",pContent);
-        PendingIntent pi = PendingIntent.getBroadcast(curActivity,0,itent,0);
+        PendingIntent pi = PendingIntent.getBroadcast(curActivity,id,itent,0);
         AlarmManager am = (AlarmManager)curActivity.getSystemService(Context.ALARM_SERVICE);
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.SECOND,pDelaySecond);
@@ -57,10 +96,21 @@ public class LocalPushNotify extends BroadcastReceiver{
     {
         Activity act = AndroidUtils.gameActivity;
         NotificationManager nManager = (NotificationManager)act.getSystemService(Context.NOTIFICATION_SERVICE);
-        for(int i = m_nLastID; i >= 0; i --)
+        Intent itent = new Intent("UNITY_NOTIFICATOR");
+        Activity curActivity = AndroidUtils.gameActivity;
+        AlarmManager am = (AlarmManager)curActivity.getSystemService(Context.ALARM_SERVICE);
+
+        for(int i = max_alarm; i >= 0; i --)
         {
-            nManager.cancel(i);
+            try {
+                nManager.cancel(i);
+            }catch(Exception ee){}
+            try{
+                PendingIntent pi = PendingIntent.getBroadcast(curActivity,i,itent,0);
+                am.cancel(pi);
+            }catch(Exception eeeee){}
         }
+
         m_nLastID = 0;
     }
     @Override
@@ -109,3 +159,4 @@ public class LocalPushNotify extends BroadcastReceiver{
         m_nLastID++;
     }
 }
+
