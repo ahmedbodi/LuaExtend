@@ -60,6 +60,8 @@ public class LocalPushNotify extends BroadcastReceiver{
     }
     public static void callHide()
     {
+        if(m_notifyList == null)
+            return;
         long curtime = System.currentTimeMillis();
         for (int i = 0; i < m_notifyList.size() && i < max_alarm; i ++)
         {
