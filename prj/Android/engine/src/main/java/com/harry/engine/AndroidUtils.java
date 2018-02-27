@@ -80,7 +80,42 @@ public class AndroidUtils {
     private static native void setAssetManager(AssetManager asm);
 
     public static native void OpenByUrl(String uri);
-
+    public static String getCpuInfo()
+    {
+        String str1 = "/proc/cpuinfo";
+        String str2 = "";
+        String cpuInfo = "unknow";
+        String[] arrayOfString;
+        try
+        {
+            FileReader fr = new FileReader(str1);
+            BufferedReader localBufferedReader = new BufferedReader(fr, 8192);
+            while((str2 = localBufferedReader.readLine()) != null){
+                if(str2.contains("Hardware"))
+                {
+                    arrayOfString = str2.split("\\s+");
+                    if (arrayOfString.length < 3)
+                    {
+                        localBufferedReader.close();
+                        return cpuInfo.trim();
+                    }
+                    cpuInfo = "";
+                    for (int i = 2; i < arrayOfString.length; i++)
+                    {
+                        cpuInfo = cpuInfo + arrayOfString[i] + " ";
+                    }
+                    localBufferedReader.close();
+                    return cpuInfo.trim();
+                }
+            }
+            localBufferedReader.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return cpuInfo.trim();
+    }
     public static void init() {
         initJNI();
         setAssetManager(gameActivity.getAssets());
@@ -110,7 +145,9 @@ public class AndroidUtils {
         m_SerialNumber = DeviceUtils.getSerialNumber(gameActivity);
         m_IMSI = DeviceUtils.getIMSI(gameActivity);
         m_DeviceModel = DeviceUtils.getDeviceModel();
-        m_CPUModel = DeviceUtils.getCPUModel();
+        m_CPUModel = getCpuInfo();
+        if(m_CPUModel == "unknow")
+            m_CPUModel = DeviceUtils.getCPUModel();
         m_ChannelID = AppUtils.getChannelID(gameActivity);
 
         m_AndroidID = DeviceUtils.getAndroidId(gameActivity);
